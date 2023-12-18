@@ -32,16 +32,17 @@ int main(void)
     {
         int born = startSize / 3;
         int died = startSize / 4;
+        int lp = 0;
 
         int LlamasPerYear(void){
-            int lp = startSize + born + died;
+            return int lp = startSize + born + died;
             printf("Llamas Per Year =: %lp", lp);
         }
         int years = 1;
 
         do
         {
-
+            years(lp);
         }
         while()
     }
