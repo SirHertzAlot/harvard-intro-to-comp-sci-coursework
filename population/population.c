@@ -28,7 +28,10 @@ int main(void)
     while(endSize < 1);
 
     // TODO: Calculate number of years until we reach threshold
-    
+    int calculateYearsTillEndSize(void)
+    {
+        
+    }
 
     // TODO: Print number of years
 }
