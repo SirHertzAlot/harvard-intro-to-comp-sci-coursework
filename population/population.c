@@ -30,6 +30,10 @@ int main(void)
     // TODO: Calculate number of years until we reach threshold
     int calculateYearsTillEndSize(void)
     {
+        int born = startSize / 3;
+        int died = startSize / 4;
+
+        int LlamasPerYear = startSize + born + died;
         
     }
 
