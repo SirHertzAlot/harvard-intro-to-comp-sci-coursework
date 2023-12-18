@@ -5,6 +5,13 @@ int main(void)
 {
     // TODO: Prompt for start size
 
+    int n;
+    do
+    {
+        n = get_startSize("What is our start size?");
+    }
+    while(n < 1);
+
     // TODO: Prompt for end size
 
     // TODO: Calculate number of years until we reach threshold
