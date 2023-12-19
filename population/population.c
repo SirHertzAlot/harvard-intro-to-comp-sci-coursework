@@ -31,7 +31,7 @@ int main(void)
     int years = 0;
     int result = 0;
 
-    for(int originalSize = start; startSize < endSize; years++)
+    for(int originalSize = startSize; result < endSize; years++)
     {
         result += start / 3 + startSize / 4;
         originalSize = result;
