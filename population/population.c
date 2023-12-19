@@ -32,7 +32,7 @@ int main(void)
         lp = startSize + born - died;
         years = lp / endSize;
     }
-    while(lp != endSize);
+    while(lp < endSize);
 
     // TODO: Print number of years
     printf("Start size: %i, \n", startSize);
