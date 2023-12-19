@@ -30,13 +30,11 @@ int main(void)
     int years = 0;
     int result = 0;
 
-    do
+    for(int originalSize = startSize; startSize < endSize; years++)
     {
-        years = endSize / llamasPerYear;
-        totalLlamas += llamasPerYear;
+        result += startSize / 3 + startSize / 4;
+        originalSize = result;
     }
-    while(totalLlamas <= endSize);
-
 
     printf("Start size: %i \n", startSize);
     printf("End size: %i \n", endSize);
