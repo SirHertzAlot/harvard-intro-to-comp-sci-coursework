@@ -30,7 +30,7 @@ int main(void)
     do
     {
         lp = startSize + born - died;
-        return years = lp / endSize;
+        years = lp / endSize;
     }
     while(years == 0);
 
