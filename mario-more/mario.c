@@ -6,7 +6,7 @@ int main(void)
     int n = 8;
 
     for(int i = 0; i < 8; i++){
-        for(int l = i; l <= 0; l--)
+        for(int l = -i; l <= -8; l--)
         {
             printf("#");
         }
