@@ -7,7 +7,7 @@ int main(void)
 
     for(int i = 0; i < 8; i++){
         //Print blocks
-        for(int l = -i; l <= -8; l--)
+        for(int l = -i;l <= -8; l--)
         {
             printf("#");
         }
