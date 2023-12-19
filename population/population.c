@@ -40,5 +40,8 @@ int main(void)
     while(startSize < endSize);
 
     // TODO: Print number of years
-    printf("It took %i, years. \n", years);
+    printf("Start size: %i, \n", startSize);
+    printf("End size: %i, \n", endSize);
+    printf("Years: %i, \n", years);
+
 }
