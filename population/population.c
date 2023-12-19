@@ -29,11 +29,10 @@ int main(void)
 
     int start = startSize;
     int years = 0;
-    int result = 0;
 
     for(int originalSize = startSize; result < endSize; years++)
     {
-        result += start / 3 + startSize / 4;
+        result += startSize / 3 + startSize / 4;
         originalSize = result;
     }
 
