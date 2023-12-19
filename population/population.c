@@ -7,10 +7,10 @@ int main(void)
     int startSize;
     do
     {
-        startSize = get_startSize("What is our start size?");
+        startSize = get_int("What is our start size?");
         if(startSize < 9)
         {
-            startSize = get_startSize("Please make sure your start size is bigger than 9.");
+            startSize = get_int("Please make sure your start size is bigger than 9.");
         }
     }
     while(startSize < 1);
@@ -19,10 +19,10 @@ int main(void)
     int endSize;
     do
     {
-        endSize = get_startSize("What is our start size?");
+        endSize = get_int("What is our start size?");
         if(endSize < 9)
         {
-            endSize = get_startSize("Please make sure your start size is bigger than 9.");
+            endSize = get_int("Please make sure your start size is bigger than 9.");
         }
     }
     while(endSize < 1);
