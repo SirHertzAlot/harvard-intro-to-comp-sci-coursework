@@ -11,4 +11,13 @@ int main(void)
         }
         printf("\n");
     }
+
+    for(int n = 8; n > 0; n--){
+        printf("#");
+        for(int j = 0; j > 8; j++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
 }
