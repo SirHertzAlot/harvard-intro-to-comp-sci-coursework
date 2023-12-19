@@ -24,8 +24,6 @@ int main(void)
     // TODO: Calculate number of years until we reach threshold
     int born = startSize / 3;
     int died = startSize / 4;
-    int llamasPerYear = startSize + born - died;
-    int totalLlamas = 0;
 
     int years = 0;
     int result = startSize;
@@ -34,6 +32,7 @@ int main(void)
     {
         result += born - died;
         originalSize = result;
+        printf("Loop has completed: %i\n", result);
     }
 
     printf("Start size: %i \n", startSize);
