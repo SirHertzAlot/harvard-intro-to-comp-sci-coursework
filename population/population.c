@@ -32,6 +32,7 @@ int main(void)
         printf("Loop has completed: %i\n", population);
     }
 
+    //TODO: Print number of years
     printf("Start size: %i \n", startSize);
     printf("End size: %i \n", endSize);
     printf("Years: %i \n", years);
