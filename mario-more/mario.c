@@ -5,7 +5,7 @@ int main(void)
 {
     int n = 8;
 
-    for(int i = 0; i < 8; i++){
+    for(int i = 1; i < 8; i++){
         //Print Spaces
         for(int k = 0; k <= 8 - i; k++)
         {
@@ -18,9 +18,9 @@ int main(void)
         printf("\n");
     }
 
-    for(int i = 10; i < 18; i++){
+    for(int i = 1; i < 8; i++){
         //Print Spaces
-        for(int j = -i; j <= 0; j++)
+        for(int j = -i; j <= 8 + 8 + i; j++)
         {
             printf("#");
         }
