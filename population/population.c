@@ -19,7 +19,7 @@ int main(void)
     {
         endSize = get_int("Please make sure your end size is bigger than your start size. \n");
     }
-    while(endSize <= startSize);
+    while(endSize < startSize);
 
     // TODO: Calculate number of years until we reach threshold
     int born = startSize / 3;
