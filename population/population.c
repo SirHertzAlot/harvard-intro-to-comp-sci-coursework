@@ -27,9 +27,11 @@ int main(void)
     int years = 0;
     int result = 0;
 
+    lp = startSize + born - died;
+
     do
     {
-        lp = startSize + born - died;
+
         years = lp / endSize;
 
         // TODO: Print number of years
