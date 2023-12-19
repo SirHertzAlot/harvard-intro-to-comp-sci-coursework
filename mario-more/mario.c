@@ -3,18 +3,14 @@
 
 int main(void)
 {
-    for(int n = 0; n < 8; n++){
-        printf("#");
-        for(int j = n; j < 8; j++)
-        {
-            printf("#");
-        }
-        printf("\n");
-    }
+    int n = 8;
 
-    for(int n = 8; n > 0; n--){
+    for(int i = 0; i < n; i++){
         printf("#");
-        for(int j = 0; j > 8; j++)
+        for(int k = 0; k <= i - n; k++){
+            printf(" ");
+        }
+        for(int j = n; j < n; j++)
         {
             printf("#");
         }
