@@ -39,7 +39,7 @@ int main(void)
 
 
     printf("Start size: %i, \n", startSize);
-    printf("Llamas Per Year: %i, \n", lpy);
+    printf("Llamas Per Year: %i, \n", lp);
     printf("End size: %i, \n", endSize);
     printf("Years: %i, \n", years);
 
