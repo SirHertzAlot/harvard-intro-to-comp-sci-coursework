@@ -15,7 +15,7 @@ int main(void)
     while(startSize < 1);
 
     // TODO: Prompt for end size
-    int endSize;
+    int endSize = 0;
     do
     {
         if(endSize < startSize)
