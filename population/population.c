@@ -33,6 +33,7 @@ int main(void)
     do
     {
         years++;
+
         lpy += lp;
     }
     while(lpy < endSize);
