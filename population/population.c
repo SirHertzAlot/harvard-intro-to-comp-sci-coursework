@@ -41,7 +41,7 @@ int main(void)
     {
         int result = years * lp;
         printf("%i \n", result);
-        years++;
+        return years++;
     }
     while(startSize < endSize);
 
