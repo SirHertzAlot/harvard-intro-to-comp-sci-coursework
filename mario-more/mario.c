@@ -17,4 +17,17 @@ int main(void)
         }
         printf("\n");
     }
+
+    for(int i = 10; i < 18; i++){
+        //Print Spaces
+        for(int j = -i; j <= 0; j++)
+        {
+            printf("#");
+        }
+        for(int k = 0; k <= 8 - i; k++)
+        {
+            printf(" ");
+        }
+        printf("\n");
+    }
 }
