@@ -8,7 +8,7 @@ int main(void)
 
     do
     {
-        intstartSize = get_int("Please make sure your start size is bigger than 9. \n");
+        startSize = get_int("Please make sure your start size is bigger than 9. \n");
     }
     while(startSize == 0);
 
@@ -30,16 +30,10 @@ int main(void)
     int result = 0;
 
     lp = startSize + born - died;
+    years = lp / endSize;
 
-    do
-    {
+    printf("Start size: %i, \n", startSize);
+    printf("End size: %i, \n", endSize);
+    printf("Years: %i, \n", years);
 
-        years = lp / endSize;
-
-        // TODO: Print number of years
-        printf("Start size: %i, \n", startSize);
-        printf("End size: %i, \n", endSize);
-        printf("Years: %i, \n", years);
-    }
-    while(lp < endSize);
 }
