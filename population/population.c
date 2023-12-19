@@ -30,14 +30,16 @@ int main(void)
 
 
     int years = 0;
-
+    int result = 0;
+    
     do
     {
-        int result = years * lp;
+        result = years * lp;
         printf("%i \n", result);
-        return years++;
+        years++;
+        return result;
     }
-    while(startSize < endSize);
+    while(result < endSize);
 
     // TODO: Print number of years
     printf("Start size: %i, \n", startSize);
