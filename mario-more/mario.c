@@ -19,5 +19,24 @@ int main(void)
             printf("#");
         }
         printf("\n");
+
+        for(int m = 0; m < 8; m++)
+        {
+            for(int k = 0; k <= 11; k++)
+            {
+                printf(" ");
+            }
+            for(int l = -m; l <= 0; l++)
+            {
+                printf("#");
+            }
+            for(int k = 0; k <= 8 - m; k++)
+            {
+                printf(" ");
+            }
+            printf("\n");
+        }
     }
+
+
 }
