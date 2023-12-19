@@ -35,14 +35,16 @@ int main(void)
     printf("Llamas Per Year =: %i", lp);
 
 
-    int years = 1;
+    int years = 0;
 
     do
     {
         int result = years * lp;
         printf("%i", result);
+        years++;
     }
     while(startSize < endSize);
 
     // TODO: Print number of years
+    printf("It took %i, years", years);
 }
