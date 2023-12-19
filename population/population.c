@@ -25,13 +25,13 @@ int main(void)
     int lp = 0;
 
 
-    lp = startSize + born - died;
+    lp = born - died;
     printf("Llamas Per Year =: %i", lp);
 
 
     int years = 0;
     int result = 0;
-    
+
     do
     {
         result = years * lp;
