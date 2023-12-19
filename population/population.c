@@ -27,12 +27,13 @@ int main(void)
     int llamasPerYear = startSize + born - died;
     int totalLlamas = 0;
 
+    int start = startSize;
     int years = 0;
-    int result = startSize;
+    int result = 0;
 
-    for(int originalSize = startSize; startSize < endSize; years++)
+    for(int originalSize = start; startSize < endSize; years++)
     {
-        result += startSize / 3 + startSize / 4;
+        result += start / 3 + startSize / 4;
         originalSize = result;
     }
 
