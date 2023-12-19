@@ -4,10 +4,9 @@
 int main(void)
 {
     // TODO: Prompt for start size
-    int startSize;
+    int startSize = 0;
     do
     {
-        startSize = get_int("What is our start size?");
         if(startSize < 9)
         {
             startSize = get_int("Please make sure your start size is bigger than 9.");
@@ -19,8 +18,7 @@ int main(void)
     int endSize;
     do
     {
-        endSize = get_int("What is our start size?");
-        if(endSize < 9)
+        if(endSize < startSize)
         {
             endSize = get_int("Please make sure your start size is bigger than 9.");
         }
