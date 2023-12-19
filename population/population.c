@@ -24,19 +24,19 @@ int main(void)
     int died = startSize / 4;
     int lp = 0;
 
-    int years = 5;
+    int years = 0;
     int result = 0;
 
     do
     {
         lp = startSize + born - died;
-        result = years * lp;
-        printf("%i \n", result);
+        years = lp / endSize;
+        printf("%i \n", years);
 
         // TODO: Print number of years
         printf("Start size: %i, \n", startSize);
         printf("End size: %i, \n", endSize);
         printf("Years: %i, \n", years);
     }
-    while(result < endSize);
+    while(years == 0);
 }
