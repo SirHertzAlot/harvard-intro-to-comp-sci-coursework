@@ -4,7 +4,7 @@
 int main(void)
 {
     int n = 8;
-
+    
     for(int i = 0; i < 8; i++){
         //Print Spaces
         for(int k = 0; k <= 8 - i; k++)
