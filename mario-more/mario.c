@@ -8,26 +8,28 @@ int main(void)
     do
     {
         n = get_int("Height: ");
+    }
+    while (n < 1 || n > 8);
 
-    }while( n < 1 || n > 8);
-
-    for(int i = 0; i < n; i++){
-        //Print Spaces
-        for(int k = 0; k <= (n - i) - 2; k++)
+    for (int i = 0; i < n; i++)
+    {
+        // Print Spaces
+        for (int k = 0; k <= (n - i) - 2; k++)
         {
             printf(" ");
         }
-        for(int j = -i; j <= 0; j++)
+        for (int j = -i; j <= 0; j++)
         {
             printf("#");
         }
+
         printf("  ");
 
-        for(int j = -i; j <= 0; j++)
+        for (int j = -i; j <= 0; j++)
         {
             printf("#");
         }
-        for(int k = 0; k <= (n - i) - 2; k++)
+        for (int k = 0; k <= (n - i) - 2; k++)
         {
             printf(" ");
         }
