@@ -5,14 +5,16 @@ int main(void)
 {
     // TODO: Prompt for start size
     int startSize = 0;
+
     do
     {
-        startSize = get_int("Please make sure your start size is bigger than 9. \n");
+        intstartSize = get_int("Please make sure your start size is bigger than 9. \n");
     }
     while(startSize == 0);
 
     // TODO: Prompt for end size
     int endSize = 0;
+
     do
     {
         endSize = get_int("Please make sure your end size is bigger than your start size. \n");
