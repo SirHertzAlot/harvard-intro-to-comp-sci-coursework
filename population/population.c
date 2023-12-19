@@ -31,11 +31,11 @@ int main(void)
     {
         lp = startSize + born - died;
         years = lp / endSize;
+
+        // TODO: Print number of years
+        printf("Start size: %i, \n", startSize);
+        printf("End size: %i, \n", endSize);
+        printf("Years: %i, \n", years);
     }
     while(lp < endSize);
-
-    // TODO: Print number of years
-    printf("Start size: %i, \n", startSize);
-    printf("End size: %i, \n", endSize);
-    printf("Years: %i, \n", years);
 }
