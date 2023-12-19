@@ -35,7 +35,7 @@ int main(void)
         totalLlamas += llamasPerYear;
         years = endSize / llamasPerYear;
     }
-    while(totalLlamas < endSize);
+    while(totalLlamas <= endSize);
 
 
     printf("Start size: %i \n", startSize);
