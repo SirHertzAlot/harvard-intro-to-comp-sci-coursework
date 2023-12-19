@@ -28,7 +28,7 @@ int main(void)
     int totalLlamas = 0;
 
     int years = 0;
-    int result = 0;
+    int result = startSize;
 
     for(int originalSize = startSize; startSize < endSize; years++)
     {
