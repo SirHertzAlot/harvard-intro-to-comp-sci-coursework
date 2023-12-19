@@ -9,7 +9,7 @@ int main(void)
     {
         if(startSize < 9)
         {
-            startSize = get_int("Please make sure your start size is bigger than 9.");
+            startSize = get_int("Please make sure your start size is bigger than 9. \n");
         }
     }
     while(startSize < 1);
@@ -20,7 +20,7 @@ int main(void)
     {
         if(endSize < startSize)
         {
-            endSize = get_int("Please make sure your start size is bigger than 9.");
+            endSize = get_int("Please make sure your end size is bigger than your start size. \n");
         }
     }
     while(endSize < 1);
@@ -40,11 +40,11 @@ int main(void)
     do
     {
         int result = years * lp;
-        printf("%i", result);
+        printf("%i \n", result);
         years++;
     }
     while(startSize < endSize);
 
     // TODO: Print number of years
-    printf("It took %i, years", years);
+    printf("It took %i, years. \n", years);
 }
