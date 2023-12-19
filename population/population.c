@@ -10,7 +10,7 @@ int main(void)
     {
         startSize = get_int("Please make sure your start size is bigger than 9. \n");
     }
-    while(startSize < 10);
+    while(startSize <= 8);
 
     // TODO: Prompt for end size
     int endSize = 0;
