@@ -26,7 +26,7 @@ int main(void)
 
         for(int m = 0; m < 8; m++)
         {
-            for(int k = 0; k <= 11; k++)
+            for(int k = 0; k <= -8; k++)
             {
                 printf(" ");
             }
