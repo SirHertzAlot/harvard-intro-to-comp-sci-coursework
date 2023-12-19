@@ -7,10 +7,10 @@ int main(void)
     int startSize;
     do
     {
-        startSize = get_int("What is our start size?");
+        startSize = get_string("What is our start size?");
         if(startSize < 9)
         {
-            startSize = get_int("Please make sure your start size is bigger than 9.");
+            startSize = get_string("Please make sure your start size is bigger than 9.");
         }
     }
     while(startSize < 1);
@@ -19,10 +19,10 @@ int main(void)
     int endSize;
     do
     {
-        endSize = get_int("What is our start size?");
+        endSize = get_string("What is our start size?");
         if(endSize < 9)
         {
-            endSize = get_int("Please make sure your start size is bigger than 9.");
+            endSize = get_string("Please make sure your start size is bigger than 9.");
         }
     }
     while(endSize < 1);
@@ -35,16 +35,16 @@ int main(void)
         int lp = 0;
 
         int LlamasPerYear(void){
-            return int lp = startSize + born + died;
+            return lp = startSize + born + died;
             printf("Llamas Per Year =: %i", lp);
         }
         int years = 1;
 
         do
         {
-            years(lp);
+            years * lp;
         }
-        while()
+        while(startSize < endSize);
     }
 
     // TODO: Print number of years
