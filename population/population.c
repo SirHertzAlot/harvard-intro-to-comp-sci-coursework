@@ -4,7 +4,7 @@
 int main(void)
 {
     // TODO: Prompt for start size
-    int startSize = 9;
+    int startSize;
 
     do
     {
@@ -13,7 +13,7 @@ int main(void)
     while(startSize <= 8);
 
     // TODO: Prompt for end size
-    int endSize = 0;
+    int endSize;
 
     do
     {
