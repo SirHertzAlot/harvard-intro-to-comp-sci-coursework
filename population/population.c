@@ -25,18 +25,17 @@ int main(void)
     int lp = 0;
 
 
-    lp = born - died;
+
     printf("Llamas Per Year =: %i", lp);
 
 
-    int years = 0;
+    int years = 5;
     int result = 0;
 
     do
     {
         result = years * lp;
         printf("%i \n", result);
-        years++;
         return result;
     }
     while(result < endSize);
