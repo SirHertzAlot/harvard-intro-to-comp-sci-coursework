@@ -25,14 +25,23 @@ int main(void)
     int born = startSize / 3;
     int died = startSize / 4;
     int lp = 0;
+    int lpy = 0;
 
     int years = 0;
     int result = 0;
 
     lp = startSize + born - died;
-    years = lp / endSize;
+
+    do
+    {
+        years++;
+        lpy = lp + lp;
+    }
+    while(lpy < endSize);
+
 
     printf("Start size: %i, \n", startSize);
+    printf("Llamas Per Year: %i, \n", lpy);
     printf("End size: %i, \n", endSize);
     printf("Years: %i, \n", years);
 
