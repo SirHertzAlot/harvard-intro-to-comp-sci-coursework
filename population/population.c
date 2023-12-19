@@ -35,9 +35,8 @@ int main(void)
     do
     {
         years++;
-        lpy = lp + lp;
     }
-    while(lpy < endSize);
+    while(lp < endSize);
 
 
     printf("Start size: %i, \n", startSize);
