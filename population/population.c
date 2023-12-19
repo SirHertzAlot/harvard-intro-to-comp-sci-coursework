@@ -32,8 +32,7 @@ int main(void)
 
     do
     {
-        years++;
-        totalLlamas += llamasPerYear;
+        years = endSize / llamasPerYear;
     }
     while(totalLlamas < endSize);
 
