@@ -7,23 +7,17 @@ int main(void)
     int startSize = 0;
     do
     {
-        if(startSize < 9)
-        {
-            startSize = get_int("Please make sure your start size is bigger than 9. \n");
-        }
+        startSize = get_int("Please make sure your start size is bigger than 9. \n");
     }
-    while(startSize < 1);
+    while(startSize == 0);
 
     // TODO: Prompt for end size
     int endSize = 0;
     do
     {
-        if(endSize < startSize)
-        {
-            endSize = get_int("Please make sure your end size is bigger than your start size. \n");
-        }
+        endSize = get_int("Please make sure your end size is bigger than your start size. \n");
     }
-    while(endSize < 1);
+    while(endSize == 0);
 
     // TODO: Calculate number of years until we reach threshold
     int born = startSize / 3;
@@ -31,7 +25,7 @@ int main(void)
     int lp = 0;
 
 
-    lp = startSize + born + died;
+    lp = startSize + born - died;
     printf("Llamas Per Year =: %i", lp);
 
 
