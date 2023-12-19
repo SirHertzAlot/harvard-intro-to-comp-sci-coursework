@@ -22,17 +22,14 @@ int main(void)
     while(endSize < startSize);
 
     // TODO: Calculate number of years until we reach threshold
-    int born = startSize / 3;
-    int died = startSize / 4;
-
+    int population = startSize;
     int years = 0;
-    int result = startSize;
 
-    for(int originalSize = startSize; result < endSize; years++)
+    for(int originalSize = startSize; population < endSize; years++)
     {
-        result += born - died;
-        originalSize = result;
-        printf("Loop has completed: %i\n", result);
+        population += originalSize / 3 - originalSize / 4;
+        originalSize = population;
+        printf("Loop has completed: %i\n", population);
     }
 
     printf("Start size: %i \n", startSize);
