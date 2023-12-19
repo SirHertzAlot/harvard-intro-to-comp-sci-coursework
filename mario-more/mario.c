@@ -6,10 +6,13 @@ int main(void)
     int n = 8;
 
     for(int i = 0; i < 8; i++){
+        //Print blocks
         for(int l = -i; l <= -8; l--)
         {
             printf("#");
         }
+
+        //Print Spaces
         for(int k = 0; k <= 8 - i; k++)
         {
             printf(" ");
@@ -19,6 +22,7 @@ int main(void)
             printf("#");
         }
         printf("\n");
+    }
 
         for(int m = 0; m < 8; m++)
         {
@@ -36,7 +40,4 @@ int main(void)
             }
             printf("\n");
         }
-    }
-
-
 }
