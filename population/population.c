@@ -24,25 +24,19 @@ int main(void)
     int died = startSize / 4;
     int lp = 0;
 
-
-
-    printf("Llamas Per Year =: %i", lp);
-
-
     int years = 5;
     int result = 0;
 
     do
     {
+        lp = startSize + born - died;
         result = years * lp;
         printf("%i \n", result);
-        return result;
+
+        // TODO: Print number of years
+        printf("Start size: %i, \n", startSize);
+        printf("End size: %i, \n", endSize);
+        printf("Years: %i, \n", years);
     }
     while(result < endSize);
-
-    // TODO: Print number of years
-    printf("Start size: %i, \n", startSize);
-    printf("End size: %i, \n", endSize);
-    printf("Years: %i, \n", years);
-
 }
