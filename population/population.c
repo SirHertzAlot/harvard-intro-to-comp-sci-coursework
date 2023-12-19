@@ -30,11 +30,10 @@ int main(void)
     int years = 0;
     int result = 0;
 
-    lp = (startSize + born) - died;
-
     do
     {
         years++;
+        lp = (startSize + born) - died;
     }
     while(lp < endSize);
 
