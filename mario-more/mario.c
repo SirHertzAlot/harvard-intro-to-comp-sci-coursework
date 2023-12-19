@@ -7,7 +7,7 @@ int main(void)
 
     do
     {
-        n = get_int("Height: ?");
+        n = get_int("Height: ");
 
     }while( n < 1 || n > 8);
 
@@ -27,7 +27,7 @@ int main(void)
         {
             printf("#");
         }
-        for(int k = 0; k <= n - (i); k++)
+        for(int k = 0; k <= n - 1; k++)
         {
             printf(" ");
         }
