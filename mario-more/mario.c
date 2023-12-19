@@ -27,7 +27,7 @@ int main(void)
         {
             printf("#");
         }
-        for(int k = 0; k <= n - i + 1; k++)
+        for(int k = 0; k <= n - (i * i); k++)
         {
             printf(" ");
         }
