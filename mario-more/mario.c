@@ -3,11 +3,17 @@
 
 int main(void)
 {
-    int n = 8;
-    
-    for(int i = 0; i < 8; i++){
+    int n;
+
+    do
+    {
+        n = get_int("Height: ?");
+
+    }while( n < 1 || n > 8);
+
+    for(int i = 0; i < n; i++){
         //Print Spaces
-        for(int k = 0; k <= 8 - i; k++)
+        for(int k = 0; k <= n - i; k++)
         {
             printf(" ");
         }
@@ -21,7 +27,7 @@ int main(void)
         {
             printf("#");
         }
-        for(int k = 0; k <= 8 - i; k++)
+        for(int k = 0; k <= n - i; k++)
         {
             printf(" ");
         }
