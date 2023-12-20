@@ -85,12 +85,24 @@ int main(void)
       }
       else if(result == 20 && strlen(ccn) - length == 4)
       {
-        if(ccn[0] == '5' && ccn[1] == '1' || ccn[1] == '2' || ccn[1] == '3' || ccn[1] == '4' || ccn[1] == '5')
+        if(ccn[0] == '5' && ccn[1] == '1')
         {
           printf("MASTERCARD\n");
+        } else if(ccn[0] == '5' &&  ccn[1] == '2')
+        {
+            printf("MASTERCARD\n");
+        } else if(ccn[0] == '5' &&  ccn[1] == '3')
+        {
+            printf("MASTERCARD\n");
+        } else if(ccn[0] == '5' &&  ccn[1] == '4')
+        {
+            printf("MASTERCARD\n");
+        } else if(ccn[0] == '5' &&  ccn[1] == '5')
+        {
+            printf("MASTERCARD\n");
         }
       }
-      else if(result == 20 && strlen(ccn) - length == 7 || strlen(ccn) - length == 4  && ccn[0] == '4')
+      else if((result == 20 && strlen(ccn) - length == 7) || (strlen(ccn) - length == 4  && ccn[0] == '4'))
       {
         printf("VISA\n");
       }
