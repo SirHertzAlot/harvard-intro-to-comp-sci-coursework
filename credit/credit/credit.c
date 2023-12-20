@@ -12,7 +12,7 @@ int main(void)
   {
     cc = get_long("Please enter card number: \n");
   }
-  while(cc < 13 || cc > 16);
+  while(cc > 13 || cc < 16);
 
   //Performing Luhn checksum
   while(cc >= 100)
