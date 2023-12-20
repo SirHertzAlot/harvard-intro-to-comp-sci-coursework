@@ -10,9 +10,12 @@ int main(void)
 
   //Convert number into string, so we can then grab each individual character's ASCII value.
   char ccn[20];
+
   //Convert each character in string to ASCII value of each digit, then insert into CCN character array.
   sprintf(ccn, "%li", cc);
+
   int result;
+
   int length = strlen(ccn);
 
   //Loop through the digits of the credit card number, printing each digit.
@@ -50,22 +53,16 @@ int main(void)
           sprintf(productDigits, "%02d", evenProduct);
           for(int i = 0; i < strlen(productDigits); i++){
             int num2 = productDigits[i] - '0';
-            printf("Num2 product is: %i\n", num2);
-              evenProduct += num2;
+            evenProduct += num2;
           }
         }
       } else {
         int oddNum = ccn[i] - '0';
         oddSum += oddNum;
-        printf("Odd indexes ccn[%d] = %c\n", i, ccn[i]);
-        printf("Odd sum: %d\n", oddSum);
       }
 
         //Then take digits of each product and add them together.
         evenSum += evenProduct;
-        printf("Even product: %d\n", evenProduct);
-        printf("\n");
-        printf("Even indexes ccn[%d] = %c\n", i, ccn[i]);
 
         if(result == 0)
         {
@@ -74,22 +71,27 @@ int main(void)
           result += oddSum;
           result += evenSum;
         }
+      }
 
-        printf("Result: %d\n", result);
-        printf("\n");
-      }
-      if(result == 20 && length == 15 && ccn[0] == '3' && ccn[1] == '4' || ccn[1] == '7' )
+  //Check if the card number is valid.
+      if(result == 20 && strlen(ccn) - length == 5)
       {
-        printf("AMEX\n");
-      }
-      else if(result == 20 && length == 16 && ccn[0] == '5' && ccn[1] == '1' || ccn[1] == '2' || ccn[1] == '3' || ccn[1] == '4' || ccn[1] == '5')
-      {
-        printf("MASTERCARD\n");
-      }
-        else if(result == 20 && length >= 13 || length <= 16  && ccn[0] == '4')
+        if(ccn[0] == '3' && ccn[1] == '4' || ccn[1] == '7')
         {
-          printf("VISA\n");
+          printf("AMEX\n");
         }
+      }
+      else if(result == 20 && strlen(ccn) - length == 4)
+      {
+        if(ccn[0] == '5' && ccn[1] == '1' || ccn[1] == '2' || ccn[1] == '3' || ccn[1] == '4' || ccn[1] == '5')
+        {
+          printf("MASTERCARD\n");
+        }
+      }
+      else if(result == 20 && strlen(ccn) - length == 7 || strlen(ccn) - length == 4  && ccn[0] == '4')
+      {
+        printf("VISA\n");
+      }
       else
       {
         printf("INVALID\n");
