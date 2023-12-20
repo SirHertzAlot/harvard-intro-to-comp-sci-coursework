@@ -5,15 +5,16 @@
 
 int main(void)
 {
-    long int cc;
-    cc = get_int("Please enter card number");
+
+  long int cc;
+  cc = get_int("Please enter card number");
 
   //Convert number into string, so we can then grab each individual character's ASCII value.
-  long int davidsVisa = 4003600000000014;
   char ccn[20];
   //Convert each character in string to ASCII value of each digit, then insert into CCN character array.
-  sprintf(ccn, "%li", davidsVisa);
+  sprintf(ccn, "%li", cc);
   int result;
+  int length = strlen(ccn);
 
   //Loop through the digits of the credit card number, printing each digit.
   for(int i = strlen(ccn) - 1; i >= 0; i--)
@@ -61,14 +62,14 @@ int main(void)
         printf("Odd sum: %d\n", oddSum);
       }
 
-
-
         //Then take digits of each product and add them together.
         evenSum += evenProduct;
         printf("Even product: %d\n", evenProduct);
         printf("\n");
         printf("Even indexes ccn[%d] = %c\n", i, ccn[i]);
-        if(result == 0){
+
+        if(result == 0)
+        {
           result = oddSum + evenSum;
         } else {
           result += oddSum;
@@ -78,5 +79,20 @@ int main(void)
         printf("Result: %d\n", result);
         printf("\n");
       }
+      if(result == 20 && length == 15 && ccn[0] == '3' && ccn[1] == '4' || ccn[1] == '7' )
+      {
+        printf("AMEX\n");
+      }
+      else if(result == 20 && length == 16 && ccn[0] == '5' && ccn[1] == '1' || ccn[1] == '2' || ccn[1] == '3' || ccn[1] == '4' || ccn[1] == '5')
+      {
+        printf("MASTERCARD\n");
+      }
+        else if(result == 20 && length >= 13 || length <= 16  && ccn[0] == '4')
+        {
+          printf("VISA\n");
+        }
+      else
+      {
+        printf("INVALID\n");
+      }
     }
-
