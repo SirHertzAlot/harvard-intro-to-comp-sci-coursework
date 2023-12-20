@@ -6,7 +6,7 @@
 int main(void)
 {
   long int cc;
-  cc = get_int("Please enter card number");
+  cc = get_long("Please enter card number");
 
   //Convert number into string, so we can then grab each individual character's ASCII value.
   char ccn[20];
