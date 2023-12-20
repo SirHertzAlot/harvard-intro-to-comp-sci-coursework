@@ -5,7 +5,6 @@
 
 int main(void)
 {
-
   long int cc;
   cc = get_int("Please enter card number");
 
