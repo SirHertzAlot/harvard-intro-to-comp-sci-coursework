@@ -1,110 +1,74 @@
 #include <cs50.h>
+#include <stdio.h>
 
 int main(void)
 {
   long cc;
-  cc = get_long("Please enter card number");
+  int count = 0;
+  int sum = 0;
+  int cardId[2] = {0, 0};
 
-  //Convert number into string, so we can then grab each individual character's ASCII value.
-  char ccn[20];
+  do
+  {
+    cc = get_long("Please enter card number: \n");
+  }
+  while()
 
-  //Convert each character in string to ASCII value of each digit, then insert into CCN character array.
-  sprintf(ccn, "%li", cc);
-
-  int result;
-
-  int length = strlen(ccn);
-
-  //Loop through the digits of the credit card number, printing each digit.
-  for(int i = strlen(ccn) - 1; i >= 0; i--)
+  //Performing Luhn checksum
+  while(cc >= 100)
     {
-      //The sum of all the even indexes.
-      int evenSum = 0;
-      //The sum of all the odd indexes.
-      int oddSum = 0;
-      //The sum of all the even products.
-      int evenProduct = 0;
-      //Convert from ASCII value to actual number value.
-      int num = ccn[i] - '0';
+      int digit = cc % 10;
 
-      //Check which indexes are even.
-      if(i % 2 == 0){
-        int count = 0;
-        char productDigits[10];
-        int evenProductToCheck = 0;
-        int copyOfProductToCheck = 0;
-
-        evenProductToCheck += (num * 2);
-        copyOfProductToCheck = evenProductToCheck;
-
-        //Check digits place while preserving value.
-        do {
-          evenProduct += evenProductToCheck;
-          evenProductToCheck /= 10;
-          ++count;
-        } while (evenProductToCheck != 0);
-
-        if(count > 1)
-        {
-          evenProduct -= copyOfProductToCheck;
-          sprintf(productDigits, "%02d", evenProduct);
-          for(int j = 0; j < strlen(productDigits); j++){
-            int num2 = productDigits[j] - '0';
-            evenProduct += num2;
-          }
-        }
-      } else {
-        int oddNum = ccn[i] - '0';
-        oddSum += oddNum;
+      //Grab the first 2 digits and store them for later review.
+      if(count < 2)
+      {
+        cardId[count] += digit;
       }
 
-        //Then take digits of each product and add them together.
-        evenSum += evenProduct;
+      cc /= 10;
+      count++;
 
-        if(result == 0)
+      //Take every even digit and multiply it by 2. Then if it's greater than nine, subtract nine to get its digit sum. If it's odd, just add it to the running sum already presented.
+      if(count % 2 == 0)
+      {
+        digit *= 2;
+        if(digit > 9)
         {
-          result = oddSum + evenSum;
-        } else {
-          result += oddSum;
-          result += evenSum;
+          digit -= 9;
         }
       }
-
-  //Check if the card number is valid.
-      if(result == 20 && strlen(ccn) - length == 5)
-      {
-        if(ccn[0] == '3' && ccn[1] == '4')
-        {
-          printf("AMEX\n");
-        } else if( ccn[0] == '3' && ccn[1] == '7') {
-          printf("AMEX\n");
-        }
-      }
-      else if(result == 20 && strlen(ccn) - length == 4)
-      {
-        if(ccn[0] == '5' && ccn[1] == '1')
-        {
-          printf("MASTERCARD\n");
-        } else if(ccn[0] == '5' &&  ccn[1] == '2')
-        {
-            printf("MASTERCARD\n");
-        } else if(ccn[0] == '5' &&  ccn[1] == '3')
-        {
-            printf("MASTERCARD\n");
-        } else if(ccn[0] == '5' &&  ccn[1] == '4')
-        {
-            printf("MASTERCARD\n");
-        } else if(ccn[0] == '5' &&  ccn[1] == '5')
-        {
-            printf("MASTERCARD\n");
-        }
-      }
-      else if((result == 20 && strlen(ccn) - length == 7) || (strlen(ccn) - length == 4  && ccn[0] == '4'))
-      {
-        printf("VISA\n");
-      }
-      else
-      {
-        printf("INVALID\n");
-      }
+      sum += digit;
     }
+
+  //If sum returns a number divisible by 10, then the card is valid. Afterwards we check the card Id for a match. No match, the card is invalid.
+  if(sum % 10 == 0)
+  {
+    if((cardId[0] == 3 && cardId[1] == 4) || (cardId[0] == 3 && cardId[1] == 7) && count == 15)
+    {
+      printf("AMEX\n");
+    }
+    else if ((cardId[0] == 5 && cardId[1] == 1) ||
+      (cardId[0] == 5 && cardId[1] == 2) ||
+      (cardId[0] == 5 && cardId[1] == 3) ||
+      (cardId[0] == 5 && cardId[1] == 4) ||
+      (cardId[0] == 5 && cardId[1] == 5) && count == 16)
+    {
+      printf("MASTERCARD\n");
+    }
+    else if (cardId[0] == 4 && count == 13 || count == 16)
+      {
+      printf("VISA\n");
+      }
+    else
+    {
+      printf("INVALID\n");
+    }
+  }
+  else
+  {
+    printf("INVALID\n");
+  }
+
+  //All done!
+  return 0;
+}
