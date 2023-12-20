@@ -51,8 +51,8 @@ int main(void)
         {
           evenProduct -= copyOfProductToCheck;
           sprintf(productDigits, "%02d", evenProduct);
-          for(int i = 0; i < strlen(productDigits); i++){
-            int num2 = productDigits[i] - '0';
+          for(int j = 0; j < strlen(productDigits); j++){
+            int num2 = productDigits[j] - '0';
             evenProduct += num2;
           }
         }
@@ -76,8 +76,10 @@ int main(void)
   //Check if the card number is valid.
       if(result == 20 && strlen(ccn) - length == 5)
       {
-        if(ccn[0] == '3' && ccn[1] == '4' || ccn[1] == '7')
+        if(ccn[0] == '3' && ccn[1] == '4')
         {
+          printf("AMEX\n");
+        } else if( ccn[0] == '3' && ccn[1] == '7') {
           printf("AMEX\n");
         }
       }
