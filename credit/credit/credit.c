@@ -12,10 +12,10 @@ int main(void)
   long int cardId = 0;
 
   do
-  {
-    cc = get_long("Please enter card number: \n");
-  }
-  while(cc >= 13 && cc <= 16);
+    {
+      cc = get_long("Please enter card number: \n");
+    }
+    while(cc >= 13 && cc <= 16);
 
   //Grab the first 2 digits of a long number.
   while(dupe_cc >= 100)
@@ -45,19 +45,19 @@ int main(void)
   //If sum returns a number divisible by 10, then the card is valid. Afterwards we check the card Id for a match. No match, the card is invalid.
   if(sum % 10 == 0)
   {
-    if(cardId == 34 || cardId == 37)
+    if((cardId == 34 || cardId == 37) && count == 15)
     {
       printf("AMEX\n");
     }
-    else if (cardId == 51 ||
+    else if ((cardId == 51 ||
       cardId == 52 ||
       cardId == 53 ||
       cardId == 54 ||
-      cardId == 55)
+      cardId == 55) && count == 16)
     {
       printf("MASTERCARD\n");
     }
-    else if (cardId == 4)
+    else if (cardId == 4 && (count == 13 || count == 16))
       {
       printf("VISA\n");
       }
