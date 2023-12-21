@@ -17,7 +17,7 @@ int main(void)
     }
     while(cc >= 13 && cc <= 16);
 
-    printf("CCN is $li \n", cc)
+    printf("CCN is: $ld \n", cc)
 
   //Grab the first 2 digits of a long number.
   while(dupe_cc >= 100)
