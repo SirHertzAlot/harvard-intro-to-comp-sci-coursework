@@ -6,7 +6,7 @@ int main(void)
   long cc;
   int count = 0;
   int sum = 0;
-  int cardId[2] = {0, 0};
+  long int cardId = cc / pow(10, count - 2);
 
   do
   {
