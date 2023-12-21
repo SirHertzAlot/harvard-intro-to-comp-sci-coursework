@@ -7,14 +7,22 @@ int main(void)
   long cc = 0;
   int count = 0;
   int sum = 0;
-  //Grab the first 2 digits and store them for later review.
-  long int cardId = cc / pow(10, count - 2);
+  //Duplicate CC# to use to determine first 2 digits in #.
+  long dupe_cc = cc;
+  //Store first 2 digits for later review.
+  long int cardId = 0;
 
   do
   {
     cc = get_long("Please enter card number: \n");
   }
   while(cc >= 13 && cc <= 16);
+
+  //Grab the first 2 digits of a long number.
+  while(dupe_cc >= 100)
+    {
+       cardId = dupe_cc /= 10;
+    }
 
   //Performing Luhn checksum
   while(cc > 0)
