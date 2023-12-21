@@ -43,7 +43,10 @@ int get_cents(void)
 
 int calculate_quarters(int cents)
 {
-    // TODO
+    do{
+        
+    }
+    while(cents > 25);
     return 0;
 }
 
