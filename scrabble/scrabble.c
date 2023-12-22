@@ -41,7 +41,8 @@ int compute_score(string word)
     {
         for(int i = 0; i < slen; i++)
         {
-            
+            string curChar = word[i];
+            printf("Letter: %s \n", curChar)
         }
     }
     // TODO: Compute and return score for string
