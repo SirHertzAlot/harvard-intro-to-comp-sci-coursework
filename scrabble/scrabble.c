@@ -42,7 +42,7 @@ int compute_score(string word)
         for(int i = 0; i < slen; i++)
         {
             int endOfStr = slen - 1;
-            char curChar = word[i];
+            string curChar = word[i];
             char upperChar = toupper(curChar);
 
             size_t index = strcspn(ALPHABET, word[i]);
