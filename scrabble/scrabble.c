@@ -41,10 +41,11 @@ int compute_score(string word)
     {
         for(int i = 0; i < slen; i++)
         {
-            string upper = toupper(word[i]);
-            string curChar = word[i];
-            printf("Letter: %s \n", curChar)
+            char curChar = word[i];
+            char upper = toupper(curChar);
+            printf("Letter: %c \n", curChar);
         }
     }
     // TODO: Compute and return score for string
+    return 0;
 }
