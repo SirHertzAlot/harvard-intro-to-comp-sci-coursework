@@ -37,44 +37,59 @@ int main(void)
 
 int get_cents(void)
 {
-    n = get_int("");
-    return 0;
+    int n = get_int("Please enter cents amount: \n");
+
+    do{
+        if(n <= 0)
+        {
+            printf("Please use positive values");
+        }
+    }
+    while(n < 0);
+
+    return n;
 }
 
-int quarters = 0;
-int quarterCount = 0;
 int calculate_quarters(int cents)
 {
-  while(cents >= 24);
+    int quarterCount = 0;
+    while(cents >= 24)
     {
         cents -= 25;
+        quarterCount++;
     }
-  return cents;
+    return quarterCount;
 }
 
 int calculate_dimes(int cents)
 {
-  while(cents > 9 && cents < 25);
-  {
-      cents -= 10;
-  }
-  return cents;
+    int dimeCount = 0;
+    while(cents > 9 && cents < 25)
+    {
+        cents -= 10;
+        dimeCount++;
+    }
+    return dimeCount;
 }
 
 int calculate_nickels(int cents)
 {
-    while(cents > 4 && cents < 9);
+    int nickleCount = 0;
+    while(cents > 4 && cents < 9)
     {
         cents -= 5;
+        nickleCount++;
     }
-    return cents;
+    return nickleCount;
 }
 
 int calculate_pennies(int cents)
 {
-    while(cents > 0 && cents < 4);
+    int pennyCount = 0;
+    while(cents > 0 && cents < 4)
     {
         cents -= 1;
+        pennyCount++;
     }
-    return cents;
+    return pennyCount;
 }
