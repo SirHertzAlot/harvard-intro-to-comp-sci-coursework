@@ -49,7 +49,7 @@ int compute_score(string word)
 
             int index = charToCompare - word;
 
-            
+            printf("index of %c, is %i \n", curChar, index);
         }
     }
     // TODO: Compute and return score for string
