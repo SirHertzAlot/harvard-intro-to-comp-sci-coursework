@@ -49,7 +49,6 @@ int compute_score(string word)
                 if(curChar == j)
                 {
                     index = j;
-                    break;
                 }
             }
 
