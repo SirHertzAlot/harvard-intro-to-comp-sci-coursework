@@ -37,7 +37,7 @@ int main(void)
 
 int get_cents(void)
 {
-    n = get_int("")
+    n = get_int("");
     return 0;
 }
 
@@ -45,30 +45,36 @@ int quarters = 0;
 int quarterCount = 0;
 int calculate_quarters(int cents)
 {
-  int quarterCount = 0;
   while(cents >= 24);
     {
         cents -= 25;
-        quarterCount++;
     }
-  printf("You have %d quarters.\n", quarterCount);
-  return quarterCount;
+  return cents;
 }
 
 int calculate_dimes(int cents)
 {
-    // TODO
-    return 0;
+  while(cents > 9 && cents < 25);
+  {
+      cents -= 10;
+  }
+  return cents;
 }
 
 int calculate_nickels(int cents)
 {
-    // TODO
-    return 0;
+    while(cents > 4 && cents < 9);
+    {
+        cents -= 5;
+    }
+    return cents;
 }
 
 int calculate_pennies(int cents)
 {
-    // TODO
-    return 0;
+    while(cents > 0 && cents < 4);
+    {
+        cents -= 1;
+    }
+    return cents;
 }
