@@ -17,8 +17,8 @@ int main(void)
     int words =  count_words(text);
     int sentences = count_sentences(text);
 
-    int L = letters / words * 100.0;
-    int S = sentences / words * 100.0;
+    int L = letters / words * 100;
+    int S = sentences / words * 100;
 
     int index = (0.0588 * L) - (0.296 * S) - 15.8;
 
@@ -45,7 +45,9 @@ int count_letters(string text)
 
 int count_words(string text)
 {
-    int count = 0;
+    int alphas = 0;
+    int spaces = 0;
+    int words = 0;
 
     for(int i = 0; i < strlen(text); i++)
     {
@@ -53,11 +55,21 @@ int count_words(string text)
 
         if(isalpha(character))
         {
-            count++;
+            alphas++;
+        }
+
+        if(isspace(character))
+        {
+            spaces++;
+        }
+
+        if(alphas >= 1 && spaces == 1)
+        {
+            words++;
         }
     }
 
-    return count;
+    return words;
 }
 
 int count_sentences(string text)
@@ -73,6 +85,6 @@ int count_sentences(string text)
             count++;
         }
     }
-    
+
     return count;
 }
