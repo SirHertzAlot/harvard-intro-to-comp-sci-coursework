@@ -41,11 +41,13 @@ int compute_score(string word)
     {
         for(int i = 0; i < slen; i++)
         {
-            const char *curChar = word[i];
+            const char *curChar = &word[i];
 
             size_t index = strcspn(ALPHABET, curChar);
-
-            printf("index of %s, is %zu \n", curChar, index);
+            if(index != slen)
+            {
+                printf("index of %s, is %zu \n", curChar, index);
+            }
         }
     }
     // TODO: Compute and return score for string
