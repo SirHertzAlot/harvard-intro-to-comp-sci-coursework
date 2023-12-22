@@ -61,6 +61,12 @@ int calculate_quarters(int cents)
             cents -= 25;
             quarterCount++;
         }
+    } else {
+        while(cents > 24)
+        {
+            cents -= 25;
+            quarterCount++;
+        }
     }
 
     return quarterCount;
@@ -116,6 +122,12 @@ int calculate_pennies(int cents)
 
     if(cents > 0 && cents < 5)
     {
+        while(cents > 0)
+        {
+            cents -= 1;
+            pennyCount++;
+        }
+    } else {
         while(cents > 0)
         {
             cents -= 1;
