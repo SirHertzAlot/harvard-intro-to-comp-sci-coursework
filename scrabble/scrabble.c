@@ -36,18 +36,30 @@ int main(void)
 int compute_score(string word)
 {
     int slen = strlen(word);
+    int alphaLen = sizeof ALPHABET / sizeof ALPHABET[0];
+    int index = -1;
 
     if(strlen(word) > 0)
     {
         for(int i = 0; i < slen; i++)
         {
-            const char *curChar = &word[i];
-
-            size_t index = strcspn(ALPHABET, curChar);
-            if(index != slen)
+            char curChar = word[i];
+            for(int j = 0; j < 23; j++)
             {
-                printf("index of %s, is %zu \n", word, index);
+                if(curChar == j)
+                {
+                    index = j;
+                    break;
+                }
             }
+
+        }
+
+        if(index > -1)
+        {
+
+        } else {
+            
         }
     }
     // TODO: Compute and return score for string
