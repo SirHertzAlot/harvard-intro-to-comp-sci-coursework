@@ -35,6 +35,7 @@ int main(void)
 
 int compute_score(string word)
 {
+    int score = 0;
     int slen = strlen(word);
     int alphaLen = strlen(ALPHABET);
     int index = -1;
@@ -43,19 +44,21 @@ int compute_score(string word)
     {
         for(int i = 0; i < slen; i++)
         {
+          char currentChar = toupper(word[i]);
             for(int j = 0; j < 23; j++)
             {
-                if(word[i] == ALPHABET[j])
+                if(currentChar == ALPHABET[j])
                 {
                     index = j;
                     if(index > -1)
                     {
-                        printf("Index : %d\n", index);
+                        score += POINTS[index];
+                        break;
                     }
                 }
             }
         }
     }
     // TODO: Compute and return score for string
-    return 0;
+   return score;
 }
