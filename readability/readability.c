@@ -13,6 +13,10 @@ int main(void)
     int letters = count_letters(string text);
     int words =  count_words(string text);
     int sentences = count_sentences(string text);
+
+    int l = 
+
+    index =
 }
 
 
