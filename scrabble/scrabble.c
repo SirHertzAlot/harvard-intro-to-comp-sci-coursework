@@ -46,7 +46,7 @@ int compute_score(string word)
             size_t index = strcspn(ALPHABET, curChar);
             if(index != slen)
             {
-                printf("index of %s, is %zu \n", curChar, index);
+                printf("index of %s, is %zu \n", word, index);
             }
         }
     }
