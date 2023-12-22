@@ -77,6 +77,12 @@ int calculate_dimes(int cents)
             cents -= 10;
             dimeCount++;
         }
+    } else {
+        while(cents > 9)
+        {
+            cents -= 10;
+            dimeCount++;
+        }
     }
 
     return dimeCount;
@@ -88,6 +94,12 @@ int calculate_nickels(int cents)
 
     if(cents > 4 && cents < 10)
     {
+        while(cents > 4)
+        {
+            cents -= 5;
+            nickleCount++;
+        }
+    } else {
         while(cents > 4)
         {
             cents -= 5;
