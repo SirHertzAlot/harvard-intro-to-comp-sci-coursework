@@ -45,12 +45,14 @@ int quarters = 0;
 int quarterCount = 0;
 int calculate_quarters(int cents)
 {
-    do{
-        quarters = cents - 25;
+  int quarterCount = 0;
+  while(cents >= 24);
+    {
+        cents -= 25;
         quarterCount++;
     }
-    while(cents > 25);
-    return quarters;
+  printf("You have %d quarters.\n", quarterCount);
+  return quarterCount;
 }
 
 int calculate_dimes(int cents)
