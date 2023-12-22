@@ -43,10 +43,9 @@ int compute_score(string word)
     {
         for(int i = 0; i < slen; i++)
         {
-            char curChar = word[i];
             for(int j = 0; j < 23; j++)
             {
-                if(curChar == j)
+                if(word[i] == ALPHABET[j])
                 {
                     index = j;
                     if(index > -1)
