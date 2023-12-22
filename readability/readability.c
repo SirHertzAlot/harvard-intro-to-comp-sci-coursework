@@ -11,12 +11,14 @@ int count_sentences(string text);
 
 int main(void)
 {
+    string text = get_string("Please enter your string of text: \n");
+
     int letters = count_letters(text);
     int words =  count_words(text);
     int sentences = count_sentences(text);
 
-    int l = letters / words * 100.0;
-    int s = sentences / words * 100.0;
+    int L = letters / words * 100.0;
+    int S = sentences / words * 100.0;
 
     int index = (0.0588 * L) - (0.296 * S) - 15.8;
 }
