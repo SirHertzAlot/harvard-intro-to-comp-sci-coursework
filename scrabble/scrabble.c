@@ -36,7 +36,7 @@ int main(void)
 int compute_score(string word)
 {
     int slen = strlen(word);
-    int alphaLen = sizeof ALPHABET / sizeof ALPHABET[0];
+    int alphaLen = strlen(ALPHABET);
     int index = -1;
 
     if(strlen(word) > 0)
