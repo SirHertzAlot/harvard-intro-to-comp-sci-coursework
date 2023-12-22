@@ -43,7 +43,9 @@ int compute_score(string word)
         {
             char curChar = word[i];
             char upper = toupper(curChar);
-            
+
+            charToCompare = strpbrk(ALPHABET, word[i]);
+
         }
     }
     // TODO: Compute and return score for string
