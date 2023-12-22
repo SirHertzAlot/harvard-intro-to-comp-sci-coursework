@@ -47,7 +47,7 @@ int compute_score(string word)
 
             char *charToCompare = strchr(ALPHABET, word[i]);
 
-
+            int index = charToCompare - 
         }
     }
     // TODO: Compute and return score for string
