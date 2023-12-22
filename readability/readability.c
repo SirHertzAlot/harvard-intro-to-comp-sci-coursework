@@ -14,23 +14,24 @@ int main(void)
     int words =  count_words(string text);
     int sentences = count_sentences(string text);
 
-    int l = 
+    int l = letters / words * 100.0;
+    int s = sentences / words * 100.0;
 
-    index =
+    int index = (0.0588 * L) - (0.296 * S) - 15.8;
 }
 
 
 int count_letters(string text)
 {
-
+    return 0;
 }
 
 int count_words(string text)
 {
-
+    return 0;
 }
 
 int count_sentences(string text)
 {
-
+    return 0;
 }
