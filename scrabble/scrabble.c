@@ -45,7 +45,7 @@ int compute_score(string word)
         for(int i = 0; i < slen; i++)
         {
           char currentChar = toupper(word[i]);
-            for(int j = 0; j < 23; j++)
+            for(int j = 0; j < alphaLen; j++)
             {
                 if(currentChar == ALPHABET[j])
                 {
