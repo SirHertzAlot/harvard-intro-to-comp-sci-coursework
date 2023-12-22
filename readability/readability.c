@@ -28,8 +28,17 @@ int main(void)
 
 int count_letters(string text)
 {
-    
-    return 0;
+    int count = 0;
+
+    for(int i = 0; i < strlen(text); i++)
+    {
+        char letter = text[i];
+        if(isalpha(letter))
+        {
+            count++;
+        }
+    }
+    return count;
 }
 
 int count_words(string text)
