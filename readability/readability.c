@@ -2,9 +2,9 @@
 #include <ctype.h>
 #include <stdio.h>
 
-count_letters(string text);
-count_words(string text);
-count_sentences(string text);
+int count_letters(string text);
+int count_words(string text);
+int count_sentences(string text);
 
 
 
