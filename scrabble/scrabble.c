@@ -42,9 +42,10 @@ int compute_score(string word)
         for(int i = 0; i < slen; i++)
         {
             char curChar = word[i];
-            char upper = toupper(curChar);
+            char upperChar = toupper(curChar);
 
-            charToCompare = strpbrk(ALPHABET, word[i]);
+            char *charToCompare = strchr(ALPHABET, word[i]);
+
 
         }
     }
