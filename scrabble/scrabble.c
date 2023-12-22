@@ -49,14 +49,12 @@ int compute_score(string word)
                 if(curChar == j)
                 {
                     index = j;
+                    if(index > -1)
+                    {
+                        printf("Index : %d\n", index);
+                    }
                 }
             }
-
-        }
-
-        if(index > -1)
-        {
-            printf("Index : %d\n", index);
         }
     }
     // TODO: Compute and return score for string
