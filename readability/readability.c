@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <string.h>
 
 int count_letters(string text);
 int count_words(string text);
@@ -10,9 +11,9 @@ int count_sentences(string text);
 
 int main(void)
 {
-    int letters = count_letters(string text);
-    int words =  count_words(string text);
-    int sentences = count_sentences(string text);
+    int letters = count_letters(text);
+    int words =  count_words(text);
+    int sentences = count_sentences(text);
 
     int l = letters / words * 100.0;
     int s = sentences / words * 100.0;
