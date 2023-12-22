@@ -47,7 +47,7 @@ int compute_score(string word)
 
             char *charToCompare = strchr(ALPHABET, word[i]);
 
-            int index = charToCompare - word;
+            int index = charToCompare - ALPHABET;
 
             printf("index of %c, is %i \n", curChar, index);
         }
