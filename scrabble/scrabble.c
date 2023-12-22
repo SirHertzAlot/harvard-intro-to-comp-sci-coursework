@@ -41,7 +41,7 @@ int compute_score(string word)
     {
         for(int i = 0; i < slen; i++)
         {
-            const char *curChar = &word[i];
+            const char *curChar = word[i];
 
             size_t index = strcspn(ALPHABET, curChar);
 
