@@ -41,7 +41,7 @@ int compute_score(string word)
     {
         for(int i = 0; i < slen; i++)
         {
-
+            
         }
     }
     // TODO: Compute and return score for string
