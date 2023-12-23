@@ -77,7 +77,7 @@ int count_sentences(char* text)
     {
         char character = text[i];
 
-        if(character == '!' && character == '?' && character == '.')
+        if(character == '!' || character == '?' || character == '.')
         {
             count++;
         }
