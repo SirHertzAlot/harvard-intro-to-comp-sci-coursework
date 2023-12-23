@@ -29,7 +29,7 @@ int count_letters(char* text)
 {
     int count = 0;
 
-    for(int i = 0; i < strlen(text); i++)
+    for(int i = 0; i < strlen(text) + 1; i++)
     {
         char character = text[i];
 
@@ -64,7 +64,7 @@ int count_sentences(char* text)
 {
     int count = 0;
 
-    for(int i = 0; i < strlen(text); i++)
+    for(int i = 0; i < strlen(text) + 1; i++)
     {
         char character = text[i];
 
