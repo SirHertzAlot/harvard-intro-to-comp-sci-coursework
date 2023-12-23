@@ -56,11 +56,11 @@ int count_words(char* text)
   int spaces = 0;
   int words = 0;
 
-  for(int i = 0; i < strlen(text) + 1; i++)
+  for(int i = 0; text[i] != '\0'; i++)
   {
       char character = text[i];
 
-      if(character == ' ' || character == '\0')
+      if(character == ' ')
       {
           spaces++;
       }
