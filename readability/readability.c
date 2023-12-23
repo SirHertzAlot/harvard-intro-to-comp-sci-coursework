@@ -42,7 +42,7 @@ int count_letters(char* text)
     {
         char character = text[i];
 
-        if(isalpha(character) > 0)
+        if((character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z'))
         {
             count++;
         }
