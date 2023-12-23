@@ -16,8 +16,8 @@ int main(void)
     int words =  count_words(text);
     int sentences = count_sentences(text);
 
-    float L = (float)letters / (float)words * 100.0;
-    float S = (float)sentences / (float)words * 100.0;
+    float L = (float) letters / (float) words * 100;
+    float S = (float)sentences / (float)words * 100;
 
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
