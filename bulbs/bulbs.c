@@ -34,25 +34,24 @@ int convertToBinary(char *str)
   int result[8];
 
 
-  for(int i = 0; i < length; i++)
-  {
-    int k = 0;
-    int ltr = str[i];
-
-    while(k <= 7)
+    for(int i = 0; i < length; i++)
     {
-        int r = ltr % 2;
-        ltr /= 2;
-        result[k] = r;
-        k++;
-    }
+        int k = 0;
+        int ltr = str[i];
 
-    for(int j = 7; j >= 0; j--)
-    {
-      print_bulb(result[j]);
-    }
-    printf("\n");
-    }
+        while(k <= 7)
+        {
+            int r = ltr % 2;
+            ltr /= 2;
+            result[k] = r;
+            k++;
+        }
 
+        for(int j = 7; j >= 0; j--)
+        {
+            print_bulb(result[j]);
+        }
+        printf("\n");
+    }
   return result[7];
 }
