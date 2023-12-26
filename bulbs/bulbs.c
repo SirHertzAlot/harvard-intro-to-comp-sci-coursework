@@ -30,8 +30,6 @@ void print_bulb(int bit)
 
 int convertToBinary(char *str)
 {
-  printf("String to be evaluated: %s \n", str);
-
   int length = strlen(str);
   int result[8];
 
@@ -53,7 +51,7 @@ int convertToBinary(char *str)
     {
       print_bulb(result[j]);
     }
-    printf(" \n");
+    printf("\n");
     }
 
   return result[7];
