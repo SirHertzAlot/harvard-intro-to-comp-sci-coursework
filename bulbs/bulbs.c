@@ -4,6 +4,7 @@
 
 const int BITS_IN_BYTE = 8;
 
+int convertToBinary(char *str);
 void print_bulb(int bit);
 
 int main(void)
@@ -23,4 +24,35 @@ void print_bulb(int bit)
         // Light emoji
         printf("\U0001F7E1");
     }
+}
+
+int convertToBinary(char *str)
+{
+  printf("String to be evaluated: %s \n", str);
+
+  int length = strlen(str);
+  int result[8];
+
+
+  for(int i = 0; i < length; i++)
+  {
+    int k = 0;
+    int ltr = str[i];
+
+    while(k <= 7)
+    {
+        int r = ltr % 2;
+        ltr /= 2;
+        result[k] = r;
+        k++;
+    }
+
+    for(int j = 7; j >= 0; j--)
+    {
+      printf("%i", result[j]);
+    }
+    printf(" \n");
+    }
+
+  return result[7];
 }
