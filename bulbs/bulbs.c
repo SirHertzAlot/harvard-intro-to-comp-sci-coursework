@@ -9,7 +9,9 @@ void print_bulb(int bit);
 
 int main(void)
 {
-    // TODO
+    string input = get_string("Enter a word or phrase.");
+    int result = convertToBinary(input);
+    return 0;
 }
 
 void print_bulb(int bit)
@@ -49,7 +51,7 @@ int convertToBinary(char *str)
 
     for(int j = 7; j >= 0; j--)
     {
-      printf("%i", result[j]);
+      print_bulb(result[j]);
     }
     printf(" \n");
     }
