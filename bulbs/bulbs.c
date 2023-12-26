@@ -30,16 +30,15 @@ void print_bulb(int bit)
 
 int convertToBinary(char *str)
 {
-  int length = strlen(str);
-  int result[8];
+    int length = strlen(str);
+    int result[8];
 
-
-    for(int i = 0; i < length; i++)
+    for (int i = 0; i < length; i++)
     {
         int k = 0;
         int ltr = str[i];
 
-        while(k <= 7)
+        while (k <= 7)
         {
             int r = ltr % 2;
             ltr /= 2;
@@ -47,11 +46,11 @@ int convertToBinary(char *str)
             k++;
         }
 
-        for(int j = 7; j >= 0; j--)
+        for (int j = 7; j >= 0; j--)
         {
             print_bulb(result[j]);
         }
         printf("\n");
     }
-  return result[7];
+    return result[7];
 }
