@@ -76,4 +76,4 @@ real    0m0.089s
 user    0m0.023s
 sys     0m0.033s
 
-How do you know?: Maintains a consistent time complexity.
+How do you know?: Maintains a consistent time complexity on equal sized data sets when fed into sort as input.
