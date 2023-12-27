@@ -44,6 +44,12 @@ How do you know?: TODO
 
 sort3 uses: TODO
 
+time ./sort3 sorted50000.txt
+
+real    0m2.592s
+user    0m1.853s
+sys     0m0.262s
+
 time ./sort3 random50000.txt
 
 real    0m2.374s
