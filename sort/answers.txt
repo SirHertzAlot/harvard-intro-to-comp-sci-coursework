@@ -1,4 +1,4 @@
-sort1 uses: TODO
+sort1 uses: Selection Sort
 
 time ./sort1 random50000.txt
 
@@ -12,7 +12,8 @@ real    0m0.077s
 user    0m0.031s
 sys     0m0.031s
 
-How do you know?: TODO
+How do you know?: This sort seems to work really quickly with already sorted datasets. It seems to have more trouble when working with random datasets and reversed datasets
+which lead me to believe this is a selection sort.
 
 sort2 uses: Merge Sort
 
@@ -43,7 +44,7 @@ sys     0m0.269s
 How do you know?: Time complexity doesn't seem to charge very much even when increasing the inputs or when fuzzing or scrambling the inputs. Merge Sort maintains a stable time complexity
 even when the inputs increase or become fuzzed via randomization, etc.
 
-sort3 uses: 
+sort3 uses:
 
 time ./sort3 sorted50000.txt
 
