@@ -194,10 +194,6 @@ bool is_tie(int min)
             {
                 printf("%s\n", candidates[i].name);
             }
-            else if (candidates.votes[i] > candidates.votes[i + 1])
-            {
-                return false;
-            }
       }
     return true;
 }
