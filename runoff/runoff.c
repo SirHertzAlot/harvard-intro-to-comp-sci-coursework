@@ -175,8 +175,14 @@ int find_min(void)
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    // TODO
-    return false;
+    for(int i = 0; i < candidate_count; i++)
+    {
+            if(candidates[i].votes == candidates.votes[i + 1])
+            {
+                printf("%s\n", candidates[i].name);
+            }
+      }
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
