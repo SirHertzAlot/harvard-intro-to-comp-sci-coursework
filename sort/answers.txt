@@ -6,6 +6,12 @@ real    0m5.819s
 user    0m5.149s
 sys     0m0.267s
 
+time ./sort1 random5000.txt
+
+real    0m0.077s
+user    0m0.031s
+sys     0m0.031s
+
 How do you know?: TODO
 
 sort2 uses: TODO
@@ -16,6 +22,12 @@ real    0m0.603s
 user    0m0.030s
 sys     0m0.245s
 
+time ./sort2 random5000.txt
+
+real    0m0.049s
+user    0m0.004s
+sys     0m0.028s
+
 How do you know?: TODO
 
 sort3 uses: TODO
@@ -25,5 +37,11 @@ time ./sort3 random50000.txt
 real    0m2.374s
 user    0m1.757s
 sys     0m0.268s
+
+time ./sort3 random5000.txt
+
+real    0m0.052s
+user    0m0.019s
+sys     0m0.027s
 
 How do you know?: TODO
