@@ -15,7 +15,7 @@ sys     0m0.031s
 How do you know?: This sort seems to work really quickly with already sorted datasets. It seems to have more trouble when working with random datasets and reversed datasets
 which lead me to believe this is a selection sort.
 
-sort2 uses: Selection Sort
+sort2 uses: Bubble Sort
 
 time ./sort2 random50000.txt
 
@@ -44,7 +44,7 @@ sys     0m0.269s
 How do you know?: Time complexity doesn't seem to charge very much even when increasing the inputs or when fuzzing or scrambling the inputs. Merge Sort maintains a stable time complexity
 even when the inputs increase or become fuzzed via randomization, etc.
 
-sort3 uses: Bubble sort
+sort3 uses: Selection sort
 
 time ./sort3 sorted50000.txt
 
