@@ -1,4 +1,4 @@
-sort1 uses: Selection Sort
+sort1 uses: Merge Sort
 
 time ./sort1 random50000.txt
 
@@ -15,7 +15,7 @@ sys     0m0.031s
 How do you know?: This sort seems to work really quickly with already sorted datasets. It seems to have more trouble when working with random datasets and reversed datasets
 which lead me to believe this is a selection sort.
 
-sort2 uses: Merge Sort
+sort2 uses: Selection Sort
 
 time ./sort2 random50000.txt
 
