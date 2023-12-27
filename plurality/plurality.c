@@ -69,7 +69,7 @@ bool vote(string name)
     {
         if(candidates[i].name == name)
         {
-            vote++;
+            candidates[i].votes += 1;
             return true;
         }
     }
@@ -85,7 +85,7 @@ void print_winner(void)
         {
             if(candidates[i].votes > candidates[j].votes)
             {
-                printf("%s \n", candidate[i].name);
+                printf("%s \n", candidates[i].name);
                 return;
             }
         }
