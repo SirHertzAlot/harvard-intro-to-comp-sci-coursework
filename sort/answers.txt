@@ -1,54 +1,29 @@
 sort1 uses: TODO
 
-sort/ $ time ./ sort1 random10000
-bash: ./: Is a directory
-
 real    0m0.001s
-user    0m0.001s
-sys     0m0.000s
+user    0m0.000s
+sys     0m0.001s
 sort/ $ time ./ sort1 random50000
-bash: ./: Is a directory
-
-real    0m0.004s
-user    0m0.000s
-sys     0m0.003s
-sort/ $ time ./ sort1 random5000
-bash: ./: Is a directory
-
-real    0m0.001s
-user    0m0.000s
-sys     0m0.000s
-sort/ $ time ./ sort1 reversed5000
-bash: ./: Is a directory
-
-real    0m0.001s
-user    0m0.001s
-sys     0m0.000s
-sort/ $ ^C
-sort/ $ time ./ sort1 reversed10000
-bash: ./: Is a directory
-
-real    0m0.001s
-user    0m0.001s
-sys     0m0.000s
-sort/ $ time ./ sort1 reversed50000
-bash: ./: Is a directory
-
-real    0m0.001s
-user    0m0.001s
-sys     0m0.000s
-sort/ $ time ./ sort1 sorted50000
-bash: ./: Is a directory
-
-real    0m0.001s
-user    0m0.001s
-sys     0m0.000s
-sort/ $ time ./ sort1 sorted5000
 bash: ./: Is a directory
 
 real    0m0.001s
 user    0m0.000s
 sys     0m0.001s
+sort/ $ time ./ sort1 random50000
+bash: ./: Is a directory
+
+real    0m0.001s
+user    0m0.001s
+sys     0m0.000s
+sort/ $ time ./ sort1 random10000
+bash: ./: Is a directory
+
+sort/ $ time ./ sort1 random5000
+bash: ./: Is a directory
+
+real    0m0.001s
+user    0m0.001s
+sys     0m0.000s
 
 How do you know?: TODO
 
