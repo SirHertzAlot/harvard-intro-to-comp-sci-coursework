@@ -135,6 +135,7 @@ bool vote(int voter, int rank, string name)
             {
                 preferences[i][j] = i;
             }
+            return true;
         }
     }
     return false;
@@ -179,6 +180,10 @@ int find_min(void)
         if(candidates[i].votes > n && candidates[i].eliminated == false)
         {
             min += candidates[i].votes;
+        }
+        if(candidates[i].eliminated == true)
+        {
+            break;
         }
     }
 
