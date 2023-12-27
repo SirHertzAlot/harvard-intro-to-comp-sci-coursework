@@ -190,8 +190,7 @@ bool is_tie(int min)
 {
     for(int i = 0; i < candidate_count; i++)
     {
-        int n = candidates.votes[i + 1];
-            if(candidates[i].votes == n)
+            if(candidate[i].votes == candidate[i - 1].votes)
             {
                 printf("%s\n", candidates[i].name);
             }
@@ -208,7 +207,7 @@ void eliminate(int min)
 {
     for(int i = 0; i < candidate_count; i++)
     {
-        if(candidate[i + 1].votes > candidate.votes[i] && candidates[i].eliminated == false)
+        if(candidate[i + 1].votes > candidate.votes[i] && candidate[i].eliminated == false)
         {
             candidates[i].eliminated = true;
         }
