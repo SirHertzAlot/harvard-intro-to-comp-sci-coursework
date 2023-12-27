@@ -71,7 +71,6 @@ bool vote(string name)
         {
             candidates[i].votes += 1;
         }
-        return false;
     }
     return true;
 }
