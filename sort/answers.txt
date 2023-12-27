@@ -74,4 +74,5 @@ real    0m0.089s
 user    0m0.023s
 sys     0m0.033s
 
-How do you know?: Time complexity doesn't seem to charge very much even when increasing the inputs or changing the inputs 
+How do you know?: Time complexity doesn't seem to charge very much even when increasing the inputs or when fuzzing or scrambling the inputs. Merge Sort maintains a stable time complexity
+even when the inputs increase or become fuzzed via randomization, etc.
