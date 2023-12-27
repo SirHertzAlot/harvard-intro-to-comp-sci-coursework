@@ -19,6 +19,27 @@ real    0m0.001s
 user    0m0.001s
 sys     0m0.000s
 
+sort/ $ time ./ sort1 reversed50000
+bash: ./: Is a directory
+
+real    0m0.001s
+user    0m0.001s
+sys     0m0.000s
+
+sort/ $ time ./ sort1 reversed10000
+bash: ./: Is a directory
+
+real    0m0.002s
+user    0m0.001s
+sys     0m0.000s
+
+sort/ $ time ./ sort1 reversed5000
+bash: ./: Is a directory
+
+real    0m0.001s
+user    0m0.001s
+sys     0m0.000s
+
 How do you know?: TODO
 
 sort2 uses: TODO
