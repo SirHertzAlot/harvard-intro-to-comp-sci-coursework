@@ -146,7 +146,7 @@ void tabulate(void)
     int j = 0;
     for(int i = 0; i < candidate_count; i++)
     {
-        if(preferences[j] == i && candidates[i].eliminated == false)
+        if(preferences[i][j] == i && candidates[i].eliminated == false)
         {
             candidates[j].votes++;
         }
@@ -164,7 +164,8 @@ bool print_winner(void)
                 printf("%s\n", candidates[i].name);
             }
         return true;
-      }
+    }
+    return false;
 }
 
 // Return the minimum number of votes any remaining candidate has
