@@ -42,7 +42,7 @@ sys     0m0.269s
 
 How do you know?: TODO
 
-sort3 uses: TODO
+sort3 uses: Merge Sort
 
 time ./sort3 sorted50000.txt
 
@@ -74,4 +74,4 @@ real    0m0.089s
 user    0m0.023s
 sys     0m0.033s
 
-How do you know?: TODO
+How do you know?: Time complexity doesn't seem to charge very much even when increasing the inputs or changing the inputs 
