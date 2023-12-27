@@ -14,7 +14,7 @@ sys     0m0.031s
 
 How do you know?: TODO
 
-sort2 uses: TODO
+sort2 uses: Merge Sort
 
 time ./sort2 random50000.txt
 
@@ -40,9 +40,10 @@ real    0m0.757s
 user    0m0.011s
 sys     0m0.269s
 
-How do you know?: TODO
+How do you know?: Time complexity doesn't seem to charge very much even when increasing the inputs or when fuzzing or scrambling the inputs. Merge Sort maintains a stable time complexity
+even when the inputs increase or become fuzzed via randomization, etc.
 
-sort3 uses: Merge Sort
+sort3 uses: Bubble Sort
 
 time ./sort3 sorted50000.txt
 
@@ -74,5 +75,4 @@ real    0m0.089s
 user    0m0.023s
 sys     0m0.033s
 
-How do you know?: Time complexity doesn't seem to charge very much even when increasing the inputs or when fuzzing or scrambling the inputs. Merge Sort maintains a stable time complexity
-even when the inputs increase or become fuzzed via randomization, etc.
+How do you know?: 
