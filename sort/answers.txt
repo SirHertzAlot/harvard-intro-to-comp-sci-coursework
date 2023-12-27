@@ -75,4 +75,4 @@ real    0m0.089s
 user    0m0.023s
 sys     0m0.033s
 
-How do you know?: 
+How do you know?: Maintains a consistent time complexity. 
