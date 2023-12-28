@@ -179,7 +179,7 @@ int find_min(void)
         int n = i + 1;
         if(candidates[i].votes > n && candidates[i].eliminated == false)
         {
-            min += candidates[i].votes;
+            min = candidates[i].votes;
         }
         if(candidates[i].eliminated == true)
         {
