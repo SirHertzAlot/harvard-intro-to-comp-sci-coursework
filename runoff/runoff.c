@@ -162,8 +162,8 @@ bool print_winner(void)
             if(candidates[i].votes > voter_count / 2 && candidates[i].eliminated == false)
             {
                 printf("%s\n", candidates[i].name);
+                return true;
             }
-        return true;
     }
     return false;
 }
