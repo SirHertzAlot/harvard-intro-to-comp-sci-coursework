@@ -133,9 +133,12 @@ bool vote(int voter, int rank, string name)
         {
             return false;
         }
-        for(int j = 0; j < voter - 1; j++)
+        else
         {
-            preferences[j][i] = rank;
+            for(int j = 0; j < voter - 1; j++)
+            {
+                preferences[j][i] = rank;
+            }
         }
     }
     return true;
