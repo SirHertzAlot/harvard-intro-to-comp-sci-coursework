@@ -150,7 +150,10 @@ void tabulate(void)
         {
             break;
         }
-        int votes = candidates[i].votes++;
+        if(preferences[i][j])
+        {
+            
+        }
     }
     return;
 }
