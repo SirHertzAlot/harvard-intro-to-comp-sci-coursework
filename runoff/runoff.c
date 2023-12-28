@@ -202,6 +202,7 @@ bool is_tie(int min)
                 printf("%s\n", candidates[i].name);
                 return true;
             }
+           return false;
       }
     return false;
 }
