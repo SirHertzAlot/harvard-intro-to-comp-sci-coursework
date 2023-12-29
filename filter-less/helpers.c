@@ -76,6 +76,19 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         *ptrFirstRedPixel = *ptrLastRedPixel;
         *ptrLastRedPixel = tempRed;
     }
+    for(int i = 0; i < width; i++)
+    {
+        int firstBluePixel = image[0][i].rgbtBlue;
+        int lastBluePixel = image[0][width - i].rgbtBlue;
+
+        int *ptrFirstBluePixel = &firstBluePixel;
+        int *ptrLastBluePixel = &lastBluePixel;
+
+        int tempBlue = 0;
+        tempBlue = *ptrFirstBluePixel;
+        *ptrFirstBluePixel = *ptrLastBluePixel;
+        *ptrLastBluePixel = tempBlue;
+    }
 }
 
 // Blur image
