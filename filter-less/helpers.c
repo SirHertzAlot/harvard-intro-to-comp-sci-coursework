@@ -63,10 +63,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-    int buffer[64] = {0};
-    FILE *input = fopen("images/tower.bmp", "r");
-
-    fread(buffer, 1, 3, input);
+    
 
 }
 
