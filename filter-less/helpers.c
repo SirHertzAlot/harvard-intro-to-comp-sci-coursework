@@ -72,8 +72,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         int temp = *redGb;
         *lastRedgb = *redGb;
         *lastRedgb = temp;
-
-        printf("image pixel value is %i at %p \n", image[i][j].rgbtRed, &image[i][j]);
     }
 }
 
