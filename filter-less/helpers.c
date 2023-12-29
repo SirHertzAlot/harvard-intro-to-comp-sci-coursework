@@ -65,9 +65,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for(int i = 10, j = 10; i > 0; i--, j--)
     {
-        printf("%i", image[i][j].rgbtRed);
-        printf("%i", image[i][j].rgbtBlue);
-        printf("%i", image[i][j].rgbtGreen);
+        printf("%i\n", image[i][j].rgbtRed);
+        printf("%i\n", image[i][j].rgbtBlue);
+        printf("%i\n", image[i][j].rgbtGreen);
     }
 }
 
