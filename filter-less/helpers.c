@@ -64,7 +64,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {   for(int i = 0; i > width; i++)
     {
         int originalPixelRed = image[i][j].rgbtRed;
-        int *redPix = originalPixelRed;
+        int *redPix = &originalPixelRed;
         int j = 0;
 
         image[height - i][width - i].rgbtRed;
