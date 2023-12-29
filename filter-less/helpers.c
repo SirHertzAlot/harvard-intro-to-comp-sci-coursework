@@ -62,14 +62,14 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
-     for(int i = height - 1; i == height - 54; i--)
+     for(int i = 1; i == height - 54; i--)
     {
-        for(int j = width - 1; j == width - 54; j--)
+        for(int j = 1; j == width - 54; j--)
         {
 
-                image[i][j].rgbtRed = image[height - i][width - i].rgbtRed;
-                image[i][j].rgbtBlue = image[height - i][width - i].rgbtRed;
-                image[i][j].rgbtGreen = image[height - i][width - i].rgbtRed;
+                image[i][j].rgbtRed = image[height - i][width - j].rgbtRed;
+                image[i][j].rgbtBlue = image[height - i][width - j].rgbtRed;
+                image[i][j].rgbtGreen = image[height - i][width - j].rgbtRed;
         }
     }
 }
