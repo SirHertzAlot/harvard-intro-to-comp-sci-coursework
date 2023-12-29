@@ -70,9 +70,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         int lastRedPixel = image[height - i][width - i].rgbtRed;
         int *ptrLastRedPixel = &lastRedPixel;
         lastRedPixel = firstRedPixel;
-        printf("%i\n", image[i][j].rgbtRed);
-        printf("%i\n", image[i][j].rgbtBlue);
-        printf("%i\n", image[i][j].rgbtGreen);
     }
 }
 
