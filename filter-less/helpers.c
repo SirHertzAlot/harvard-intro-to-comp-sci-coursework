@@ -73,7 +73,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             int lastRedPixel = image[width][height].rgbtRed;
             int *ptrLastRedPixel = &lastRedPixel;
 
-            int tempRed = *ptrFirstRedPixel;
+            int tempRed = 0;
+            tempRed = *ptrFirstRedPixel;
             *ptrFirstRedPixel = *ptrLastRedPixel;
             *ptrLastRedPixel = tempRed;
         }
