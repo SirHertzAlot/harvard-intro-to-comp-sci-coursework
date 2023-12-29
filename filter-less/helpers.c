@@ -72,6 +72,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtRed;
                 image[i][j].rgbtBlue;
                 image[i][j].rgbtGreen;
+                
+                height--;
             }
         }
 }
