@@ -73,26 +73,6 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         *lastRedgb = *redGb;
         *lastRedgb = temp;
     }
-    for(int i = width, j = height; i > 0; i--)
-    {
-        int Blue = image[i][j].rgbtBlue;
-        int *blue = &Blue;
-        int LastBlue = image[width - 1][height - 1].rgbtBlue;
-        int *lastBlue = &LastBlue;
-        int temp = *blue;
-        *lastBlue = *blue;
-        *lastBlue = temp;
-    }
-    for(int i = width, j = height; i > 0; i--)
-    {
-        int Green = image[i][j].rgbtGreen;
-        int *green = &Green;
-        int LastGreen = image[width - 1][height - 1].rgbtGreen;
-        int *lastgreen = &LastGreen;
-        int temp = *green;
-        *lastgreen = *green;
-        *lastgreen = temp;
-    }
 }
 
 // Blur image
