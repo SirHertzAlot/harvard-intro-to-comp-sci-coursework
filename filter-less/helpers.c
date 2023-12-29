@@ -68,17 +68,17 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         {
             int k = height;
             int l = width;
-            if(image[i][j].rgbtRed > 0)
+            if(image[i][j].rgbtRed >= 0)
             {
                 image[i][j].rgbtRed = image[k][l].rgbtRed;
                 image[k][l].rgbtRed = image[i][j].rgbtRed;
             }
-            if(image[i][j].rgbtBlue > 0)
+            if(image[i][j].rgbtBlue >= 0)
             {
                 image[i][j].rgbtBlue = image[k][l].rgbtBlue;
                 image[k][l].rgbtBlue = image[i][j].rgbtBlue;
             }
-            if(image[i][j].rgbtGreen > 0)
+            if(image[i][j].rgbtGreen >= 0)
             {
                 image[i][j].rgbtBlue = image[k][l].rgbtBlue;
                 image[k][l].rgbtBlue = image[i][j].rgbtBlue;
