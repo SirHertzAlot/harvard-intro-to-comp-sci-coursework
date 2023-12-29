@@ -68,16 +68,16 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         for(int j = 0; j < width; j++)
         {
             int firstRedPixel = image[i][j].rgbtRed;
-            int *ptrFirstRedPixel = &firstRedPixel;
-
-            int lastRedPixel = image[width][height].rgbtRed;
-            int *ptrLastRedPixel = &lastRedPixel;
-
-            int tempRed = 0;
-            tempRed = *ptrFirstRedPixel;
-            *ptrFirstRedPixel = *ptrLastRedPixel;
-            *ptrLastRedPixel = tempRed;
         }
+        int *ptrFirstRedPixel = &firstRedPixel;
+
+        int lastRedPixel = image[width][height].rgbtRed;
+        int *ptrLastRedPixel = &lastRedPixel;
+
+        int tempRed = 0;
+        tempRed = *ptrFirstRedPixel;
+        *ptrFirstRedPixel = *ptrLastRedPixel;
+        *ptrLastRedPixel = tempRed;
     }
 }
 
