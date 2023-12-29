@@ -75,7 +75,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             int *ptrLastRedPixel = &lastRedPixel;
 
             int tempRed = *ptrFirstRedPixel;
-            lastRedPixel = firstRedPixel;
+            *ptrFirstRedPixel = *ptrLastRedPixel;
+            *ptrLastRedPixel = tempRed;
 
             int firstBluePixel = image[i][j].rgbtBlue;
             int *ptrFirstBluePixel = &firstBluePixel;
@@ -83,8 +84,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             int lastBluePixel = image[width - 1][height - 1].rgbtBlue;
             int *ptrLastBluePixel = &lastBluePixel;
 
-            int tempBlue = 0;
-            lastBluePixel = firstBluePixel;
+            int tempBlue = *ptrFirstBluePixel;
+            *ptrFirstBluePixel = *ptrLastBluePixel;
+            ptrLastBluePixel = tempBlue;
 
             int firstGreenPixel = image[i][j].rgbtGreen;
             int *ptrFirstGreenPixel = &firstGreenPixel;
