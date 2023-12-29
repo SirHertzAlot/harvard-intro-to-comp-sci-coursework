@@ -76,6 +76,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         int *redPix = &originalPixelRed;
         int *greenPix = &originalPixelGreen;
         int *bluePix = &originalPixelBlue;
+
         printf("Pixel has value %i, at pointer %p \n", originalPixelRed, &originalPixelRed);
 
         j++;
