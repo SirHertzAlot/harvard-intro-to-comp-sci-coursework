@@ -65,6 +65,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for(int i = width, j = height; i > 0; i--)
     {
+        int redTemp = image[i][j].rgbtRed;
         printf("image pixel value is %i at %p \n", image[i][j].rgbtRed, &image[i][j]);
     }
 }
