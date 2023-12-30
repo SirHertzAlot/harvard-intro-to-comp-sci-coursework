@@ -84,23 +84,23 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     memcpy(img_cpy, image, sizeof(image[height][width]));
 
-    for(int i = 0; i < height; i++)
+    for(int i = 0; i < width; i++)
     {
         int full_count = 9;
         int sumRed = 0;
         int sumBlue = 0;
         int sumGreen = 0;
 
-        for(int j = 0; j < width; j++)
+        for(int j = 0; j < height; j++)
         {
-            if(j == 0)
+            if(i == 0)
             {
-                while(j == 0)
+                while(i < width)
                 {
                     sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i][j + 1].rgbtRed + img_cpy[i + 1][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed)  / 4;
                     sumBlue += round(img_cpy[i][j].rgbtBlue + img_cpy[i][j + 1].rgbtBlue + img_cpy[i + 1][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue) / 4;
                     sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i][j + 1].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen) / 4;
-                    j++;
+                    i++;
                 }
 
             }
