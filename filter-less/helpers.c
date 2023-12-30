@@ -79,18 +79,19 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE img_cpy[height][width];
     for(int i = 0; i < height; i++)
     {
         int sum[16];
 
         for(int j = 0; j < width; j++)
         {
+            RGBTRIPLE img_cpy[height][width];
+
             if(i == 0 && j == 0)
             {
                 while(j < 3)
                 {
-                    int sumRed = 
+                    int sumRed =
                 }
             } else if(i == height)
             {
