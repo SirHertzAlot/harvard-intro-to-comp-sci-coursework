@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 512, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        if(buffer[0] == 0xff && sizeof(buffer[3]) == )
+        if(buffer[0] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
 
         } else {
