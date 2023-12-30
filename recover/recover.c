@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    BYTE buffer[512];
+    BYTE buffer[4];
 
     while (fread(buffer, 512, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
