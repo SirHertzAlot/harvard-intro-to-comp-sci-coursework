@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef uint8_t BYTE;
+typedef unsigned char BYTE;
 
 int main(int argc, char *argv[])
 {
@@ -11,7 +11,12 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 512, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        printf("Inside while fread.");
+        if(buffer[0] != 0xff)
+        {
+
+        } else {
+            
+        }
     }
     fclose(file);
 }
