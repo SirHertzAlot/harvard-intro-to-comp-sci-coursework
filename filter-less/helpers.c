@@ -86,6 +86,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     for(int i = 0; i < height; i++)
     {
+        int avg = 0;
+
         int count = 0;
 
         int sumRed = 0;
@@ -115,6 +117,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     sumGreen += image[i][j].rgbtGreen + image[i + 1][j + 1].rgbtGreen + image[i - height - 1][j - width - 1].rgbtGreen;
                     count++;
             }
+            avg += (sumRed / count) + (sumBlue / count) + (sumGreen / count);
         }
     }
 
