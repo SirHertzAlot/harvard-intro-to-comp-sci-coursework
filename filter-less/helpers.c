@@ -84,8 +84,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     memcpy (img_cpy, image, sizeof(img_cpy));
 
-    int avgRed, avgGreen, avgBlue = 0;
-
     for(int i = 0; i < height; i++)
     {
         int full_count = 9;
@@ -114,9 +112,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             //         sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i - height - 1][j - width - 1].rgbtGreen) / j;
             // }
 
-            image[i][j].rgbtRed = avgRed;
-            image[i][j].rgbtBlue = avgBlue;
-            image[i][j].rgbtGreen = avgGreen;
+            image[i][j].rgbtRed = sumRed;
+            image[i][j].rgbtBlue = sumBlue;
+            image[i][j].rgbtGreen = sumGreen;
         }
     }
 
