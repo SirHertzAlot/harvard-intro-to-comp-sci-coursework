@@ -86,49 +86,47 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     for(int i = 0; i < height; i++)
     {
-        int sum[16];
+        int count = 0;
+
+        int sumRed = 0;
+        int sumBlue = 0;
+        int sumGreen = 0;
 
         for(int j = 0; j < width; j++)
         {
             if(i == 0 && j == 0)
             {
-                int count = 0;
 
                 while(count < 3)
                 {
-                    int sumRed = image[i][j].rgbtRed + image[i + 1][j + 1].rgbtRed;
-                    int sumBlue = image[i][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue;
-                    int sumGreen = image[i][j].rgbtGreen + image[i + 1][j + 1].rgbtGreen;
+                    sumRed += image[i][j].rgbtRed + image[i + 1][j + 1].rgbtRed;
+                    sumBlue += image[i][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue;
+                    sumGreen += image[i][j].rgbtGreen + image[i + 1][j + 1].rgbtGreen;
                     count++;
                 }
             }
             else if(i == height && j == width - 1)
             {
-                int count = 0;
-
                 while(count < 3)
                 {
-                    int sumRed = image[i][j].rgbtRed + image[i - 1][j - 1].rgbtRed;
-                    int sumBlue = image[i][j].rgbtBlue + image[i - 1][j - 1].rgbtBlue;
-                    int sumGreen = image[i][j].rgbtGreen + image[i - 1][j - 1].rgbtGreen;
+                    sumRed += image[i][j].rgbtRed + image[i - 1][j - 1].rgbtRed;
+                    sumBlue += image[i][j].rgbtBlue + image[i - 1][j - 1].rgbtBlue;
+                    sumGreen += image[i][j].rgbtGreen + image[i - 1][j - 1].rgbtGreen;
                     count++;
                 }
             }
             else
             {
-                int count = 0;
-
                 while(count < 3)
                 {
-                    int sumRed = image[i][j].rgbtRed + image[i + 1][j + 1].rgbtRed + image[i - height - 1][j - width - 1].rgbtRed;
-                    int sumBlue = image[i][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue + image[i - height - 1][j - width - 1].rgbtBlue;
-                    int sumGreen = image[i][j].rgbtGreen + image[i + 1][j + 1].rgbtGreen + image[i - height - 1][j - width - 1].rgbtGreen;
+                    sumRed += image[i][j].rgbtRed + image[i + 1][j + 1].rgbtRed + image[i - height - 1][j - width - 1].rgbtRed;
+                    sumBlue += image[i][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue + image[i - height - 1][j - width - 1].rgbtBlue;
+                    sumGreen += image[i][j].rgbtGreen + image[i + 1][j + 1].rgbtGreen + image[i - height - 1][j - width - 1].rgbtGreen;
                     count++;
                 }
             }
         }
 
-        int length = sizeof(sum)/sizeof(sum[0]);
         int avg = sum[i] / length;
     }
     return;
