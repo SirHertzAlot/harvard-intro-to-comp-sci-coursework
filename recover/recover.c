@@ -11,6 +11,12 @@ int main(int argc, char *argv[])
     char *filename = argv[1];
     FILE *file = fopen(argv[1], "r");
 
+    if(file == NULL)
+    {
+        printf("File not found.");
+        return 1;
+    }
+
     BYTE buffer[512];
 
     while (fread(buffer, 512, BLOCK_SIZE, file) == BLOCK_SIZE)
