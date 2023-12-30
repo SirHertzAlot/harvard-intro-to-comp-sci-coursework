@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef unsigned char BYTE;
-
 int main(int argc, char *argv[])
 {
     if(argc != 2)
