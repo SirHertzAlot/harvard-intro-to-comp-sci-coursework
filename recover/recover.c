@@ -11,11 +11,11 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 512, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
-        if(buffer[0] != 0xff)
+        if(buffer[0] == 0xff && sizeof(buffer[3]) == )
         {
 
         } else {
-            
+
         }
     }
     fclose(file);
