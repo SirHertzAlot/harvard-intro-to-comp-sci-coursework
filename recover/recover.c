@@ -7,6 +7,8 @@ int main(int argc, char *argv[])
 
     typedef uint8_t BYTE;
 
+    BYTE buffer[512];
+
     while (fread(buffer, 512, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
 
