@@ -88,7 +88,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     for(int i = 0; i < height; i++)
     {
-        int count = 0;
+        int rcount, hcount = 0;
 
         int sumRed = 0;
         int sumBlue = 0;
@@ -101,21 +101,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed) / j;
                     sumBlue += round(img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue) / j;
                     sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen) / j;
-                    count++;
+                    rcount++;
             }
             else if(i == height && j == width - 1)
             {
                     sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i - 1][j - 1].rgbtRed) / j;
                     sumBlue += round(img_cpy[i][j].rgbtBlue + img_cpy[i - 1][j - 1].rgbtBlue) / j;
                     sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i - 1][j - 1].rgbtGreen) / j;
-                    count++;
+                    rcount++;
             }
             else
             {
                     sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed + img_cpy[i - height - 1][j - width - 1].rgbtRed) / j;
                     sumBlue += round(img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i - height - 1][j - width - 1].rgbtBlue) / j;
                     sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i - height - 1][j - width - 1].rgbtGreen) / j;
-                    count++;
+                    rcount++;
             }
             avg += (sumRed) + (sumBlue) + (sumGreen);
 
@@ -123,6 +123,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtBlue = avg;
             image[i][j].rgbtGreen = avg;
         }
+        hcount++;
     }
 
 }
