@@ -90,7 +90,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 while(j < 3)
                 {
-                    
+                    int sumRed = 
                 }
             } else if(i == height)
             {
