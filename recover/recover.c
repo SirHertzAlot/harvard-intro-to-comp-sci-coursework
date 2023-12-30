@@ -7,7 +7,11 @@ int main(int argc, char *argv[])
 
     typedef uint8_t BYTE;
 
-    
+    while (fread(buffer, 1, BLOCK_SIZE, raw_file) == BLOCK_SIZE)
+    {
+        
+    }
+
 
     fclose(file);
 }
