@@ -12,7 +12,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         {
             if(image)
             {
-                int round(avg) = (image[i][j].rgbtRed + image[i][j].rgbtBlue + image[i][j].rgbtGreen) / 3;
+                int avg = round(image[i][j].rgbtRed + image[i][j].rgbtBlue + image[i][j].rgbtGreen) / 3;
                 image[i][j].rgbtRed = avg;
                 image[i][j].rgbtBlue = avg;
                 image[i][j].rgbtGreen = avg;
@@ -30,9 +30,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
         {
             if(image)
             {
-                int sepiaRed = .393 * image[i][j].rgbtRed + .769 * image[i][j].rgbtGreen + .189 * image[i][j].rgbtBlue;
-                int sepiaGreen = .349 * image[i][j].rgbtRed + .686 * image[i][j].rgbtGreen + .168 * image[i][j].rgbtBlue;
-                int sepiaBlue = .272 * image[i][j].rgbtRed + .534 * image[i][j].rgbtGreen + .131 * image[i][j].rgbtBlue;
+                int sepiaRed = round(.393 * image[i][j].rgbtRed + .769 * image[i][j].rgbtGreen + .189 * image[i][j].rgbtBlue);
+                int sepiaGreen = round(.349 * image[i][j].rgbtRed + .686 * image[i][j].rgbtGreen + .168 * image[i][j].rgbtBlue);
+                int sepiaBlue = round(.272 * image[i][j].rgbtRed + .534 * image[i][j].rgbtGreen + .131 * image[i][j].rgbtBlue);
 
                 if(round(sepiaRed) > 255)
                 {
