@@ -112,9 +112,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
             else
             {
-                    sumRed += image[i][j].rgbtRed + image[i + 1][j + 1].rgbtRed + image[i - height - 1][j - width - 1].rgbtRed;
-                    sumBlue += image[i][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue + image[i - height - 1][j - width - 1].rgbtBlue;
-                    sumGreen += image[i][j].rgbtGreen + image[i + 1][j + 1].rgbtGreen + image[i - height - 1][j - width - 1].rgbtGreen;
+                    sumRed += img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed + img_cpy[i - height - 1][j - width - 1].rgbtRed;
+                    sumBlue += img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i - height - 1][j - width - 1].rgbtBlue;
+                    sumGreen += img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i - height - 1][j - width - 1].rgbtGreen;
                     count++;
             }
             avg += (sumRed / count) + (sumBlue / count) + (sumGreen / count);
