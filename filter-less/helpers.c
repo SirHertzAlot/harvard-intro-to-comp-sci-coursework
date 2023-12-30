@@ -100,7 +100,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             if(i == 0)
             {
-                while(i < height)
+                while(i < width)
                 {
                     sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i][j + 1].rgbtRed + img_cpy[i + 1][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed)  / 4;
                     sumBlue += round(img_cpy[i][j].rgbtBlue + img_cpy[i][j + 1].rgbtBlue + img_cpy[i + 1][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue) / 4;
