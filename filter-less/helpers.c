@@ -96,28 +96,28 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
         for(int j = 0; j < width; j++)
         {
-            if(i == 0 && j == 0)
+            if(j == 0)
             {
-                    sumRed += img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed;
-                    sumBlue += img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue;
-                    sumGreen += img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen;
+                    sumRed += img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed / j;
+                    sumBlue += img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue / j;
+                    sumGreen += img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen / j;
                     count++;
             }
             else if(i == height && j == width - 1)
             {
-                    sumRed += img_cpy[i][j].rgbtRed + img_cpy[i - 1][j - 1].rgbtRed;
-                    sumBlue += img_cpy[i][j].rgbtBlue + img_cpy[i - 1][j - 1].rgbtBlue;
-                    sumGreen += img_cpy[i][j].rgbtGreen + img_cpy[i - 1][j - 1].rgbtGreen;
+                    sumRed += img_cpy[i][j].rgbtRed + img_cpy[i - 1][j - 1].rgbtRed / j;
+                    sumBlue += img_cpy[i][j].rgbtBlue + img_cpy[i - 1][j - 1].rgbtBlue / j;
+                    sumGreen += img_cpy[i][j].rgbtGreen + img_cpy[i - 1][j - 1].rgbtGreen / j;
                     count++;
             }
             else
             {
-                    sumRed += img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed + img_cpy[i - height - 1][j - width - 1].rgbtRed;
-                    sumBlue += img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i - height - 1][j - width - 1].rgbtBlue;
-                    sumGreen += img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i - height - 1][j - width - 1].rgbtGreen;
+                    sumRed += img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed + img_cpy[i - height - 1][j - width - 1].rgbtRed / j;
+                    sumBlue += img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i - height - 1][j - width - 1].rgbtBlue / j;
+                    sumGreen += img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i - height - 1][j - width - 1].rgbtGreen / j;
                     count++;
             }
-            avg += (sumRed / count) + (sumBlue / count) + (sumGreen / count);
+            avg += (sumRed) + (sumBlue) + (sumGreen);
 
             image[i][j].rgbtRed = avg;
             image[i][j].rgbtBlue = avg;
