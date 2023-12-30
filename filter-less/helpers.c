@@ -96,7 +96,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for(int j = 0; j < width; j++)
         {
             if(j == 0)
-            {
+            {//                         row 0,col 0
                     sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i][j + 1].rgbtRed + img_cpy[i + 1][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed)  / 4;
                     sumBlue += round(img_cpy[i + 1][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i + 1][j + 2].rgbtBlue) / 9;
                     sumGreen += round(img_cpy[i + 2][j].rgbtGreen + img_cpy[i + 2][j + 1].rgbtGreen + img_cpy[i + 2][j + 2].rgbtGreen) / 9;
