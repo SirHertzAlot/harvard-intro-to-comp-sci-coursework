@@ -1,6 +1,7 @@
 #include "helpers.h"
 #include <math.h>
 #include <stdio.h>
+#include <string.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -79,9 +80,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    memcpy (img_cpy, image, sizeof(img_cpy));
-
     RGBTRIPLE img_cpy[height][width];
+
+    memcpy (img_cpy, image, sizeof(img_cpy));
 
     for(int i = 0; i < height; i++)
     {
@@ -95,9 +96,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 while(count < 3)
                 {
-                    int sumRed = image[i][j].rgbtRed + image.rgbtRed[i + 1][j + 1];
-                    int sumBlue = image[i][j].rgbtBlue + image.rgbtBlue[i + 1][j + 1];
-                    int sumGreen = image[i][j].rgbtGreen + image.rgbtGreen[i + 1][j + 1];
+                    int sumRed = image[i][j].rgbtRed + image[i + 1][j + 1].rgbtRed;
+                    int sumBlue = image[i][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue;
+                    int sumGreen = image[i][j].rgbtGreen + image[i + 1][j + 1].rgbtGreen;
                     count++;
                 }
             }
@@ -107,21 +108,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                 while(count < 3)
                 {
-                    int sumRed = image[i][j].rgbtRed + image.rgbtRed[i - 1][j - 1];
-                    int sumBlue = image[i][j].rgbtBlue + image.rgbtBlue[i - 1][j - 1];
-                    int sumGreen = image[i][j].rgbtGreen + image.rgbtGreen[i - 1][j - 1];
+                    int sumRed = image[i][j].rgbtRed + image[i - 1][j - 1].rgbtRed;
+                    int sumBlue = image[i][j].rgbtBlue + image[i - 1][j - 1].rgbtBlue;
+                    int sumGreen = image[i][j].rgbtGreen + image[i - 1][j - 1].rgbtGreen;
                     count++;
                 }
             }
-             int count = 0;
-
-                while(count < 3)
-                {
-                    int sumRed = image[i][j].rgbtRed + image.rgbtRed[i + 1][j + 1] + image.rgbtRed[i - 1][j - 1];
-                    int sumBlue = image[i][j].rgbtBlue + image.rgbtBlue[i + 1][j + 1] + image.rgbtBlue[i - 1][j - 1];
-                    int sumGreen = image[i][j].rgbtGreen + image.rgbtGreen[i + 1][j + 1] + image.rgbtGreen[i - 1][j - 1];
-                    count++;
-                }
         }
 
         int length = sizeof(sum)/sizeof(sum[0]);
