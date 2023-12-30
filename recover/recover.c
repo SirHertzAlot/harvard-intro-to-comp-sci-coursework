@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
     BYTE buffer[4];
 
-    while (fread(buffer, 512, BLOCK_SIZE, file) == BLOCK_SIZE)
+    while (fread(buffer, 1, 4, file) == 4)
     {
         if((buffer[0] == 0xff) && (buffer[1] == 0xd8) && (buffer[2] == 0xff) && (buffer[3] & 0xf0) == 0xe0)
         {
