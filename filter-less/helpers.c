@@ -84,7 +84,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     memcpy (img_cpy, image, sizeof(img_cpy));
 
-    int avg = 0;
+    int avgRed, avgGreen, avgBlue = 0;
 
     for(int i = 0; i < height; i++)
     {
@@ -101,23 +101,25 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     sumBlue += round(img_cpy[i + 1][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i + 1][j + 2].rgbtBlue) / 9;
                     sumGreen += round(img_cpy[i + 2][j].rgbtGreen + img_cpy[i + 2][j + 1].rgbtGreen + img_cpy[i + 2][j + 2].rgbtGreen) / 9;
             }
-            else if((i == height) && (j == width - 1) && )
-            {
-                    sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i - 1][j - 1].rgbtRed) / j;
-                    sumBlue += round(img_cpy[i - 1][j].rgbtBlue + img_cpy[i - 1][j - 1].rgbtBlue) / j;
-                    sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i][j - 1].rgbtGreen) / j;
-            }
-            else if((i > 0 && i < height) && (j > 0 && j < width))
-            {
-                    sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed + img_cpy[i - height - 1][j - width - 1].rgbtRed) / j;
-                    sumBlue += round(img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i - height - 1][j - width - 1].rgbtBlue) / j;
-                    sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i - height - 1][j - width - 1].rgbtGreen) / j;
-            }
-            avg += (sumRed) + (sumBlue) + (sumGreen);
+            // else if((i == height) && (j == width - 1) && )
+            // {
+            //         sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i - 1][j - 1].rgbtRed) / j;
+            //         sumBlue += round(img_cpy[i - 1][j].rgbtBlue + img_cpy[i - 1][j - 1].rgbtBlue) / j;
+            //         sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i][j - 1].rgbtGreen) / j;
+            // }
+            // else if((i > 0 && i < height) && (j > 0 && j < width))
+            // {
+            //         sumRed += round(img_cpy[i][j].rgbtRed + img_cpy[i + 1][j + 1].rgbtRed + img_cpy[i - height - 1][j - width - 1].rgbtRed) / j;
+            //         sumBlue += round(img_cpy[i][j].rgbtBlue + img_cpy[i + 1][j + 1].rgbtBlue + img_cpy[i - height - 1][j - width - 1].rgbtBlue) / j;
+            //         sumGreen += round(img_cpy[i][j].rgbtGreen + img_cpy[i + 1][j + 1].rgbtGreen + img_cpy[i - height - 1][j - width - 1].rgbtGreen) / j;
+            // }
+            avgRed = sumRed;
+            avgBlue = sumBlue;
+            avgGreen = sumGreen;
 
-            image[i][j].rgbtRed = avg;
-            image[i][j].rgbtBlue = avg;
-            image[i][j].rgbtGreen = avg;
+            image[i][j].rgbtRed = avgRed;
+            image[i][j].rgbtBlue = avgBlue;
+            image[i][j].rgbtGreen = avgGreen;
         }
     }
 
