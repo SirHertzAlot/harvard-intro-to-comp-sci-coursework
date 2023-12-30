@@ -5,6 +5,7 @@ typedef unsigned char BYTE;
 
 int main(int argc, char *argv[])
 {
+    char *filename = argv[1];
     FILE *file = fopen(argv[1], "r");
 
     BYTE buffer[512];
