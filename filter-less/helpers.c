@@ -89,7 +89,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
 
         int length = sizeof(sum)/sizeof(sum[0]);
-        int avg = (int)sum / length;
+        int avg = sum[i] / length;
     }
     return;
 }
