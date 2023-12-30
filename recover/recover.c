@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     {
         if(buffer[0] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-
+            sprintf(filename, "%03i.jpg", 2);
         } else {
 
         }
