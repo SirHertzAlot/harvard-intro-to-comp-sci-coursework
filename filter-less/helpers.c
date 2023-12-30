@@ -84,14 +84,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     memcpy(img_cpy, image, sizeof(image[height][width]));
 
-    for(int i = 0; i < width; i++)
+    for(int i = 0; i < height; i++)
     {
         int full_count = 9;
         int sumRed = 0;
         int sumBlue = 0;
         int sumGreen = 0;
 
-        for(int j = 0; j < height; j++)
+        for(int j = 0; j < width; j++)
         {
             if(i == 0)
             {
