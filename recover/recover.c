@@ -7,7 +7,7 @@ typedef uint8_t BYTE;
 int main(int argc, char *argv[])
 {
   BYTE buffer[512];
-  int n = 1;
+  int n = 0;
   char filename[327];
   FILE *img;
   BYTE found = 0;
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
   if(argc != 2)
   {
     printf("Usage: ./recover filename \n");
-    return 0;
+    return 1;
   }
 
   FILE *file = fopen(argv[1], "r");
@@ -49,6 +49,6 @@ int main(int argc, char *argv[])
   else
   {
     printf("Error: file not found.\n");
-    return 0;
+    return 1;
   }
 }
