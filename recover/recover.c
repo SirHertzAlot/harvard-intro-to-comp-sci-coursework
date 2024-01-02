@@ -6,32 +6,49 @@ typedef uint8_t BYTE;
 
 int main(int argc, char *argv[])
 {
-    if(argc != 2)
-    {
-        printf("Useage: ./recover filename.raw ");
-        return 1;
-    }
-    char *filename = argv[1];
-    FILE *file = fopen(argv[1], "r");
+  BYTE buffer[512];
+  int n = 1;
+  char filename[327];
+  FILE *img;
+  BYTE found = 0;
 
-    if(file == NULL)
-    {
-        printf("File not found.");
-        return 1;
-    }
+  if(argc != 2)
+  {
+    printf("Usage: ./recover filename \n");
+    return 0;
+  }
 
-    BYTE buffer[4];
-
-    uint8_t signature[] = {0xff, 0xd8, 0xff}
-
-    while (fread(buffer, 1, 4, file) == 4)
-    {
-        if((buffer[0] != signature[0]) && (buffer[1] != signature[1]) && (buffer[2] != signature[2]) && (buffer[3] & 0xf0) == 0xe0)
+  FILE *file = fopen(argv[1], "r");
+  if(file)
+  {
+    while (fread(buffer, 1, 512, file) == 512)
+      {
+        if(buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
-            printf("Doesn't appear to be a jpeg.");
+          if(found == 1)
+          {
+            fclose(img);
+          }
+          else
+          {
+            found = 1;
+          }
+           sprintf(filename,"%03i.jpg",n);
+          img = fopen(filename, "wb");
+          n++;
         }
-
-
+        if(found == 1)
+        {
+          fwrite(&buffer, 512, 1, img);
+          printf("recovery successful. recovered %i items.\n", n);
+        }
     }
+    fclose(img);
     fclose(file);
+  }
+  else
+  {
+    printf("Error: file not found.\n");
+    return 0;
+  }
 }
