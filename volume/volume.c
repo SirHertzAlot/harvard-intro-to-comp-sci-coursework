@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     // TODO: Copy header from input file to output file
     uint8_t header[44];
 
-    while(fread(header, 1, 44, input))
+    while(fread(header, 1, 44, input) == 44)
     {
         fwrite(&header, 44, 1, output);
     }
