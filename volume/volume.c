@@ -36,18 +36,17 @@ int main(int argc, char *argv[])
     // TODO: Copy header from input file to output file
     uint8_t header[44];
 
-    while(fread(header, 1, 44, input) == 44)
+    while(fread(header, 1, 44, input) != 44)
     {
         fwrite(&header, 44, 1, output);
     }
 
     uint16_t buffer;
 
-    while(fread(&buffer, sizeof(int16_t), 1, input))
+    while(fread(&buffer, sizeof(int16_t), 1, input) != sizeof(int16_t))
     {
         buffer *= factor;
         fwrite(&buffer, 1, sizeof(int16_t), output);
-
     }
 
     // TODO: Read samples from input file and write updated data to output file
