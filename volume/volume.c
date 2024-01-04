@@ -36,14 +36,14 @@ int main(int argc, char *argv[])
     // TODO: Copy header from input file to output file
     uint8_t header[HEADER_SIZE];
 
-    while(fread(header, HEADER_SIZE, 1, input) != 0)
+    while(fread(header, HEADER_SIZE, 1, input))
     {
         fwrite(&header, 1, HEADER_SIZE, output);
     }
 
     uint16_t buffer;
 
-    while(fread(&buffer, sizeof(int16_t), 1, input) != 0)
+    while(fread(&buffer, sizeof(int16_t), 1, input))
     {
         buffer *= factor;
         fwrite(&buffer, 1, sizeof(int16_t), output);
