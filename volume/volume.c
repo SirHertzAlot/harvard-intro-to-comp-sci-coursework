@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
     while(fread(header, 44, 1, input))
     {
-        fwrite(&header, 1, 44, output);
+        fwrite(&header, 44, 1, output);
     }
 
     uint16_t buffer;
