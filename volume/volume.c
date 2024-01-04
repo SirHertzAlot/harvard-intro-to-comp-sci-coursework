@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
 
     while(fread(header, 1, 44, input) != 44)
     {
-        fwrite(&header, 44, 1, output);
+        fwrite(header, 44, 1, output);
     }
 
     uint16_t buffer;
 
-    while(fread(&buffer, sizeof(int16_t), 1, input) != sizeof(int16_t))
+    while(fread(&buffer, sizeof(int16_t), 1, input))
     {
         buffer *= factor;
         fwrite(&buffer, 1, sizeof(int16_t), output);
