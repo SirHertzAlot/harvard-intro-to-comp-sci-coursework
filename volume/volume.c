@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
         fwrite(&header, 1, 44, output);
     }
 
-    uint16_t buffer[sizeof(int16_t)];
+    uint16_t buffer;
 
     while(fread(&buffer, sizeof(int16_t), 1, input))
     {
