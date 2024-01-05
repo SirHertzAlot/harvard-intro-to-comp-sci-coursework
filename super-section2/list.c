@@ -26,6 +26,8 @@ int main(void)
 
         // TODO: add phrase to new node in list
 
+        
+
         // Visualize list after adding a node.
         visualizer(list);
     }
