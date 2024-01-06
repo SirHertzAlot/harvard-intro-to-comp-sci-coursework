@@ -76,6 +76,7 @@ int main(int argc, char *argv[])
 
     // Allocate memory for image
     RGBTRIPLE(*image)[width] = calloc(height, width * sizeof(RGBTRIPLE));
+
     if (image == NULL)
     {
         printf("Not enough memory to store image.\n");
