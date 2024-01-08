@@ -5,6 +5,8 @@
 
 #include "dictionary.h"
 
+const char *buffer;
+
 // Represents a node in a hash table
 typedef struct node
 {
@@ -40,7 +42,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    while(fread(&c, sizeof(char), 1, file))
+    while(fread(&buffer, sizeof(const char *), 1, file))
     {
         
     }
