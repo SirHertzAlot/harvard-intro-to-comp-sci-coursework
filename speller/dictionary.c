@@ -5,8 +5,6 @@
 
 #include "dictionary.h"
 
-const char *buffer;
-
 // Represents a node in a hash table
 typedef struct node
 {
