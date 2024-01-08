@@ -40,7 +40,10 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    
+    while(fread(&c, sizeof(char), 1, file))
+    {
+        
+    }
 
 }
 
