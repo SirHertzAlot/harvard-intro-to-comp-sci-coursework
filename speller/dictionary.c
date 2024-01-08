@@ -42,10 +42,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    while(fread(&buffer, sizeof(const char *), 1, file))
-    {
-        fwrite()
-    }
+    fread(&buffer, sizeof(const char *), 1, file);
 
 }
 
