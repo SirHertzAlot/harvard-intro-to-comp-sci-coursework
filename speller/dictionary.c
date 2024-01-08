@@ -45,8 +45,9 @@ bool load(const char *dictionary)
     fread(&buffer, sizeof(const char *), 1, file);
     if(buffer)
     {
-        
+
     }
+    fclose(file);
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
