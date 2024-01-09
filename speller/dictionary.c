@@ -73,14 +73,14 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     file = fopen(dictionary, "r");
-    char word[LENGTH + 1];
+    char wrd[LENGTH + 1];
 
     if(file == NULL)
     {
         return false;
     }
 
-    while(fscanf(file, "%s", word) != EOF)
+    while(fscanf(file, "%s", wrd) != EOF)
     {
         //Allocate memory for node.
         node *n = malloc(sizeof(node));
@@ -90,7 +90,7 @@ bool load(const char *dictionary)
             return false;
         }
 
-        strcpy(n->word, word);
+        strcpy(n->word, wrd);
         //Set Next to null if there is no next.
         n->next = NULL;
 
