@@ -35,12 +35,12 @@ bool check(const char *word)
 
     for(int i = 0; i < strlen(word); i++)
     {
-        lcword[i] = tolower(word[i]);
+        lower[i] = tolower(word[i]);
     }
 
     while(start != NULL)
     {
-        if(strcasecmp(word, start->word) == 0)
+        if(strcasecmp(lower, start->word) == 0)
         {
             return true;
         }
