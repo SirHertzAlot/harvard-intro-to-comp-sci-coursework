@@ -5,6 +5,5 @@ while True:
     if height > 0:
         break
 
-for i in range(0, height + 1):
+for i in range(height + 1, 0):
     print('#' * i)
-print()
