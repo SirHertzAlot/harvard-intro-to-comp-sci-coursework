@@ -83,7 +83,7 @@ bool load(const char *dictionary)
     while(fscanf(file, "%s", word) != EOF)
     {
         //Allocate memory for node.
-        struct node *n = malloc(sizeof(node));
+        node *n = malloc(sizeof(node));
 
         if(n == NULL)
         {
