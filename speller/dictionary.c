@@ -77,34 +77,33 @@ bool load(const char *dictionary)
 {
     file = fopen(dictionary, "r");
 
-    if(dictionary == NULL)
+    if(file == NULL)
     {
         return false;
-    }
+    } else {
+        char w[LENGTH + 1];
 
-    char w[LENGTH + 1];
-
-    while(fscanf(file, "%s", w) != EOF)
-    {
-        //Allocate memory for node.
-        node *n = malloc(sizeof(node));
-
-        if(n == NULL)
+        while(fscanf(file, "%s", w) != EOF)
         {
-            return false;
+            //Allocate memory for node.
+            node *n = malloc(sizeof(node));
+
+            if(n == NULL)
+            {
+                return false;
+            }
+
+            strcpy(n->word, w);
+            int value = hash(w);
+
+            n->next = table[value];
+            table[value] = n;
+            count++;
         }
-
-        strcpy(n->word, w);
-        int value = hash(w);
-
-        n->next = table[value];
-        table[value] = n;
-        count++;
     }
-
-    return false;
 
     fclose(file);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
