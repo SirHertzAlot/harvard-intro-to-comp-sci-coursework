@@ -46,7 +46,6 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     int n = 0;
-    int base = toupper(word[0]) - 'A';
 
     for(int i = 0; i < strlen(word); i++)
     {
@@ -60,10 +59,7 @@ unsigned int hash(const char *word)
             {
                 n = c % 1000;
             }
-            else
-            {
-                n = base + c;
-            }
+            return n += c;
         }
     }
     // TODO: Improve this hash function
