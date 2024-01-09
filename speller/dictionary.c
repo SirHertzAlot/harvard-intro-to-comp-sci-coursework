@@ -20,7 +20,7 @@ int count = 0;
 FILE *file;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 10400;
+const unsigned int N = 100400;
 
 // Hash table
 node *table[N];
