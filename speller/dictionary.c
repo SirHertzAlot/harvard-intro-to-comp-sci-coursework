@@ -15,7 +15,8 @@ typedef struct node
     struct node *next;
 } node;
 
-int count;
+int hash_count = 0;
+int count = 0;
 FILE *file;
 
 // TODO: Choose number of buckets in hash table
@@ -61,6 +62,11 @@ unsigned int hash(const char *word)
             }
             n += c;
         }
+        if(hash_count > 3)
+        {
+            return n;
+        }
+        hash_count++;
     }
     // TODO: Improve this hash function
     return n;
