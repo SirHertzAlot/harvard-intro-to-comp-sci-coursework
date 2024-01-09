@@ -28,6 +28,7 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
+    const char lower = tolower(*word);
     int value = hash(word);
 
     node *start = table[value];
@@ -46,12 +47,11 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    const char lower = tolower(*word);
     int n = 0;
 
     for(int i = 0; i != strlen(word); i++)
     {
-        //const char lower = tolower(word[i]);
+        const char lower = tolower(word[i]);
 
         if(isalpha(lower))
         {
