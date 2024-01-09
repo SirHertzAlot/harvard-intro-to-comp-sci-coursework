@@ -47,7 +47,7 @@ unsigned int hash(const char *word)
 {
     int n = 0;
 
-    for(int i = 0; i < strlen(word); i++)
+    for(int i = 0; i != strlen(word); i++)
     {
         const char lower = tolower(word[i]);
 
