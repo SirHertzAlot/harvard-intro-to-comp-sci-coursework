@@ -84,19 +84,19 @@ bool load(const char *dictionary)
     {
         //Allocate memory for node.
         node *n = malloc(sizeof(node));
+        char wtl[LENGTH + 1];
 
         if(n == NULL)
         {
             return false;
         }
 
-        strcpy(n->word, word);
+        strcpy(n->word, wtl);
         //Set Next to null if there is no next.
         n->next = NULL;
 
         n->next = table[count];
         table[count] = n;
-
         count++;
     }
 
