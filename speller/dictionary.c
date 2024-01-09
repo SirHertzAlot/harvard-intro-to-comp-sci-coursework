@@ -73,7 +73,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     file = fopen(dictionary, "r");
-    char *word = NULL;
+    char word;
 
     if(file == NULL)
     {
