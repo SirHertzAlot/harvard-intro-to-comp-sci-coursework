@@ -30,7 +30,7 @@ bool check(const char *word)
     int value = hash(word);
 
     node *start = table[value];
-    
+
     while(start->next != NULL)
     {
         if(strcasecmp(word, start->word) == 0)
@@ -74,14 +74,15 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     file = fopen(dictionary, "r");
-    char w[LENGTH + 1];
 
     if(dictionary == NULL)
     {
         return false;
     }
 
-    while(fscanf(file, "%s", w) != 0)
+    char w[LENGTH + 1];
+
+    while(fscanf(file, "%s", w) != EOF)
     {
         //Allocate memory for node.
         node *n = malloc(sizeof(node));
@@ -91,12 +92,11 @@ bool load(const char *dictionary)
             return false;
         }
 
-        strcpy(n->word, wrd);
-        //Set Next to null if there is no next.
-        n->next = NULL;
+        strcpy(n->word, w);
+        int value = hash(w);
 
-        n->next = table[count];
-        table[count] = n;
+        n->next = table[value];
+        table[value] = n;
         count++;
     }
 
