@@ -33,14 +33,9 @@ bool check(const char *word)
 
     node *start = table[value];
 
-    for(int i = 0; i < strlen(word); i++)
-    {
-        lower[i] = tolower(word[i]);
-    }
-
     while(start != NULL)
     {
-        if(strcasecmp(lower, start->word) == 0)
+        if(strcasecmp(word, start->word) == 0)
         {
             return true;
         }
