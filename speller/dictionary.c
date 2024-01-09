@@ -80,7 +80,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    while(fscanf(file, "%s", wrd) != EOF)
+    while(fscanf(file, "%s", wrd) != 0)
     {
         //Allocate memory for node.
         node *n = malloc(sizeof(node));
