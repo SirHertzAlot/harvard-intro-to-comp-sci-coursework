@@ -29,8 +29,14 @@ node *table[N];
 bool check(const char *word)
 {
     int value = hash(word);
+    char lower[LENGTH + 1];
 
     node *start = table[value];
+
+    for(int i = 0; i < strlen(word); i++)
+    {
+        lcword[i] = tolower(word[i]);
+    }
 
     while(start != NULL)
     {
