@@ -59,7 +59,7 @@ unsigned int hash(const char *word)
             {
                 n = c % 1000;
             }
-            return n += c;
+            n += c;
         }
     }
     // TODO: Improve this hash function
