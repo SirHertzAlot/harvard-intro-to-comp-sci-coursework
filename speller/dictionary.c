@@ -90,7 +90,7 @@ bool load(const char *dictionary)
             return false;
         }
 
-        strcpy(n->word, word);
+        n->word = word;
         //Set Next to null if there is no next.
         n->next = NULL;
 
