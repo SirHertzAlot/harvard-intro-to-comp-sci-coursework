@@ -110,10 +110,30 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    if(file != NULL)
+    //Iterate over table with N being the stopping point.
+    for(int i = 0; i < N; i++)
     {
-        fclose(file);
-        return true;
+        //Starting point of traversal
+        node *n = table[i];
+
+        while(n != NULL)
+        {
+            //Temporary node to make sure we don't orphan any nodes.
+            node *n_t = n;
+
+            //Next node
+            n = n->next;
+
+            //Free last node.
+            free(n_t);
+        }
+
+        //Check and see if we are at the end of our node and freed all nodes.
+        if(n == NULL && i == N - 1)
+        {
+            return true;
+        }
     }
+
     return false;
 }
