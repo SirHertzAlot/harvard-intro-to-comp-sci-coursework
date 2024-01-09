@@ -32,7 +32,7 @@ bool check(const char *word)
     node *start = table[value];
     while(start->next != NULL)
     {
-        if(strcasecomp(*word, start.word) == 0)
+        if(strcasecomp(word, start->word) == 0)
         {
             return true;
         }
