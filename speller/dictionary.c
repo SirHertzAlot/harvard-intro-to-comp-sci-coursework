@@ -64,7 +64,7 @@ unsigned int hash(const char *word)
         }
         if(hash_count > 3)
         {
-            return n;
+            return n = n % 100;
         }
         hash_count++;
     }
