@@ -27,7 +27,7 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    int value = hash(word);
     return false;
 }
 
