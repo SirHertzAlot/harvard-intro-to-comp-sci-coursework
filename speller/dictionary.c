@@ -77,7 +77,7 @@ bool load(const char *dictionary)
 {
     file = fopen(dictionary, "r");
 
-    if(file == NULL)
+    if(dictionary == NULL)
     {
         return false;
     } else {
