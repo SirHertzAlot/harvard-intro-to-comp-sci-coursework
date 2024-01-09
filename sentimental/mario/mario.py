@@ -8,4 +8,5 @@ while True:
         break
 
 for i in range(0, height + 1):
-    print(hash * i)
+    formatted = hash.rjust(height)
+    print(formatted * i)
