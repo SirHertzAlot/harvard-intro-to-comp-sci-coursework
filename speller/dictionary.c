@@ -73,7 +73,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     file = fopen(dictionary, "r");
-    char word;
+    char *word = NULL;
 
     if(file == NULL)
     {
@@ -90,7 +90,7 @@ bool load(const char *dictionary)
             return false;
         }
 
-        n->word = word;
+        strcpy(n->word, word);
         //Set Next to null if there is no next.
         n->next = NULL;
 
