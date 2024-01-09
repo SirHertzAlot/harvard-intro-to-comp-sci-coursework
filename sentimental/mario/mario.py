@@ -1,4 +1,4 @@
-height = 0
+height = 5
 
-for i in range(0, height)
-print('#')
+for i in range(0, height):
+    print('#')
