@@ -56,16 +56,7 @@ unsigned int hash(const char *word)
         if(isalpha(lower))
         {
             int c = lower + (strlen(word) * i * lower) + (strlen(word) % lower);
-
-            if(c > 2000)
-            {
-                n = c % 1000;
-            }
             n += c;
-        }
-        if(hash_count > 3)
-        {
-            return n = n % 100;
         }
         hash_count++;
     }
