@@ -2,6 +2,9 @@
 
 #include <ctype.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "dictionary.h"
 
@@ -12,8 +15,11 @@ typedef struct node
     struct node *next;
 } node;
 
+int count;
+FILE *file;
+
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 10400;
 
 // Hash table
 node *table[N];
@@ -28,36 +34,82 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
+    int n = 0;
+    int base = toupper(word[0]) - 'A';
+
+    for(int i = 0; i < strlen(word); i++)
+    {
+        const char lower = tolower(word[i]);
+
+        if(isalpha(lower))
+        {
+            int c = lower + (strlen(word) * i * lower) + (strlen(word) % lower);
+
+            if(c > 2000)
+            {
+                n = c % 1000;
+            }
+            else
+            {
+                n = base + c;
+            }
+        }
+    }
+
+
     // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
+    return n;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    FILE *file = fopen(dictionary, "r");
+    file = fopen(dictionary, "r");
+    char *word = NULL;
+
     if(file == NULL)
     {
         return false;
     }
-    fread(&buffer, sizeof(const char *), 1, file);
-    if(buffer)
-    {
 
+    while(fscanf(file, "%s", word) != EOF)
+    {
+        //Allocate memory for node.
+        struct node *n = malloc(sizeof(node));
+
+        if(n == NULL)
+        {
+            return false;
+        }
+
+        strcpy(n->word, word);
+        //Set Next to null if there is no next.
+        n->next = NULL;
+
+        n->next = table[count];
+        table[count] = n;
+
+        count++;
     }
+
+    return false;
+
     fclose(file);
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
-    return 0;
+    return count;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
+    if(file != NULL)
+    {
+        fclose(file);
+        return true;
+    }
     return false;
 }

@@ -25,8 +25,18 @@ int main(void)
         string phrase = get_string("Enter a new phrase: ");
 
         // TODO: add phrase to new node in list
+        node *n = malloc(sizeof(node));
 
-        
+        if(n == NULL)
+        {
+            return false;
+        }
+
+        n->phrase = phrase;
+        n->next = NULL;
+
+        n->next = list;
+        list = n;
 
         // Visualize list after adding a node.
         visualizer(list);
@@ -45,6 +55,14 @@ int main(void)
 
 bool unload(node *list)
 {
+    node *ptr = list;
+
+    while(ptr != NULL)
+    {
+        ptr = list->next;
+        free(list);
+        list = ptr;
+    }
     // TODO: Free all allocated nodes
     return false;
 }

@@ -2,6 +2,7 @@
     "gitdoc.enabled": true,
     "files.associations": {
         "algorithm": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "string_view": "c"
     }
 }
