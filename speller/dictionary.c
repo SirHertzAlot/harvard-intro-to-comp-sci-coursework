@@ -30,7 +30,7 @@ bool check(const char *word)
     int value = hash(word);
 
     node *start = table[value];
-    while(start != NULL)
+    while(start->next != NULL)
     {
         int checked = strcasecomp(word, &start.word);
 
