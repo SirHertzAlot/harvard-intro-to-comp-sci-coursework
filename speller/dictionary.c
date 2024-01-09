@@ -28,7 +28,13 @@ node *table[N];
 bool check(const char *word)
 {
     int value = hash(word);
-    no
+
+    node *start = table[value];
+    while(start != NULL)
+    {
+        strcasecomp()
+        start = start->next;
+    }
     return false;
 }
 
