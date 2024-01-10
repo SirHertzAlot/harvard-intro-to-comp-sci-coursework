@@ -6,5 +6,6 @@ while True:
         break
 
 for i in reversed(range(0, height)):
-    for i in range(0, height + 1):
-        print("#" * i)
+    for j in range(0, height + 1):
+        print("#" * j)
+    print(" " * i)
