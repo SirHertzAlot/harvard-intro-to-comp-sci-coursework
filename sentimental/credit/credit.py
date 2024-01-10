@@ -3,21 +3,18 @@ from cs50 import get_string
 digit = 0
 strcc = 0
 sum = 0
-ccid = []
 
 strcc = get_string("card number: ")
 
 cc = list(strcc)
 
-ccid.append(cc[0:2])
-
 for i in range(0, len(cc)):
 
-    ogdigit = int(cc[i]);
+    digit = int(cc[i]);
 
     if i % 2 == 0:
 
-        digit = ogdigit * 2;
+        digit = digit * 2;
 
         if digit > 9:
 
