@@ -26,11 +26,11 @@ for i in range(0, len(cc)):
     sum += digit
 
 if sum % 10 == 0:
-    if ccid[0] == 3 and ccid[1] == 4 or ccid[0] == 3 and ccid[1] == 7:
+    if ccid[0] == '3' and ccid[1] == '4' or ccid[0] == '3' and ccid[1] == '7':
         print("AMEX\n")
-    elif ccid[0] == 5 and ccid[1] == 1 or ccid[0] == 5 and ccid[1] == 2 or ccid[0] == 5 and ccid[1] == 4 or ccid[0] == 5 and ccid[1] == 5:
+    elif ccid[0] == '5' and ccid[1] == '1' or ccid[0] == '5' and ccid[1] == '2' or ccid[0] == '5' and ccid[1] == '4' or ccid[0] == '5' and ccid[1] == '5':
         print("MASTERCARD\n")
-    elif ccid[0] == 4:
+    elif ccid[0] == '4':
         print("VISA\n")
     else:
         print("INVALID\n")
