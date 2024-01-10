@@ -11,9 +11,6 @@ cc = list(strcc)
 ccid.insert(0, cc[0])
 ccid.insert(1, cc[1])
 
-ccIdStr = str(ccid)
-ccIdInt = int(ccIdStr)
-
 for i in range(0, len(cc)):
 
     digit = int(cc[i]);
@@ -29,11 +26,11 @@ for i in range(0, len(cc)):
     sum += digit
 
 if sum % 10 == 0:
-    if cc[0] == 3 and cc[1] == 4 or cc[0] == 3 and cc[1] == 7:
+    if ccid[0] == 3 and ccid[1] == 4 or ccid[0] == 3 and ccid[1] == 7:
         print("AMEX\n")
-    elif cc[0] == 5 and cc[1] == 1 or cc[0] == 5 and cc[1] == 2 or cc[0] == 5 and cc[1] == 4 or cc[0] == 5 and cc[1] == 5:
+    elif ccid[0] == 5 and ccid[1] == 1 or ccid[0] == 5 and ccid[1] == 2 or ccid[0] == 5 and ccid[1] == 4 or ccid[0] == 5 and ccid[1] == 5:
         print("MASTERCARD\n")
-    elif cc[0] == 4:
+    elif ccid[0] == 4:
         print("VISA\n")
     else:
         print("INVALID\n")
