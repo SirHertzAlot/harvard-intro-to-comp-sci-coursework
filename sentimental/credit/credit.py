@@ -26,7 +26,7 @@ for i in range(0, len(cc)):
     sum += digit
 
 if sum % 10 == 0:
-    if ccid[0][0] == 3 and ccid[0][1] == 4 or ccid[0][0] == 3 and ccid[0][1] == 7:
+    if ccid[0] == 3 and ccid[1] == 4 or ccid[0] == 3 and ccid[1] == 7:
         print("AMEX\n")
     elif ccid == 51 or ccid == 52 or ccid == 53 or ccid == 54 or ccid == 55:
         print("MASTERCARD\n")
