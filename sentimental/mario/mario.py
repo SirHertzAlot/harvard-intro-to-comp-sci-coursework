@@ -6,4 +6,4 @@ while True:
         break
 
 for i in range(height, 0, 1):
-    print("#" * i)
+    print("#" * i - height)
