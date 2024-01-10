@@ -14,8 +14,9 @@ for i in range(0, len(cc)):
     ccid.append(cc[0:2])
 
     if i % 2 == 0:
+        ogdigit = int(cc[i]);
 
-        digit = int(cc[i]) * 2
+        digit = ogdigit * 2;
 
         if digit > 9:
 
