@@ -13,8 +13,9 @@ ccid.append(cc[0:2])
 
 for i in range(0, len(cc)):
 
+    ogdigit = int(cc[i]);
+
     if i % 2 == 0:
-        ogdigit = int(cc[i]);
 
         digit = ogdigit * 2;
 
