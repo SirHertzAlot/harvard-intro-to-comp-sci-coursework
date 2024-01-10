@@ -7,7 +7,7 @@ while True:
     if height > 0 and height < 9:
         break
 
-for i in range(0, height):
+for i in range(1, height + 1):
     rev = height - i
     print(" " * rev, end="""#""" * i)
     print(""" """)
