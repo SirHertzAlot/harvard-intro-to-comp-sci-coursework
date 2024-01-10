@@ -8,4 +8,3 @@ while True:
 for i in reversed(range(0, height)):
     for i in range(0, height + 1):
         print("#" * i)
-    print(" " * i)
