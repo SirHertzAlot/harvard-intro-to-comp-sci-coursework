@@ -10,5 +10,5 @@ cc = list(strcc)
 
 for i in range(0, len(cc))
     ccid.append(cc[0:2])
-    
-
+    if i % 2 == 0
+        cc[i]
