@@ -2,11 +2,12 @@ from cs50 import get_string
 
 digit = 0
 sum = 0
-ccid
 
 strcc = get_string("card number: ")
 
 cc = list(strcc)
+
+ccid = append.
 
 for i in range(0, len(cc)):
 
