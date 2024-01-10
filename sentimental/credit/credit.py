@@ -30,7 +30,7 @@ if sum % 10 == 0:
         print("AMEX\n")
     elif ccid[0] == '5' and ccid[1] == '1' or ccid[0] == '5' and ccid[1] == '2' or ccid[0] == '5' and ccid[1] == '4' or ccid[0] == '5' and ccid[1] == '5':
         print("MASTERCARD\n")
-    elif ccid[0] == '4':
+    elif ccid[0] == '4' and len(cc):
         print("VISA\n")
     else:
         print("INVALID\n")
