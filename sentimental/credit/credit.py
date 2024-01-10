@@ -11,7 +11,7 @@ cc = list(strcc)
 
 ccid.append(cc[0:2])
 
-for i in range(0, len(cc)):
+for i in range(0, len(cc) + 1):
 
     ogdigit = int(cc[i]);
 
