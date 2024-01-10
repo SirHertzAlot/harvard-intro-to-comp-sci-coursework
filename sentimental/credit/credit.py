@@ -7,3 +7,4 @@ sum = 0
 cc = get_string("card number: ")
 
 
+if 
