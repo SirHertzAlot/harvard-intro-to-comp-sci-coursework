@@ -24,8 +24,6 @@ for i in range(0, len(cc)):
 
     sum += digit
 
-
-
 if sum % 10 == 0:
     if ccid[0] == 3 and ccid[1] == 4 or ccid[0] == 3 and ccid[1] == 7:
         print("AMEX\n")
