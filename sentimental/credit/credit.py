@@ -6,5 +6,7 @@ sum = 0
 
 strcc = get_string("card number: ")
 
+cc = list(strcc)
+
 
 
