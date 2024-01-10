@@ -2,6 +2,7 @@ from cs50 import get_string
 
 digit = 0
 sum = 0
+ccid
 
 strcc = get_string("card number: ")
 
