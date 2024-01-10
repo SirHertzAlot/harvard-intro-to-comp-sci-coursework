@@ -9,9 +9,9 @@ strcc = get_string("card number: ")
 
 cc = list(strcc)
 
-for i in range(0, len(cc)):
+ccid.append(cc[0:2])
 
-    ccid.append(cc[0:2])
+for i in range(0, len(cc)):
 
     if i % 2 == 0:
         ogdigit = int(cc[i]);
