@@ -8,7 +8,7 @@ while True:
         break
 
 for i in range(1, height + 1):
-    rev = height - i
+    rev = height - i - 1
     print(" " * rev, end="""#""" * i)
     print(""" """)
 
