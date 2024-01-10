@@ -2,15 +2,17 @@ from cs50 import get_string
 
 digit = 0
 sum = 0
+ccid = []
 
 strcc = get_string("card number: ")
 
 cc = list(strcc)
 
-ccid = ccid.insert(0, cc[0])
-ccid = ccid.insert(1, cc[1])
+ccid.insert(0, cc[0])
+ccid.insert(1, cc[1])
 
-ccIdInt = int(ccid)
+ccIdStr = str(ccid)
+ccIdInt = int(ccIdStr)
 
 for i in range(0, len(cc)):
 
