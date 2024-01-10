@@ -10,7 +10,7 @@ while True:
 for i in range(1, height + 1):
     rev = height - i
     print(" " * rev, end="""#""" * i)
-    print(""" """)
+    
 
 
 
