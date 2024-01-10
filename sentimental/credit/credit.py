@@ -14,7 +14,7 @@ for i in range(0, len(cc)):
 
     if i % 2 == 0:
 
-        digit = digit * 2;
+        digit *= 2;
 
         if digit > 9:
 
