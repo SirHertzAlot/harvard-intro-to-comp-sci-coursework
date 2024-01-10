@@ -5,5 +5,5 @@ while True:
     if height > 0:
         break
 
-for i in reversed(range(0, height)):
-    print("#" * i, end=" \n")
+for i in range(height, 0, 1):
+    print("#" * i)
