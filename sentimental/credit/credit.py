@@ -15,7 +15,7 @@ for i in range(0, len(cc)):
 
     if i % 2 == 0:
 
-        digit *= int(cc[i])
+        digit = int(cc[i]) * 2
 
         if digit > 9:
 
