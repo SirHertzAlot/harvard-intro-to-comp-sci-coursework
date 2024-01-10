@@ -5,5 +5,7 @@ while True:
     if height > 0:
         break
 
-for i in range(height, 0, 1):
-    print("#" * i - height)
+for i in range(height, -1, -1):
+    for j in range(0, height):
+        print(" ")
+    print("#" * i, end="\n")
