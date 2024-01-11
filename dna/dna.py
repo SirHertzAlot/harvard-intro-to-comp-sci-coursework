@@ -18,7 +18,7 @@ def main():
     # TODO: Read database file into a variable
     dbv = []
 
-    with open("foo.csv") as file:
+    with open(f{"foo.csv"}) as file:
         reader = csv.DictReader(file)
         for row in reader:
             dbv.append(row)
