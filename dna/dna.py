@@ -18,7 +18,7 @@ def main():
     # TODO: Read database file into a variable
     dbv = []
 
-    with open(f{"foo.csv"}) as file:
+    with open(f"{db}") as file:
         reader = csv.DictReader(file)
         for row in reader:
             dbv.append(row)
@@ -26,7 +26,7 @@ def main():
     # TODO: Read DNA sequence file into a variable
     dna_seq = []
 
-    with open("bar.csv") as file:
+    with open(f"{seq}") as file:
         reader = csv.DictReader(file)
         for row in reader:
             dna_seq.append(row)
