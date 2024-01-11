@@ -32,7 +32,7 @@ def main():
             dna_seq.append(row)
 
     # TODO: Find longest match of each STR in DNA sequence
-    match = longest_match(s, subs)
+    match = longest_match(dbv, dna_seq)
     # TODO: Check database for matching profiles
 
     return
