@@ -4,10 +4,16 @@ import sys
 
 def main():
 
-    match
-
     # TODO: Check for command-line usage
-    if(sys.argv[])
+    if sys.argv[2]:
+        db = sys.argv[2]
+    else:
+        print("Please provide a database csv file.")
+
+    if sys.argv[3]:
+        seq = sys.argv[3]
+    else:
+        print("Please provide a sequence text file.")
 
     # TODO: Read database file into a variable
     dbv = []
