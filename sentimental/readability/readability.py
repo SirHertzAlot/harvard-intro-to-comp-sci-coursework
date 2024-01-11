@@ -1,5 +1,4 @@
 import math
-import cs50 
 
 words = 0
 chars = 0
