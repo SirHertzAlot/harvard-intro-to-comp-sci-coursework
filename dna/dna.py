@@ -5,13 +5,13 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    if sys.argv[2]:
-        db = sys.argv[2]
+    if sys.argv[1]:
+        db = sys.argv[1]
     else:
         print("Please provide a database csv file.")
 
-    if sys.argv[3]:
-        seq = sys.argv[3]
+    if sys.argv[2]:
+        seq = sys.argv[2]
     else:
         print("Please provide a sequence text file.")
 
