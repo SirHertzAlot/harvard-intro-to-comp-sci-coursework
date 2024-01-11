@@ -4,6 +4,8 @@ import sys
 
 def main():
 
+    match
+
     # TODO: Check for command-line usage
 
     # TODO: Read database file into a variable
@@ -23,7 +25,7 @@ def main():
             dna_seq.append(row)
 
     # TODO: Find longest match of each STR in DNA sequence
-
+    match = longest_match(s, subs)
     # TODO: Check database for matching profiles
 
     return
