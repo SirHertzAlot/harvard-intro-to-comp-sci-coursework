@@ -9,12 +9,12 @@ def main():
     # TODO: Check for command-line usage
 
     # TODO: Read database file into a variable
-    rows = []
+    dbv = []
 
     with open("foo.csv") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            rows.append(row)
+            dbv.append(row)
 
     # TODO: Read DNA sequence file into a variable
     dna_seq = []
