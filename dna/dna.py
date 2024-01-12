@@ -53,7 +53,8 @@ def str_finder():
         match = [longest_match(dna_seq[0][0], srts[0][j])]
         if tmp > match:
           match = tmp
-        tmp = match
+        else:
+          tmp = match
       else:
         continue
 
