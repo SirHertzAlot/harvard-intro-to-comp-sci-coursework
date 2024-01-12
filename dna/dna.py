@@ -52,7 +52,7 @@ def str_finder():
         match = [longest_match(dna_seq[0][0], srts[0][j])]
       else:
         continue
-      
+
     match.insert(0, f"{srts[0][j]}")
     profiles.append(match)
 
