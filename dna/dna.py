@@ -61,7 +61,7 @@ def profile_matcher():
         srtsToComp = db_val[k].get(profiles[0][0])
         if str(profiles[0][1]) == srtsToComp:
           return print(db_val[k].get("name"))
-      else:
+        else:
          return print("No match.")
 
 def longest_match(sequence, subsequence):
