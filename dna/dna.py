@@ -60,7 +60,7 @@ def profile_matcher():
     for k in range(len(db_val)):
       if profiles[0][0] == 'AGATC':
         srtsToComp = db_val[k].get("AGATC")
-        if profiles[0][1] == srtsToComp:
+        if string(profiles[0][1]) == srtsToComp:
           print(db_val[k].get("name"))
 
 def longest_match(sequence, subsequence):
