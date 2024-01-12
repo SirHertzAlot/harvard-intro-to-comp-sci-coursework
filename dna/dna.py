@@ -30,12 +30,8 @@ profiles = []
 def reader():
 
     with open(db, 'r') as file:
-      reader = csv.reader(file)
-      for header in reader:
-        if header == 'name':
-          continue
-        else:
-          srts.append(header)
+        reader = csv.DictReader(file)
+        srts.append(reader.fieldnames)
 
 def testers():
 
