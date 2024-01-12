@@ -16,6 +16,7 @@ def main():
   reader()
   testers()
   dna_reader()
+  str_finder()
   profile_matcher()
   longest_match(seq, srts)
 
