@@ -1,6 +1,10 @@
 import csv
 import sys
 
+srts = []
+db_val = []
+dna_seq = []
+profiles = []
 
 def main():
 
@@ -20,11 +24,6 @@ def main():
 
 db = sys.argv[1]
 seq = sys.argv[2]
-
-srts = []
-db_val = []
-dna_seq = []
-profiles = []
 
   # TODO: Read database file into a variable
 def reader():
