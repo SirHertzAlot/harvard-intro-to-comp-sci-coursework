@@ -34,7 +34,7 @@ def reader():
 
 def testers():
 
-    with open(f"{db}") as file:
+    with open(db, 'r') as file:
       reader = csv.DictReader(file)
       for row in reader:
           db_val.append(row)
