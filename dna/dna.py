@@ -4,36 +4,67 @@ import sys
 
 def main():
 
-    # TODO: Check for command-line usage
-    if len(sys.argv) < 3:
-        print("Usage: python dna.py database.csv sequence.txt")
-        return
-
-    db = sys.argv[1]
-    seq = sys.argv[2]
-
-    # TODO: Read database file into a variable
-    dbv = []
-
-    with open(f"{db}") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            dbv.append(row)
-
-    # TODO: Read DNA sequence file into a variable
-    dna_seq = []
-
-    with open(f"{seq}") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            dna_seq.append(row)
-
-    # TODO: Find longest match of each STR in DNA sequence
-    match = longest_match(dbv, dna_seq)
-    # TODO: Check database for matching profiles
-
+  # TODO: Check for command-line usage
+  if len(sys.argv) < 3:
+    print("Usage: python dna.py database.csv sequence.txt")
     return
 
+  srts = reader()
+  testers()
+  seq = dna_reader()
+  profile = profile_matcher()
+  longest_match(seq, srts)
+
+  if profile:
+    print("Match: " + db_val[profile][0])
+
+db = sys.argv[1]
+seq = sys.argv[2]
+
+srts = []
+db_val = []
+dna_seq = []
+profiles = []
+
+  # TODO: Read database file into a variable
+def reader():
+
+    with open(db, 'r') as file:
+      reader = csv.reader(file)
+      for header in reader:
+        if header == 'name':
+          continue
+        else:
+          srts.append(header)
+
+def testers():
+
+    with open(f"{db}") as file:
+      reader = csv.DictReader(file)
+      for row in reader:
+          db_val.append(row)
+
+  # TODO: Read DNA sequence file into a variable
+
+def dna_reader():
+
+    with open(f"{seq}") as file:
+      reader = csv.DictReader(file)
+      for row in reader:
+          dna_seq.append(row)
+
+  # TODO: Find longest match of each STR in DNA sequence
+def str_finder():
+
+    for i in range(len(srts)):
+      match = longest_match(dna_seq, i)
+      profiles.append(print(f"{srts[i]}: {match}"))
+
+  # TODO: Check database for matching profiles
+def profile_matcher():
+    for i in range(len(db_val)):
+      if profiles[i] == db_val[i]:
+        return i
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
