@@ -20,9 +20,6 @@ def main():
   profile_matcher()
   longest_match(seq, srts)
 
-  if profiles:
-    print("Match: " + db_val[profile][0])
-
 db = sys.argv[1]
 seq = sys.argv[2]
 
