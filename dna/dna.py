@@ -44,7 +44,7 @@ def testers():
 def dna_reader():
 
     with open(seq, 'r') as file:
-      reader = csv.DictReader(file)
+      reader = csv.reader(file)
       for row in reader:
           dna_seq.insert(row)
 
