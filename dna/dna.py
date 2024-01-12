@@ -61,7 +61,8 @@ def str_finder():
   # TODO: Check database for matching profiles
 def profile_matcher():
     for i in range(len(db_val)):
-      if profiles[i][0] == db_val[i]:
+      if profiles[i][0] == 'AGATC':
+        
         return i
 
 def longest_match(sequence, subsequence):
