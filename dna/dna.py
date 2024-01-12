@@ -61,7 +61,7 @@ def profile_matcher():
       if profiles[0][0] == 'AGATC':
         srtsToComp = db_val[k].get("AGATC")
         if str(profiles[0][1]) == srtsToComp:
-          print(db_val[k].get("name"))
+          return print(db_val[k].get("name"))
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
