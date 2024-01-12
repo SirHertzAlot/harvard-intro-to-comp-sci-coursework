@@ -47,14 +47,13 @@ def dna_reader():
 
   # TODO: Find longest match of each STR in DNA sequence
 def str_finder():
+    match = []
     for j in range(len(srts[0])):
       if j > 0:
-        match = [srts[0][i], longest_match(dna_seq[0][0], srts[0][j])]
+        match.insert(0, f"{srts[0][j]}, {longest_match(dna_seq[0][0], srts[0][j])}")
         continue
       else:
         continue
-
-    match.insert(0, f"{srts[0][j]}")
     profiles.append(match)
 
   # TODO: Check database for matching profiles
