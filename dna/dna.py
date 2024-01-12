@@ -51,8 +51,9 @@ def str_finder():
     for j in range(len(srts)):
       j = 1
       match = [longest_match(dna_seq[0][0], srts[0][j])]
-      match.insert(0, f"{srts[0][j]}")
-      profiles.append(match)
+
+    match.insert(0, f"{srts[0][j]}")
+    profiles.append(match)
 
   # TODO: Check database for matching profiles
 def profile_matcher():
