@@ -19,8 +19,6 @@ def main():
   str_finder()
   profile_matcher()
 
-  print("No match.")
-
 db = sys.argv[1]
 seq = sys.argv[2]
 
@@ -63,8 +61,8 @@ def profile_matcher():
         srtsToComp = db_val[k].get(profiles[0][0])
         if str(profiles[0][1]) == srtsToComp:
           return print(db_val[k].get("name"))
-    else:
-       return print("No match")
+
+    return print("No match")
 
 
 
