@@ -50,6 +50,9 @@ def str_finder():
     for j in range(len(srts[0])):
       if j > 0:
         match = [longest_match(dna_seq[0][0], srts[0][j])]
+        tmp = match
+        if tmp > match:
+          match = tmp
       else:
         continue
 
