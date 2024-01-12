@@ -9,10 +9,10 @@ def main():
     print("Usage: python dna.py database.csv sequence.txt")
     return
 
-  srts = reader()
+  reader()
   testers()
-  seq = dna_reader()
-  profile = profile_matcher()
+  dna_reader()
+  profile_matcher()
   longest_match(seq, srts)
 
   if profile:
