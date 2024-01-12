@@ -49,7 +49,7 @@ def dna_reader():
 def str_finder():
     for j in range(len(srts[0])):
       if j > 0:
-        match += [srts[0][i], longest_match(dna_seq[0][0], srts[0][j])]
+        match = [srts[0][i], longest_match(dna_seq[0][0], srts[0][j])]
         continue
       else:
         continue
