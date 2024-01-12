@@ -18,7 +18,6 @@ def main():
   dna_reader()
   str_finder()
   profile_matcher()
-  longest_match(seq, srts)
 
 db = sys.argv[1]
 seq = sys.argv[2]
