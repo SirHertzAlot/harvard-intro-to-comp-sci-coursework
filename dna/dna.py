@@ -49,19 +49,19 @@ def dna_reader():
   # TODO: Find longest match of each STR in DNA sequence
 def str_finder():
 
-    for i in range(len(srts)):
-      i = 1
-      match = [longest_match(dna_seq[0][0], srts[0][i])]
-      match.insert(0, f"{srts[0][i]}")
+    for j in range(len(srts)):
+      j = 1
+      match = [longest_match(dna_seq[0][0], srts[0][j])]
+      match.insert(0, f"{srts[0][j]}")
       profiles.append(match)
 
   # TODO: Check database for matching profiles
 def profile_matcher():
-    for i in range(len(db_val)):
+    for k in range(len(db_val)):
       if profiles[0][0] == 'AGATC':
-        srtsToComp = db_val[i].get("AGATC")
+        srtsToComp = db_val[k].get("AGATC")
         if profiles[0][1] == srtsToComp:
-          print(db_val[i].get("name"))
+          print(db_val[k].get("name"))
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
