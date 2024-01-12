@@ -46,7 +46,7 @@ def dna_reader():
     with open(seq, 'r') as file:
       reader = csv.reader(file)
       for row in reader:
-          dna_seq.insert(row)
+          dna_seq.insert(0, row)
 
   # TODO: Find longest match of each STR in DNA sequence
 def str_finder():
