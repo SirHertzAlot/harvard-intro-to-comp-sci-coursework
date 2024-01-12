@@ -53,7 +53,8 @@ def dna_reader():
 def str_finder():
 
     for i in range(len(srts)):
-      match = longest_match(dna_seq, srts[i + 1])
+      i = 1
+      match = longest_match(dna_seq, srts[0][i])
       profiles.append(f"{srts[i]}: {match}")
 
   # TODO: Check database for matching profiles
