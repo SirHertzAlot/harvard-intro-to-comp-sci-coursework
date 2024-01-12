@@ -58,6 +58,7 @@ def str_finder():
 
   # TODO: Check database for matching profiles
 def profile_matcher():
+    
     for k in range(len(db_val)):
       if profiles[0][0]:
         srtsToComp = db_val[k].get(profiles[0][0])
