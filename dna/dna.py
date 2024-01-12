@@ -47,9 +47,11 @@ def dna_reader():
 
   # TODO: Find longest match of each STR in DNA sequence
 def str_finder():
-    j = 1
     for j in range(len(srts)):
-      match = [longest_match(dna_seq[0][0], srts[0][j])]
+      if j == 0:
+        continue
+      else:
+        match = [longest_match(dna_seq[0][0], srts[0][j])]
 
     match.insert(0, f"{srts[0][j]}")
     profiles.append(match)
