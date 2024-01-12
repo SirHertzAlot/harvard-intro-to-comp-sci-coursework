@@ -59,9 +59,8 @@ def str_finder():
 def profile_matcher():
     for i in range(len(db_val)):
       if profiles[i][0] == 'AGATC':
-        for row in db_val:
-        print(profiles[i])
-        return i
+        if profiles[i][1] in db_val[0]['AGATC']
+            print(db_val['name'])
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
