@@ -1,1 +1,1 @@
-SELECT title, year FROM movies WHERE title LIKE 'Harry Potter%';
+SELECT AVG(rating) FROM ratings JOIN movies on ratings.movie_id = movies.id WHERE year=2012;
