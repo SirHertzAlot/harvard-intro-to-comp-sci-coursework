@@ -1,41 +1,71 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
-        <title>Trivia!</title>
-        <script>
-            // TODO: Add code to check answers to questions
-            const correctAnswer = document.getElementByClassName("correct");
-            const incorrectAnswer = document.getElementByClassName("incorrect");
 
-            correctAnswer.addEventListener("click", () => {
-                document.button.style.backgroundColor = 'green';
-            })
-        </script>
-    </head>
-    <body>
-        <div class="header">
-            <h1>Trivia!</h1>
-        </div>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <title>Trivia!</title>
+  <script>
+    // TODO: Add code to check answers to questions
+    document.addEventListener('DOMContentLoaded', function(){
 
-        <div class="container">
-            <div class="section">
-                <h2>Part 1: Multiple Choice </h2>
-                <hr>
-                <h3>Which Hunter x Hunter character is after revenge for his tribe?</h3>
-                <button type="submit" class="incorrect">Killua</button>
-                <button type="submit" class="incorrect">Gon</button>
-                <button type="submit" class="correct">Kurapika</button>
-                <!-- TODO: Add multiple choice question here -->
-            </div>
+      let correct = document.querySelector(".correct")
+      correct.addEventListener('click', () => {
+        correct.style.background = "green";
+        document.querySelector('#feedback1').innerHTML = "Correct!";
+      });
 
-            <div class="section">
-                <h2>Part 2: Free Response</h2>
-                <hr>
-                <!-- TODO: Add free response question here -->
-            </div>
-        </div>
-    </body>
+      let incorrect = document.querySelectorAll(".incorrect")
+      for(let i = 0; i < incorrect.length; i++){
+        incorrect[i].addEventListener('click', () => {
+          incorrect[i].style.background = "red";
+          document.querySelector('#feedback1').innerHTML = "Incorrect!";
+        });
+      }
+
+      document.querySelector('#submit').addEventListener('click', function(){
+        let input = document.querySelector('#input');
+        if(input.value === 'Arrancar'){
+          input.style.backgroundColor = 'green';
+          document.querySelector("#feedback2").innerHTML = "Correct!";
+        } else {
+          input.style.backgroundColor = 'red';
+          document.querySelector("#feedback2").innerHTML = "Incorrect!";
+        }
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="header">
+    <h1>Trivia!</h1>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h2>Part 1: Multiple Choice </h2>
+      <hr>
+      <!-- TODO: Add multiple choice question here -->
+      <h3>Which Hunter x Hunter character is after revenge for his tribe?</h3>
+      <button type="button" class="incorrect">Killua</button>
+      <button type="button" class="incorrect">Gon</button>
+      <button type="button" class="correct">Kurapika</button>
+      <div id="feedback1" style="display: flex; flex-direction: row;">
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Part 2: Free Response</h2>
+      <hr>
+        <h3>When Ichigo and his companions invaded Quecho Mundo, who were they ultimately trying to defeat?</h3>
+      <input id="input" type="text"></input>
+      <button id="submit">Submit</button>
+      <div id="feedback2" style="display: flex; flex-direction: row;"></div>
+    </div>
+  </div>
+</body>
+
 </html>
