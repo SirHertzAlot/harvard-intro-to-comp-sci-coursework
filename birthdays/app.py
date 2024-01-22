@@ -33,6 +33,7 @@ def index():
     else:
 
         # TODO: Display the entries in the database on index.html
+        books = db.execute("SELECT * FROM v WHERE id IN (?)",)
 
         return render_template("index.html")
 
