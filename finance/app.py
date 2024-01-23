@@ -42,7 +42,7 @@ def index():
 @login_required
 def buy():
 
-    db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
+    db.execute("SELECT username FROM users WHERE id = ?", )
 
     """Buy shares of stock"""
     if request.method == "POST":
@@ -62,6 +62,9 @@ def buy():
 
         totalPrice = price * shares
 
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        if cash > totalPrice:
+            db.execute("SELECT cash FROM users WHERE id = ? AND ", session["user_id"])
     else:
         return render_template("buy.html")
 
