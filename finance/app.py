@@ -42,8 +42,6 @@ def index():
 @login_required
 def buy():
 
-    db.execute("SELECT username FROM users WHERE id = ?", )
-
     """Buy shares of stock"""
     if request.method == "POST":
 
@@ -52,7 +50,9 @@ def buy():
         else:
             product = request.form.get("buy")
 
-        if request.form.get("amount") < 1:
+        amount = int(request.form.get("amount"))
+
+        if amount < 1:
             return apology("Please enter amount greater than 1")
         else:
             shares = request.form.get("amount")
