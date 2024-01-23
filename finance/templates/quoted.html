@@ -1,0 +1,5 @@
+{% block body %}
+    {% for birthday in birthdays %}
+        {{ birthday.id }} {{ birthday.name }} {{ birthday.month }} {{ birthday.day }}
+    {% endfor %}
+{% endblock %}
