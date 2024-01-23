@@ -43,7 +43,9 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        return 0
+        product = request.form.get("buy")
+        let stats = lookup(product)
+        
     else:
         return render_template("buy.html")
 
