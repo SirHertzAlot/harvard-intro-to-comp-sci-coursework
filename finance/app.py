@@ -41,7 +41,7 @@ def index():
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
-    print(session.sid)
+    print(session["user_id"])
     """Buy shares of stock"""
     if request.method == "POST":
 
@@ -58,6 +58,7 @@ def buy():
         stats = lookup(product)
         price = stats.price
 
+        db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
     else:
         return render_template("buy.html")
 
