@@ -41,7 +41,7 @@ def index():
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
-    print(session)
+    print(session.sid)
     """Buy shares of stock"""
     if request.method == "POST":
 
