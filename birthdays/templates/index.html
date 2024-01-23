@@ -30,6 +30,8 @@
                     <tbody>
                         {% block body %}
                             {% for birthday in birthdays %}
+                                {{ birthdays.id }} | {{ birthdays.name }}
+                            {% endfor %}
                         {% endblock %}
                     </tbody>
                 </table>
