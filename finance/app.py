@@ -106,20 +106,16 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
-    if request.method == "POST":
-        symbol = request.form.get("symbol")
-        
     return apology("TODO")
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if request.method == "POST":
-    username = request.form.get("username")
-    password = generate_password_hash(request.form.get("password"))
-
-    db.execute("INSERT INTO users (username) VALUES(?)", username)
     """Register user"""
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = generate_password_hash(request.form.get("password"))
+        db.execute("INSERT INTO users (username) VALUES(?)", username)
     return apology("TODO")
 
 
