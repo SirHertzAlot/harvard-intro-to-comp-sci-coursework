@@ -64,8 +64,7 @@ def buy():
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-        funds = cash[0].get("cash")
-        print(totalPrice)
+        funds = float(cash[0].get("cash"))
 
         if funds > totalPrice:
             db.execute("SELECT cash FROM users WHERE id = ? SELECT ? - ?", session["user_id"], cash, totalPrice)
