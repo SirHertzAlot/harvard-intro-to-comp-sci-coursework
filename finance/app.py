@@ -46,8 +46,6 @@ def buy():
 
         if request.form.get("buy") == " ":
             return apology("Stock not found")
-        elif lookup(product) NOT:
-            return apology("Stock not found")
         else:
             product = request.form.get("buy")
 
@@ -56,8 +54,10 @@ def buy():
         else:
             shares = request.form.get("amount")
 
-        let stats = lookup(product)
-        let price = stats.
+        stats = lookup(product)
+        price = stats.price
+
+        
 
     else:
         return render_template("buy.html")
