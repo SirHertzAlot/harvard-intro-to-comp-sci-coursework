@@ -58,7 +58,7 @@ def buy():
             shares = request.form.get("amount")
 
         stats = lookup(product)
-        price = stats.price
+        price = product.price
 
         totalPrice = price * shares
 
