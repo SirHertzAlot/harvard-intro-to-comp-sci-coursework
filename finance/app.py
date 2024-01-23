@@ -64,10 +64,10 @@ def buy():
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-        print(cash.get(0))
+        funds = cash[0].get("cash")
         print(totalPrice)
 
-        if cash[0] > totalPrice:
+        if funds > totalPrice:
             db.execute("SELECT cash FROM users WHERE id = ? SELECT ? - ?", session["user_id"], cash, totalPrice)
     else:
         return render_template("buy.html")
