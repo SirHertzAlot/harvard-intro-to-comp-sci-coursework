@@ -39,7 +39,7 @@
                     <tbody>
                         {% block body %}
                             {% for birthday in birthdays %}
-                                {{ birthdays.id }} | {{ birthdays.name }}
+                                {{ birthday.id }} {{ birthday.name }} {{ birthday.month }} {{ birthday.day }}
                             {% endfor %}
                         {% endblock %}
                     </tbody>
