@@ -58,11 +58,14 @@ def buy():
             shares = request.form.get("amount")
 
         stats = lookup(product)
-        price = product.price
+        price = stats["price"]
 
-        totalPrice = price * shares
+        totalPrice = int(price) * shares
 
         cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+        print(cash)
+        print(totalPrice)
         if cash > totalPrice:
             db.execute("SELECT cash FROM users WHERE id = ? SELECT ? - ?", session["user_id"], cash, totalPrice)
     else:
