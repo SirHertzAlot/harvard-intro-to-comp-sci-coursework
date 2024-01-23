@@ -67,7 +67,7 @@ def buy():
         funds = float(cash[0].get("cash"))
 
         if funds > totalPrice:
-            db.execute("SELECT ? - ? FROM users WHERE id = ?", funds, totalPrice, session["user_id"])
+            db.execute("UPDATE cash SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
     else:
         return render_template("buy.html")
 
