@@ -41,8 +41,7 @@ def index():
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
-    print(session.user_id)
-
+    print(session)
     """Buy shares of stock"""
     if request.method == "POST":
 
@@ -75,6 +74,8 @@ def history():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
+
+    session["name"] = request.form.get("username")
 
     # Forget any user_id
     session.clear()
