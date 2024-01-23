@@ -113,7 +113,7 @@ def quote():
 def register():
     if request.method == "POST":
     username = request.form.get("username")
-    password = request.form.get("password")
+    password = generate_password_hash(request.form.get("password"))
 
     db.execute("INSERT INTO users (username) VALUES(?)", username)
     """Register user"""
