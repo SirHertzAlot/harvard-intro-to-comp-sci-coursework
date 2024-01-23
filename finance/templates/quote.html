@@ -1,3 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quote
+{% endblock %}
+
 {% block body %}
     {% for birthday in birthdays %}
         {{ birthday.id }} {{ birthday.name }} {{ birthday.month }} {{ birthday.day }}
