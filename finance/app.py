@@ -115,8 +115,9 @@ def register():
     if request.method == "POST":
 
         username = request.form.get("username")
-        password = generate_password_hash(request.form.get("password"))
-        db.execute("INSERT INTO users (username, password) VALUES(?, ?)", username, password)
+        password = request.form.get("password")
+        hash = generate_password_hash(password)
+        db.execute("INSERT INTO users (username, password) VALUES(?, ?)", username, hash)
 
     else:
 
