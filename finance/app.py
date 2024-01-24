@@ -158,11 +158,11 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
-        if password == confirmation
+        if password == confirmation:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-        elif password == " " 
-
+        elif password == " ":
+            return apology("passwords can't be blank")
         else:
             return apology("passwords do not match")
     else:
