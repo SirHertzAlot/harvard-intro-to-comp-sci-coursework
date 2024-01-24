@@ -200,6 +200,7 @@ def sell():
                         db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
                         #INSERT INTO TRANSACTIONS TABLE
                         db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
+                        db.execute("UPDATE transactions SET purchase_status = (? WHERE id = ?)",'sold', session["user_id"])
                         #INSERT INTO PORTFOLIO TABLE
                         db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
         return redirect("/")

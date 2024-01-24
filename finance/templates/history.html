@@ -6,6 +6,6 @@
 
 {% block main %}
     {% for result in results %}
-    {{ result.symbol }} {{result.price}} {{ result.purchase_time }}
+    {{ result.symbol }} was {{ result.purchase_status }} for {{result.price}} at {{ result.purchase_time }}
     {% endfor %}
 {% endblock %}
