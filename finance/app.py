@@ -173,11 +173,11 @@ def sell():
     """Sell shares of stock"""
     if request.method == "POST":
 
-        if request.form.get("buy") == " ":
+        if request.form.get("symbol") == " ":
             return apology("Stock not found")
-        else:
-            product = request.form.get("buy")
-
+        elif:
+            stocksOwned = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
+            
         amount = int(request.form.get("amount"))
 
         if amount < 1:
