@@ -176,32 +176,31 @@ def sell():
         if request.form.get("symbol") == " ":
             return apology("Stock not found")
         elif:
+            stocks = request.form.get("symbol")
             stocksOwned = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
-            
-        amount = int(request.form.get("amount"))
+            for stock in stocksOwned:
+                if stock is stocks:
+                    amount = int(request.form.get("amount"))
+                    if amount < 1:
+                        return apology("Please enter amount greater than 1")
 
-        if amount < 1:
-            return apology("Please enter amount greater than 1")
-        else:
-            shares = request.form.get("amount")
+                stats = lookup(stock)
+                price = stats["price"]
 
-        stats = lookup(product)
-        price = stats["price"]
+                totalPrice = price * float(amount)
 
-        totalPrice = price * float(shares)
+                cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
 
-        username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
+                funds = float(cash[0].get("cash"))
 
-        funds = float(cash[0].get("cash"))
-
-        if funds > totalPrice:
-            db.execute("UPDATE users SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
-            #INSERT INTO TRANSACTIONS TABLE
-            db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
-            #INSERT INTO PORTFOLIO TABLE
-            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
+                if funds > totalPrice:
+                    db.execute("UPDATE users SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
+                    #INSERT INTO TRANSACTIONS TABLE
+                    db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
+                    #INSERT INTO PORTFOLIO TABLE
+                    db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
     else:
 
         return render_template("sell.html")
