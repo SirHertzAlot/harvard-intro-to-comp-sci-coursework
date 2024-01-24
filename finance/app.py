@@ -159,18 +159,15 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
 
-        if username.isascii():
-            
-        else:
-            return apology("Username is invalid.", 400)
-
-        if password == confirmation:
+        if username.isascii() and password == confirmation:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-        elif password == " ":
-            return apology("passwords can't be blank")
+        elif password == " " or username == " ":
+            return apology("Username or password cannot be blank.", 400)
+        elif not(password == confirmation):
+            return apology("Password does not match.", 400)
         else:
-            return apology("passwords do not match")
+            return apology("Username or password is invalid.", 400)
     else:
 
         return render_template("register.html")
