@@ -196,7 +196,7 @@ def sell():
                 funds = float(cash[0].get("cash"))
 
                 if funds > totalPrice:
-                    db.execute("UPDATE users SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
+                    db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
                     #INSERT INTO TRANSACTIONS TABLE
                     db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
                     #INSERT INTO PORTFOLIO TABLE
