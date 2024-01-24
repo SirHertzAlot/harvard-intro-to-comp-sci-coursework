@@ -164,7 +164,7 @@ def register():
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         elif password == " " or username == " ":
             return apology("Username or password cannot be blank.", 400)
-        elif not(password == confirmation):
+        elif password != confirmation:
             return apology("Password does not match.", 400)
         else:
             return apology("Username or password is invalid.", 400)
