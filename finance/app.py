@@ -24,7 +24,7 @@ Session(app)
 db = SQL("sqlite:///finance.db")
 
 class MyForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired('Username required'), Length(min=5, max=25, message='Username must be between 4 and 25 characters in length.')])
+    username = StringField('Username', validators=[InputRequired('Username required'), Length(min=4, max=25, message='Username must be between 4 and 25 characters in length.')])
 
 @app.after_request
 def after_request(response):
