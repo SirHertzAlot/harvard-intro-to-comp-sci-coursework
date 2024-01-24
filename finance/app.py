@@ -155,9 +155,9 @@ def register():
     """Register user"""
     if request.method == "POST":
 
-        username = request.form.get("username").strip()
-        password = request.form.get("password").strip()
-        confirmation = request.form.get("confirmation").strip()
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
 
         print(username)
         print(password)
@@ -165,7 +165,7 @@ def register():
         if username.isascii() and password == confirmation:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-        elif len(password) < 4 or len(username) < 4:
+        elif len(password.strip()) == 0 or len(username.strip()) < 0:
             return apology("Username or password cannot be blank.", 400)
         elif password != confirmation:
             return apology("Password does not match.", 400)
