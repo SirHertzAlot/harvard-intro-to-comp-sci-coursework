@@ -201,6 +201,7 @@ def sell():
                     db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
                     #INSERT INTO PORTFOLIO TABLE
                     db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
+        return redirect("/")
     else:
 
         return render_template("sell.html")
