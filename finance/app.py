@@ -165,7 +165,7 @@ def register():
         if username.isascii() and password == confirmation:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-        elif password = ' ' or username = ' ':
+        elif len(password) < 4 or len(username) < 4:
             return apology("Username or password cannot be blank.", 400)
         elif password != confirmation:
             return apology("Password does not match.", 400)
