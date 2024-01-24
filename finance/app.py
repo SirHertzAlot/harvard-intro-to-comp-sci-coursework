@@ -155,10 +155,14 @@ def register():
     """Register user"""
     if request.method == "POST":
 
-        username = request.form.get("username")
+        username = request.form.get("username").strip()
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
-        if username 
+
+        if username.isascii():
+            
+        else:
+            return apology("Username is invalid.", 400)
 
         if password == confirmation:
             hash = generate_password_hash(password)
