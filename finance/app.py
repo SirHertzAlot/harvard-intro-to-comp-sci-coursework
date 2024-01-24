@@ -212,6 +212,9 @@ def sell():
 @login_required
 def update():
     if request.method == "POST":
-        
+        new_val = request.form.get("update")
+        if len(new_val) > 1:
+            hashed_val = generate_password_hash(new_val)
+            db.execute("UPDATE users SET hash = ? WHERE id = ?", hashed_val, session["user_id"])
     else:
         return render_template("update.html")
