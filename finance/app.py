@@ -158,7 +158,9 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
-        if password == confirmation or len(username) > 4 or len(password) > 4:
+        if username 
+
+        if password == confirmation:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         elif password == " ":
