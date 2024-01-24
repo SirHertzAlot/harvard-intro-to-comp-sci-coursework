@@ -175,7 +175,7 @@ def sell():
 
         if request.form.get("symbol") == " ":
             return apology("Stock not found")
-        elif:
+        else:
             stocks = request.form.get("symbol")
             stocksOwned = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
             for stock in stocksOwned:
@@ -184,7 +184,7 @@ def sell():
                     if amount < 1:
                         return apology("Please enter amount greater than 1")
 
-                stats = lookup(stock)
+                stats = lookup(stock.get("name"))
                 price = stats["price"]
 
                 totalPrice = price * float(amount)
