@@ -184,23 +184,24 @@ def sell():
                     if amount < 1:
                         return apology("Please enter amount greater than 1")
 
-                stats = lookup(stock.get("name"))
-                price = stats["price"]
+                    print(stock)
+                    stats = lookup(stock.get("name"))
+                    price = stats["price"]
 
-                totalPrice = price * float(amount)
+                    totalPrice = price * float(amount)
 
-                cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+                    cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-                username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
+                    username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
 
-                funds = float(cash[0].get("cash"))
+                    funds = float(cash[0].get("cash"))
 
-                if funds > totalPrice:
-                    db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
-                    #INSERT INTO TRANSACTIONS TABLE
-                    db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
-                    #INSERT INTO PORTFOLIO TABLE
-                    db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
+                    if funds > totalPrice:
+                        db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
+                        #INSERT INTO TRANSACTIONS TABLE
+                        db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
+                        #INSERT INTO PORTFOLIO TABLE
+                        db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
         return redirect("/")
     else:
 
