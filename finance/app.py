@@ -73,8 +73,7 @@ def buy():
             #INSERT INTO TRANSACTIONS TABLE
             db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
             #INSERT INTO PORTFOLIO TABLE
-            db.execute("INSERT INTO portfolio SELECT username, symbol, UserId FROM transactions")
-            db.execute("UPDATE portfolio SET amount = (?)", amount)
+            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
     else:
         return render_template("buy.html")
 
