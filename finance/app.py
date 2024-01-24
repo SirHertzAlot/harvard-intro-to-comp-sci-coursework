@@ -171,5 +171,13 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    if request.method == "POST":
 
+        username = request.form.get("username")
+        password = request.form.get("password")
+        hash = generate_password_hash(password)
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+
+    else:
+        return render_template
     return apology("TODO")
