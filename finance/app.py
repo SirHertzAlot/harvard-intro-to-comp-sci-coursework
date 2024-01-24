@@ -161,6 +161,8 @@ def register():
         if password == confirmation
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+        elif password == " " 
+
         else:
             return apology("passwords do not match")
     else:
