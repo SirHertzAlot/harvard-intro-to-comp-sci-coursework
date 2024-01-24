@@ -34,9 +34,8 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    results = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
-    return render_template("portfolio.html", results=results)
-
+    portfolio = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
+    return render_template("portfolio.html", portfolio=results)
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your portfolio!
+{% endblock %}
+
+{% block main %}
+    {% for result in results %}
+    {{ result }}
+    {% endfor %}
+{% endblock %}
