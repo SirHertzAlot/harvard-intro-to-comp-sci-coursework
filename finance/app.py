@@ -69,9 +69,9 @@ def buy():
         if funds > totalPrice:
             db.execute("UPDATE users SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
             #INSERT INTO TRANSACTIONS TABLE
-            db.execute("INSERT INTO transactions SELECT id, username FROM users; INSERT INTO transactions (symbol, price, UserId) VALUES(?,?,?)", request.form.get("buy"), totalPrice, session["user_id"])
+            db.execute("INSERT INTO transactions (symbol, price, UserId) VALUES(?,?,?)", request.form.get("buy"), totalPrice, session["user_id"])
             #INSERT INTO PORTFOLIO TABLE
-            db.execute("INSERT INTO transactions SELECT id, username FROM users")
+            db.execute("INSERT INTO portfolio SELECT UserId, username FROM transactions")
     else:
         return render_template("buy.html")
 
