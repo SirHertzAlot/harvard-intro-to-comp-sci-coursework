@@ -179,5 +179,5 @@ def sell():
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
 
     else:
-        return render_template
+        return render_template("sell.html")
     return apology("TODO")
