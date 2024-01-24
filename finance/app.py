@@ -4,7 +4,7 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
+from wtforms import StringField, PasswordField, SubmitField
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, lookup, usd
@@ -25,6 +25,8 @@ db = SQL("sqlite:///finance.db")
 
 class MyForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired('Username required'), Length(min=4, max=25, message='Username must be between 4 and 25 characters in length.')])
+    password = PasswordField('Password',validators=[InputRequired('Password required')])
+    submit = SubmitField('Submit')
 
 @app.after_request
 def after_request(response):
