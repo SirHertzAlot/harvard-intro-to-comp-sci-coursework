@@ -173,11 +173,37 @@ def sell():
     """Sell shares of stock"""
     if request.method == "POST":
 
-        username = request.form.get("username")
-        password = request.form.get("password")
-        hash = generate_password_hash(password)
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+        if request.form.get("buy") == " ":
+            return apology("Stock not found")
+        else:
+            product = request.form.get("buy")
 
+        amount = int(request.form.get("amount"))
+
+        if amount < 1:
+            return apology("Please enter amount greater than 1")
+        else:
+            shares = request.form.get("amount")
+
+        stats = lookup(product)
+        price = stats["price"]
+
+        totalPrice = price * float(shares)
+
+        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+
+        username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
+
+        funds = float(cash[0].get("cash"))
+
+        if funds > totalPrice:
+            db.execute("UPDATE users SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
+            #INSERT INTO TRANSACTIONS TABLE
+            db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
+            #INSERT INTO PORTFOLIO TABLE
+            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
     else:
+
         return render_template("sell.html")
+
     return apology("TODO")
