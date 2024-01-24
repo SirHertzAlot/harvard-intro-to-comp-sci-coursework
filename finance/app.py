@@ -69,6 +69,7 @@ def buy():
         if funds > totalPrice:
             db.execute("UPDATE users SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
             #INSERT INTO TRANSACTIONS TABLE AND ALSO INSERT INTO PORTFOLIO TABLE
+            db.execute("INSERT")
     else:
         return render_template("buy.html")
 
@@ -167,5 +168,5 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    
+
     return apology("TODO")
