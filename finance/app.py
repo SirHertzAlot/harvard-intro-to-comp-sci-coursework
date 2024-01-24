@@ -207,3 +207,11 @@ def sell():
     else:
 
         return render_template("sell.html")
+
+@app.route("/update", methods=["GET", "POST"])
+@login_required
+def update():
+    if request.method == "POST":
+        
+    else:
+        return render_template("update.html")
