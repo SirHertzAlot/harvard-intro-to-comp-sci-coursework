@@ -185,7 +185,7 @@ def sell():
                         return apology("Please enter amount greater than 1")
 
                     print(stock)
-                    stats = lookup(stock.get("name"))
+                    stats = lookup(stock.get("symbol"))
                     price = stats["price"]
 
                     totalPrice = price * float(amount)
@@ -206,5 +206,3 @@ def sell():
     else:
 
         return render_template("sell.html")
-
-    return apology("TODO")
