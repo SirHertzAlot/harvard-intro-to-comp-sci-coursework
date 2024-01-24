@@ -157,9 +157,12 @@ def register():
 
         username = request.form.get("username")
         password = request.form.get("password")
-        hash = generate_password_hash(password)
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-
+        confirmation = request.form.get("confirmation")
+        if password == confirmation
+            hash = generate_password_hash(password)
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
+        else:
+            return apology("passwords do not match")
     else:
 
         return render_template("register.html")
