@@ -192,16 +192,13 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    
-    symbols = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
-    print(symbols)
-
 
     if request.method == "POST":
 
         if request.form.get("symbol") == " ":
-            return apology("Stock not found")
+            return apology("Stock not found", 400)
         else:
+            symbols = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
             stocks = request.form.get("symbol")
             print(stocks)
             for stock in symbols:
@@ -230,7 +227,13 @@ def sell():
                         db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
         return redirect("/")
     else:
-        return render_template("sell.html", symbols=symbols)
+        try:
+            symbols = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
+            print(symbols)
+        except:
+            return apology("No stocks found.", 400)
+        finally:
+            return render_template("sell.html", symbols=symbols)
 
 @app.route("/update", methods=["GET", "POST"])
 @login_required
