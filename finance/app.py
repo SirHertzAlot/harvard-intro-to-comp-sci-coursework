@@ -65,9 +65,15 @@ def buy():
 
         totalPrice = price * float(shares)
 
-        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        try:
+            username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
+        except:
+            return apology("Account does not exist.", 400)
 
-        username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
+        try:
+            cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        except:
+            return apology("Account does not exist.", 400)
 
         funds = float(cash[0].get("cash"))
 
