@@ -50,12 +50,12 @@ def buy():
         else:
             product = request.form.get("buy")
 
-        amount = int(request.form.get("amount"))
+        amount = int(request.form.get("shares"))
 
         if amount < 1:
             return apology("Please enter amount greater than 1")
         else:
-            shares = request.form.get("amount")
+            shares = request.form.get("shares")
 
         stats = lookup(product)
         price = stats["price"]
@@ -73,7 +73,7 @@ def buy():
             #INSERT INTO TRANSACTIONS TABLE
             db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
             #INSERT INTO PORTFOLIO TABLE
-            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
+            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), shares, session["user_id"])
     else:
         return render_template("buy.html")
 
