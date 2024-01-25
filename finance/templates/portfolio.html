@@ -31,7 +31,7 @@
     {% endfor %}
     <div style="display:flex; justify-content:space-evenly;">
         <table>
-            <tfoot>
+            <tfoot style="display:flex; flex-direction:row;">
                 <tr style="display:flex; flex-direction: row; justify-content:space-between">
                   <td style="margin-right: 20px;">Current Balance{{"$%.2f"|format(balance[0].cash)}}</td>
                   <td>Grand total{{"$%.2f"|format((results[0].price_per_share * results[0].amount) + balance[0].cash)}}</td>
