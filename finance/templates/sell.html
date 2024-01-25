@@ -9,7 +9,7 @@
         <div class="mb-3">
             {% for symbol in symbols %}
             <select for="symbol" name="symbol">
-                <option value="{{ symbol.name }}"></option>
+                <option value="{{ symbol.symbol }}">{{ symbol.symbol }}</option>
             </select>
             {% endfor %}
             <input autocomplete="off" required autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Enter amount of shares to sell" type="number">
