@@ -45,7 +45,7 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
 
-        if len(request.form.get("buy")) < 1:
+        if len(request.form.get("symbol")) < 1:
             return apology("Stock not found", 400)
         else:
             product = request.form.get("symbol")
