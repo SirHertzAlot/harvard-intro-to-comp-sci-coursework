@@ -167,6 +167,8 @@ def register():
     form = MyForm()
 
     if form.validate_on_submit():
+        hash = generate_password_hash(password)
+        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         return '<h1> Registration successful!</h1>'
     return render_template("register.html")
     """ if request.method == "POST":
