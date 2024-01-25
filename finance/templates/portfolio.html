@@ -27,8 +27,9 @@
                 </tbody>
                 <br>
                 <tfoot>
-                    <tr>
-                      <td>{{balance[0].cash|format(value|float)}}</td>
+                    <tr style="display:flex; flex-direction: row; justify-content:space-between">
+                      <td>Current Balance{{"$%.2f"|format(balance[0].cash)}}</td>
+                      <td>Grand total{{"$%.2f"|format((result.price_per_share * result.amount) + balance[0].cash)}}</td>
                     </tr>
                   </tfoot>
               </table>
