@@ -58,9 +58,11 @@ def buy():
                 shares = request.form.get("shares")
         except:
             return apology("Amount must be greater than 0", 400)
-
-        stats = lookup(product)
-        price = stats["price"]
+        try:
+            stats = lookup(product)
+            price = stats["price"]
+        except:
+            return apology("Ticker symbol is not valid.", 400)
 
         totalPrice = price * float(shares)
 
