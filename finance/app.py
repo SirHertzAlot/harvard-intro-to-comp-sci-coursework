@@ -50,8 +50,6 @@ def buy():
         else:
             product = request.form.get("symbol")
 
-        amount = int(request.form.get("shares"))
-
         try:
             if amount < 1:
                 return apology("Please enter amount greater than 1", 400)
