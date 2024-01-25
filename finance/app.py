@@ -168,7 +168,7 @@ def register():
             try:
                 db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
             except:
-                return apology("Username already is in use", 403)
+                return apology("Username is already in use", 403)
         elif len(password.strip()) == 0 or len(username.strip()) == 0:
             return apology("Username or password cannot be blank.", 400)
         elif password != confirmation:
