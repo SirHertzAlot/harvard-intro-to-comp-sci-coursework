@@ -17,23 +17,27 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr style="display:flex; flex-direction:row; justify-content:space-evenly;">
                     <br />
-                    <td style="padding: 10px; margin: 10px;">Ticker Symbol: {{result.symbol}}</td>
+                    <td style="display: block; margin-right: 20px;">Ticker Symbol: {{result.symbol}}</td>
                     <td style="display: block; margin-right: 20px;">Amount of shares: {{result.amount}}</td>
                     <td style="display: block; margin-right: 20px;">Price Per Share: {{result.price_per_share}}</td>
                     <td style="display: block; margin-right: 20px;">Total Value of Holding: {{result.price_per_share * result.amount}}</td>
                   </tr>
                 </tbody>
                 <br>
-                <tfoot>
-                    <tr style="display:flex; flex-direction: row; justify-content:space-between">
-                      <td style="margin-right: 20px;">Current Balance{{"$%.2f"|format(balance[0].cash)}}</td>
-                      <td>Grand total{{"$%.2f"|format((result.price_per_share * result.amount) + balance[0].cash)}}</td>
-                    </tr>
-                  </tfoot>
               </table>
         </div>
     {% endfor %}
+    <div>
+        <table>
+            <tfoot>
+                <tr style="display:flex; flex-direction: row; justify-content:space-between">
+                  <td style="margin-right: 20px;">Current Balance{{"$%.2f"|format(balance[0].cash)}}</td>
+                  <td>Grand total{{"$%.2f"|format((result.price_per_share * result.amount) + balance[0].cash)}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 </div>
 {% endblock %}
