@@ -166,9 +166,15 @@ def register():
     register = MyForm()
 
     if register.validate_on_submit():
+
         hash = generate_password_hash(register.password.data)
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", register.username.data, hash)
-        return '<h1> Registration successful!</h1>'
+
+        if register.password.data == register.confirmation.data:
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", register.username.data, hash)
+            return '<h1> Registration successful!</h1>'
+        else:
+            return apology("Passwords does not match.", 400)
+
     return render_template("register.html", register=register)
     """ if request.method == "POST":
 
