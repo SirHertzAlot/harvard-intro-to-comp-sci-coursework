@@ -18,7 +18,7 @@
     <br>
         <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
             <table class="table table-striped">
-                <thead style="width: auto; display:flex; justify-content:center; flex-direction: row;">
+                <thead>
                   <tr>
                     <th>Symbol</th>
                     <th>Shares</th>
@@ -29,10 +29,10 @@
                 <tbody style="display:flex; flex-direction:row;">
                   <tr>
                     <br />
-                    <td style="display: block; margin-right: 20px;">Ticker Symbol: {{result.symbol}}</td>
-                    <td style="display: block; margin-right: 20px;">Amount of shares: {{result.amount}}</td>
-                    <td style="display: block; margin-right: 20px;">Price Per Share: {{result.price_per_share}}</td>
-                    <td style="display: block; margin-right: 20px;">Total Value of Holding: {{result.price_per_share * result.amount}}</td>
+                    <td class="text-start">Ticker Symbol: {{result.symbol}}</td>
+                    <td class="text-end">Amount of shares: {{result.amount}}</td>
+                    <td class="text-end">Price Per Share: {{result.price_per_share}}</td>
+                    <td class="text-end">Total Value of Holding: {{result.price_per_share * result.amount}}</td>
                   </tr>
                 </tbody>
                 <br>
