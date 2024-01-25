@@ -6,12 +6,25 @@
 
 {% block main %}
 <div>
+    <h1>Stock Portfolio</h1>
     {% for result in results %}
-    <h1>ticker symbol: {{ result.symbol }}</h1>
     <br>
         <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
-            <h3>{{ result.price_per_share }}</h3>
-            <h3>{{ result.amount }}</h3>
+            <table>
+                <thead>
+                  <tr>
+                    <th colspan="2">Stocks</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="padding: 10px;">Ticker Symbol: {{result.symbol}}</td>
+                    <td>Amount of shares: {{result.amount}}</td>
+                    <td>Price Per Share: {{result.price_per_share}}</td>
+                    <td>Total Value of Holding: {{result.price_per_share * result.amount}}</td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     {% endfor %}
 </div>
