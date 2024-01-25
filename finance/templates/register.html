@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/register" method="post">
+    <form action="{{ url_for('register') }}" method="post">
+        {{ form.csrf_token }}
         <div style="display:flex; flex-direction:column;" class="mb-3">
             <label for="username">Create a username</br></label>
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text" required>
