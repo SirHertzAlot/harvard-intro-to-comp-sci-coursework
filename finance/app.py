@@ -162,7 +162,7 @@ def register():
     form = MyForm()
 
     if form.validate_on_submit():
-        return '<h1> Registration successful'
+        return '<h1> Registration successful!</h1>'
     return
     """ if request.method == "POST":
 
