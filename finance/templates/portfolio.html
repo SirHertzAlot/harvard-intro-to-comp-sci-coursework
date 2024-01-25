@@ -6,8 +6,12 @@
 
 {% block main %}
     {% for result in results %}
-    {{ result.symbol }}
-    {{ result.price_per_share }}
-    {{ result.amount }}
+        <div>
+            <h1>{{ result.symbol }}</h1>
+            <div style="display: flex; flex-direction:row;">
+                <h3>{{ result.price_per_share }}</h3>
+                {{ result.amount }}
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}
