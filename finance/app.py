@@ -150,7 +150,7 @@ def quote():
     if request.method == "POST":
         symbol = request.form.get("symbol")
         try:
-            if len(results) > 0:
+            if len(symbol) > 0:
                 results = lookup(symbol)
                 return 200 and render_template("quoted.html", results=results)
             else:
