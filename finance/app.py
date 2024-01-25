@@ -152,7 +152,6 @@ def quote():
         try:
             if len(results) > 0:
                 results = lookup(symbol)
-                response = make_response("<h1>Success</h1>",200)
                 return render_template("quoted.html", results=results)
             else:
               return apology("Ticker symbol cannot be blank", 400)
