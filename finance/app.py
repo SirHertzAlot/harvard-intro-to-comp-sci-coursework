@@ -229,7 +229,6 @@ def sell():
                         db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), amount, session["user_id"])
         return redirect("/")
     else:
-
         return render_template("sell.html" symbols=symbols)
 
 @app.route("/update", methods=["GET", "POST"])
