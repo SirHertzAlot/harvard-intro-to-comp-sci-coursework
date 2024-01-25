@@ -161,9 +161,9 @@ def quote():
 
 
 @app.route("/register", methods=["GET", "POST"])
-def register():
+def register(request):
     """Register user"""
-    register = MyForm()
+    register = MyForm(request.POST)
 
     if request.method == "POST" and register.validate_on_submit():
 
