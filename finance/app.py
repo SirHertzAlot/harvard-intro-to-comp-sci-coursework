@@ -40,8 +40,6 @@ def index():
             portfolio = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
     except:
         return apology("Account does not exist.", 400)
-    print(portfolio)
-    print(cash)
     return render_template("portfolio.html", results=portfolio, balance=cash)
 
 @app.route("/buy", methods=["GET", "POST"])
