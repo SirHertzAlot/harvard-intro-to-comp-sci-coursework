@@ -7,10 +7,11 @@
 {% block main %}
     {% for result in results %}
         <div>
-            <h1>{{ result.symbol }}</h1>
-            <div style="display: flex; flex-direction:row;">
+            <h1>ticker symbol: {{ result.symbol }}</h1>
+            <br>
+            <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
                 <h3>{{ result.price_per_share }}</h3>
-                {{ result.amount }}
+                <h3>{{ result.amount }}</h3>
             </div>
         </div>
     {% endfor %}
