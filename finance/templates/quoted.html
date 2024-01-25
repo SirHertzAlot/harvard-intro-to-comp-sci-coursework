@@ -6,6 +6,6 @@
 
 {% block main %}
     {% for result in results %}
-    {{ results.symbol }} {{ results.price|round(2, 'common') }}
+    {{ results.symbol }} {{ results.price|format(price) }}
     {% endfor %}
 {% endblock %}
