@@ -7,9 +7,9 @@
 {% block main %}
     <form action="/sell" method="post">
         <div class="mb-3">
-            {% for curr_stock in symbols %}
+            {% for i in symbols %}
             <select name="symbol">
-                <option value="">{{ curr_stock.symbol }}</option>
+                <option value="">{{ i.symbol }}</option>
             </select>
             {% endfor %}
             <input autocomplete="off" required autofocus class="form-control mx-auto w-auto" name="shares" placeholder="Enter amount of shares to sell" type="number">

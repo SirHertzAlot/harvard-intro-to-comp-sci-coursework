@@ -192,11 +192,10 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    try:
-        symbols = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
-        print(symbols)
-    except:
-        return apology("No stocks found, sorry.", 400)
+    
+    symbols = db.execute("SELECT * FROM portfolio WHERE id = ?", session["user_id"])
+    print(symbols)
+
 
     if request.method == "POST":
 
