@@ -11,7 +11,7 @@
     <br>
         <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
             <table>
-                <thead>
+                <thead style="width: 100%; display:flex; justify-content:center; flex-direction: row;">
                   <tr>
                     <th colspan="2">Stocks</th>
                   </tr>
@@ -24,6 +24,11 @@
                     <td>Total Value of Holding: {{result.price_per_share * result.amount}}</td>
                   </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                      <td>21,000</td>
+                    </tr>
+                  </tfoot>
               </table>
         </div>
     {% endfor %}
