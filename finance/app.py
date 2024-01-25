@@ -58,7 +58,6 @@ def buy():
 
         try:
             stats = lookup(product)
-            db.execute("INSERT INTO portfolio (price_per_share) VALUES (?) WHERE id = ?", stats["price"], session["user_id"])
             price = stats["price"]
         except:
             return apology("Ticker symbol is not valid.", 400)
@@ -76,7 +75,7 @@ def buy():
             #INSERT INTO TRANSACTIONS TABLE
             db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), totalPrice, session["user_id"])
             #INSERT INTO PORTFOLIO TABLE
-            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), shares, session["user_id"])
+            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId , price_per_share) VALUES (?,?,?,?,?)", username[0].get("username"), request.form.get("symbol"), shares, session["user_id"], stats["price"])
             return redirect("/")
     else:
         return render_template("buy.html")
