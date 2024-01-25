@@ -175,8 +175,7 @@ def register():
         else:
             return apology("Passwords does not match.", 400)
     else:
-        return apology("Please make sure to use at least 4 characters for username and password fields. Also that your passwords match.", 400)
-    return render_template("register.html", register=register)
+       return render_template("register.html", register=register)
     """ if request.method == "POST":
 
         username = request.form.get("username")
