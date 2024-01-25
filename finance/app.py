@@ -165,7 +165,7 @@ def register():
     """Register user"""
     register = MyForm()
 
-    if request.POST and register.validate_on_submit():
+    if request.method == "POST" and register.validate_on_submit():
 
         hash = generate_password_hash(register.password.data)
 
