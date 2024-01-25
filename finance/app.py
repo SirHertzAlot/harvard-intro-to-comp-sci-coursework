@@ -48,7 +48,7 @@ def buy():
         if request.form.get("buy") == " ":
             return apology("Stock not found")
         else:
-            product = request.form.get("buy")
+            product = request.form.get("symbol")
 
         amount = int(request.form.get("shares"))
 
@@ -56,7 +56,7 @@ def buy():
             return apology("Please enter amount greater than 1")
         else:
             shares = request.form.get("shares")
-        
+
         stats = lookup(product)
         price = stats["price"]
 
@@ -71,9 +71,9 @@ def buy():
         if funds > totalPrice:
             db.execute("UPDATE users SET cash = (SELECT ? - ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
             #INSERT INTO TRANSACTIONS TABLE
-            db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), totalPrice, session["user_id"])
+            db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), totalPrice, session["user_id"])
             #INSERT INTO PORTFOLIO TABLE
-            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("buy"), shares, session["user_id"])
+            db.execute("INSERT INTO portfolio (username, symbol, amount, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), shares, session["user_id"])
     else:
         return render_template("buy.html")
 
