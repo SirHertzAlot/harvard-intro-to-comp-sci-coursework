@@ -35,9 +35,14 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    portfolio = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
+    try:
+            cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+            portfolio = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
+    except:
+        return apology("Account does not exist.", 400)
     print(portfolio)
-    return render_template("portfolio.html", results=portfolio)
+    print(cash)
+    return render_template("portfolio.html", results=portfolio, balance=cash)
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
