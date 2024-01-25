@@ -164,13 +164,13 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    form = MyForm()
+    register = MyForm()
 
-    if form.validate_on_submit():
+    if register.validate_on_submit():
         hash = generate_password_hash(password)
         db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         return '<h1> Registration successful!</h1>'
-    return render_template("register.html")
+    return render_template("register.html", register=register)
     """ if request.method == "POST":
 
         username = request.form.get("username")
