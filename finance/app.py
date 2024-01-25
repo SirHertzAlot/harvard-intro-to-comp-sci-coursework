@@ -163,9 +163,6 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
 
-        print(username)
-        print(password)
-
         if password == confirmation and len(password) > 0 and len(username) > 0:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
