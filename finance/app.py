@@ -58,7 +58,7 @@ def buy():
 
         try:
             stats = lookup(product)
-            db.execute("UPDATE portfolio SET price_per_share = ? WHERE id = ?", stats["price"], session["user_id"])
+            db.execute("INSERT INTO portfolio SET price_per_share = ? WHERE id = ?", stats["price"], session["user_id"])
             price = stats["price"]
         except:
             return apology("Ticker symbol is not valid.", 400)
