@@ -171,7 +171,7 @@ def register():
 
         if register.password.data == register.confirmation.data:
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", register.username.data, hash)
-            return '<h1> Registration successful!</h1>'
+            return redirect('/')
         else:
             return apology("Passwords does not match.", 400)
 
