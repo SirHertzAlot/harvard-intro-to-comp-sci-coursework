@@ -24,9 +24,9 @@ Session(app)
 db = SQL("sqlite:///finance.db")
 
 class MyForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired('Username required'), Length(min=4, max=25, message='Username must be between 4 and 25 characters in length.')])
-    password = PasswordField('Password',validators=[InputRequired('Password required')])
-    confirmation = PasswordField('Password',validators=[InputRequired('Password required')])
+    username = StringField('Username', validators=[InputRequired('Username required'), DataRequired('Field cannot be blank.'), Length(min=4, max=25, message='Username must be between 4 and 25 characters in length.')])
+    password = PasswordField('Password',validators=[InputRequired('Password required'), DataRequired('Field cannot be blank.')])
+    confirmation = PasswordField('Password',validators=[InputRequired('Password required'), DataRequired('Field cannot be blank.')])
     submit = SubmitField('Submit')
 
 @app.after_request
