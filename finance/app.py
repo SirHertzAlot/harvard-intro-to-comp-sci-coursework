@@ -165,7 +165,7 @@ def register():
 
     if form.validate_on_submit():
         return '<h1> Registration successful!</h1>'
-    return
+    return render_template("/")
     """ if request.method == "POST":
 
         username = request.form.get("username")
