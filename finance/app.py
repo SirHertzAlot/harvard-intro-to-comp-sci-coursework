@@ -161,11 +161,11 @@ def quote():
 
 
 @app.route("/register", methods=["GET", "POST"])
-def register(request):
+def register():
     """Register user"""
-    register = MyForm(request.POST)
+    register = MyForm()
 
-    if request.method == "POST" and register.validate_on_submit():
+    if request.method == "POST" and register.validate():
 
         hash = generate_password_hash(register.password.data)
 
@@ -174,7 +174,8 @@ def register(request):
             return redirect('/')
         else:
             return apology("Passwords does not match.", 400)
-
+    else:
+        return apology("Please make sure to use at least 4 characters for username and password fields. Also that your passwords match.", 400)
     return render_template("register.html", register=register)
     """ if request.method == "POST":
 
