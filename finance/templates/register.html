@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <form action="{{ url_for('form') }}" method="post">
+    <form action="{{ url_for('register') }}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div style="display:flex; flex-direction:column;" class="mb-3">
             <label for="username">Create a username</br></label>
