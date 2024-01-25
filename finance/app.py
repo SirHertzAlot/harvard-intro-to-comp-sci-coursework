@@ -45,17 +45,19 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
 
-        if request.form.get("buy") == " ":
-            return apology("Stock not found")
+        if len(request.form.get("buy")) < 1:
+            return apology("Stock not found", 400)
         else:
             product = request.form.get("symbol")
 
         amount = int(request.form.get("shares"))
-
-        if amount < 1:
-            return apology("Please enter amount greater than 1")
-        else:
-            shares = request.form.get("shares")
+        try:
+            if amount < 1:
+                return apology("Please enter amount greater than 1", 400)
+            else:
+                shares = request.form.get("shares")
+        except:
+            return apology("Amount must be greater than 0", 400)
 
         stats = lookup(product)
         price = stats["price"]
