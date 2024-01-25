@@ -87,7 +87,7 @@ def buy():
 @app.route("/history")
 @login_required
 def history():
-    results = db.execute("SELECT * FROM transactions WHERE id = ?", session["user_id"])
+    results = db.execute("SELECT * FROM transactions WHERE id = ? AND SELECT price_per_share FROM portfolio WHERE id = ?", session["user_id"], session["user_id"])
     return render_template("history.html", results=results)
 
 
