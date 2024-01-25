@@ -203,7 +203,6 @@ def sell():
                     if amount < 1:
                         return apology("Please enter amount greater than 1")
 
-                    print(stock)
                     stats = lookup(stock.get("symbol"))
                     price = stats["price"]
 
