@@ -7,6 +7,8 @@
 {% block main %}
     {% for result in results %}
         <div>
+            {% if result.symbol == result.symbol}
+            {% endif %}
             <h1>ticker symbol: {{ result.symbol }}</h1>
             <br>
             <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
