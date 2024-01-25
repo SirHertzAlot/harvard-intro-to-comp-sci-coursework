@@ -12,6 +12,7 @@ from helpers import apology, login_required, lookup, usd
 
 # Configure application
 app = Flask(__name__)
+WTF_CSRF_SECRET_KEY = " This is my key."
 
 # Custom filter
 app.jinja_env.filters["usd"] = usd
