@@ -166,10 +166,10 @@ def register():
         print(username)
         print(password)
 
-        if len(username) > 0 and password == confirmation and len(password) > 0:
+        if password == confirmation and len(password) > 0 and len(username) > 0:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-        elif len(password.strip()) == 0 or len(username.strip()) < 0:
+        elif len(password.strip()) == 0 or len(username.strip()) == 0:
             return apology("Username or password cannot be blank.", 400)
         elif password != confirmation:
             return apology("Password does not match.", 400)
