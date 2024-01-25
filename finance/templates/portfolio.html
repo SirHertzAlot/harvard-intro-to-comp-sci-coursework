@@ -8,13 +8,13 @@
     {% for result in results %}
         <div>
             {% if result.symbol == result.symbol}
-            {% endif %}
             <h1>ticker symbol: {{ result.symbol }}</h1>
             <br>
-            <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
-                <h3>{{ result.price_per_share }}</h3>
-                <h3>{{ result.amount }}</h3>
-            </div>
+                <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
+                    <h3>{{ result.price_per_share }}</h3>
+                    <h3>{% result.amount += result.amount %}</h3>
+                </div>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock %}
