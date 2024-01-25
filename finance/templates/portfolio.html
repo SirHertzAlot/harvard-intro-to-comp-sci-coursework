@@ -16,23 +16,23 @@
     <h1>Stock Portfolio</h1>
     {% for result in results %}
     <br>
-        <div class="border" style="background-color:#efefef; display: flex; flex-direction:row; justify-content: space-evenly;">
+        <div class="border">
             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Symbol</th>
-                    <th>Shares</th>
-                    <th>Price Per Share</th>
-                    <th>TOTAL</th>
+                    <th class="text-start">Symbol</th>
+                    <th class="text-end">Shares</th>
+                    <th class="text-end">Price Per Share</th>
+                    <th class="text-end">TOTAL</th>
                   </tr>
                 </thead>
-                <tbody style="display:flex; flex-direction:row;">
+                <tbody>
                   <tr>
                     <br />
-                    <td class="text-start">Ticker Symbol: {{result.symbol}}</td>
-                    <td class="text-end">Amount of shares: {{result.amount}}</td>
-                    <td class="text-end">Price Per Share: {{result.price_per_share}}</td>
-                    <td class="text-end">Total Value of Holding: {{result.price_per_share * result.amount}}</td>
+                    <td class="text-start">{{result.symbol}}</td>
+                    <td class="text-end">{{result.amount}}</td>
+                    <td class="text-end">{{result.price_per_share}}</td>
+                    <td class="text-end">{{result.price_per_share * result.amount}}</td>
                   </tr>
                 </tbody>
                 <br>
