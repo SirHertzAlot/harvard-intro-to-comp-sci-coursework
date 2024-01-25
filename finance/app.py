@@ -51,10 +51,11 @@ def buy():
         else:
             product = request.form.get("symbol")
 
-        if int(request.form.get("shares")) < 0:
-            return apology("Please enter amount greater than 0", 400)
-        else:
+        if request.form.get("shares").isdigit():
             shares = request.form.get("shares")
+        else:
+            return apology("Please enter amount greater than 0", 400)
+
 
         try:
             stats = lookup(product)
