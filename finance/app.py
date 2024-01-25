@@ -159,7 +159,10 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    if request.method == "POST":
+    form = MyForm()
+
+    if form.
+    """ if request.method == "POST":
 
         username = request.form.get("username")
         password = request.form.get("password")
@@ -179,7 +182,7 @@ def register():
             return apology("Username or password is invalid.", 400)
     else:
 
-        return render_template("register.html")
+        return render_template("register.html") """
 
     return redirect("/login")
 
