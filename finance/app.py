@@ -56,7 +56,7 @@ def buy():
             return apology("Please enter amount greater than 1")
         else:
             shares = request.form.get("shares")
-
+        
         stats = lookup(product)
         price = stats["price"]
 
