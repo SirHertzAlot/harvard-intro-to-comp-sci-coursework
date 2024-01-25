@@ -145,8 +145,14 @@ def logout():
 def quote():
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        results = lookup(symbol)
-        return render_template("quoted.html", results=results)
+        try:
+            if len(results) > 0:
+                results = lookup(symbol)
+                return render_template("quoted.html", results=results)
+            else:
+              return apology("Ticker symbol cannot be blank", 400)
+        except:
+            return apology("Ticker symbol does not exist", 400)
     else:
         return render_template("quote.html")
 
@@ -165,7 +171,7 @@ def register():
             try:
                 db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
             except:
-                return apology("Username is already in use", 403)
+                return apology("Username is already in use", 400)
         elif len(password.strip()) == 0 or len(username.strip()) == 0:
             return apology("Username or password cannot be blank.", 400)
         elif password != confirmation:
