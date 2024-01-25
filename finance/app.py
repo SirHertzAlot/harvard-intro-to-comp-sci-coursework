@@ -96,7 +96,12 @@ def buy():
 @app.route("/history")
 @login_required
 def history():
-    results = db.execute("SELECT * FROM transactions WHERE id = ? AND SELECT price_per_share FROM portfolio WHERE id = ?", session["user_id"], session["user_id"])
+
+    try:
+        results = db.execute("SELECT * FROM transactions WHERE id = ? AND SELECT price_per_share FROM portfolio WHERE id = ?", session["user_id"], session["user_id"])
+    except:
+        return render_template("history.html")
+
     return render_template("history.html", results=results)
 
 
@@ -157,15 +162,18 @@ def logout():
 @login_required
 def quote():
     if request.method == "POST":
+
         symbol = request.form.get("symbol")
+
         try:
-            if len(symbol) > 0:
+            if symbol:
                 results = lookup(symbol)
-                return 200 and render_template("quoted.html", results=results)
+                return render_template("quoted.html", results=results)
             else:
               return apology("Ticker symbol cannot be blank", 400)
         except:
             return apology("Ticker symbol does not exist", 400)
+
     else:
         return render_template("quote.html")
 

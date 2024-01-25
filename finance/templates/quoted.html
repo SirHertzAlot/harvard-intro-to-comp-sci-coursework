@@ -6,6 +6,6 @@
 
 {% block main %}
     {% for result in results %}
-    {{ results.symbol }} {{ results.price|format(price) }}
+    {{ results.symbol }} {{ "$%.2f"|format(results.price) }} <br />
     {% endfor %}
 {% endblock %}

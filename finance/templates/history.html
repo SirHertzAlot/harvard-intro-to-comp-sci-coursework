@@ -5,7 +5,13 @@
 {% endblock %}
 
 {% block main %}
+    {% if results %}
     {% for result in results %}
     {{ result.symbol }} was {{ result.purchase_status }} for {{result.price}} at {{ result.purchase_time }}
     {% endfor %}
+    {% else %}
+    <div>
+        <h1>No transactions to display</h1>
+    </div>
+    {% endif %}
 {% endblock %}
