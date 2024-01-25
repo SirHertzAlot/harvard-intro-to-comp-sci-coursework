@@ -26,12 +26,6 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
-class MyForm(FlaskForm):
-    username = StringField('Username', validators=[InputRequired('Username required'), DataRequired('Field cannot be blank.'), Length(min=4, max=25, message='Username must be between 4 and 25 characters in length.')])
-    password = PasswordField('Password',validators=[InputRequired('Password required'), DataRequired('Field cannot be blank.')])
-    confirmation = PasswordField('Password',validators=[InputRequired('Password required'), DataRequired('Field cannot be blank.')])
-    submit = SubmitField('Submit')
-
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
@@ -163,20 +157,7 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    register = MyForm()
-
-    if request.method == "POST" and register.validate():
-
-        hash = generate_password_hash(register.password.data)
-
-        if register.password.data == register.confirmation.data:
-            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", register.username.data, hash)
-            return redirect('/')
-        else:
-            return apology("Passwords does not match.", 400)
-    else:
-       return render_template("register.html", register=register)
-    """ if request.method == "POST":
+    if request.method == "POST":
 
         username = request.form.get("username")
         password = request.form.get("password")
@@ -185,7 +166,7 @@ def register():
         print(username)
         print(password)
 
-        if username.isascii() and password == confirmation:
+        if len(username) > 0 and password == confirmation and len(password) > 0:
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         elif len(password.strip()) == 0 or len(username.strip()) < 0:
@@ -195,8 +176,7 @@ def register():
         else:
             return apology("Username or password is invalid.", 400)
     else:
-
-        return render_template("register.html") """
+        return render_template("register.html")
 
     return redirect("/login")
 
