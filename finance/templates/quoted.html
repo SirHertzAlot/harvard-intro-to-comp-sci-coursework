@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    quoted
+    Quoted
 {% endblock %}
 
 {% block main %}
     {% for result in results %}
-    {{ results.symbol }} {{ "$%.2f"|format(results.price) }} <br />
+    A share of {{ results.symbol }} costs {{ "$%.2f"|format(results.price) }} <br />
     {% endfor %}
 {% endblock %}
