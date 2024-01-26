@@ -255,7 +255,7 @@ def sell():
                         db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), totalPrice, session["user_id"])
                         db.execute("UPDATE transactions SET purchase_status = ? WHERE UserId = ?",'sold', session["user_id"])
                         #INSERT INTO PORTFOLIO TABLE
-                        db.execute("DELETE FROM portfolio WHERE UserId= ? and symbol = ?", session["user_id"], request.form.get("symbol"))
+                        db.execute("UPDATE portfolio SET amount = (? - ?) WHERE UserId= ? and symbol = ?", shares[0].get("amount"), int(request.form.get("shares")), session["user_id"], request.form.get("symbol"))
                     else:
                         return apology("Make sure you have enough shares of this stock to sell first.", 400)
                 else:
