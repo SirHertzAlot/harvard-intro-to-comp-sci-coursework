@@ -233,13 +233,13 @@ def sell():
         else:
             symbols = db.execute("SELECT symbol FROM portfolio WHERE UserId = ?", session["user_id"])
 
-            print(symbols)
+            shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], symbols[0].get("symbol"))
 
-            shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], symbols.get())
+            print(shares)
 
             if request.form.get("shares").isnumeric and int(request.form.get("shares")) > 1:
-                if shares:
-                    if shares > int(request.form.get("shares")):
+                if shares[0].get("amount"):
+                    if shares[0].get("amount") > int(request.form.get("shares")):
                         stats = lookup(stock.get("symbol"))
                         price = stats["price"]
 
