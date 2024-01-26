@@ -235,12 +235,11 @@ def sell():
 
             shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], symbols[0].get("symbol"))
 
-            print(request.form.get("shares"))
-
             if request.form.get("shares").isnumeric and int(request.form.get("shares")) >= 1:
                 if shares[0].get("amount"):
                     if shares[0].get("amount") > int(request.form.get("shares")):
-                        stats = lookup(stock.get("symbol"))
+                        stats = lookup(request.form.get("symbol"))
+                        print(stats)
                         price = stats["price"]
 
                         totalPrice = price * float(int(request.form.get("shares")))
