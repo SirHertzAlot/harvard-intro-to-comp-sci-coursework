@@ -234,7 +234,7 @@ def sell():
             symbols = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
 
             try:
-                shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", request.form.get("symbol"), session["user_id"])
+                shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], request.form.get("symbol"))
             except:
                 return apology("Invalid choice", 400)
 
