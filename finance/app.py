@@ -253,7 +253,7 @@ def sell():
                         db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
                         #INSERT INTO TRANSACTIONS TABLE
                         db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), totalPrice, session["user_id"])
-                        db.execute("UPDATE transactions SET purchase_status = (? WHERE UserId = ?)",'sold', session["user_id"])
+                        db.execute("UPDATE transactions SET purchase_status = ? WHERE UserId = ?",'sold', session["user_id"])
                         #INSERT INTO PORTFOLIO TABLE
                         db.execute("DELETE FROM portfolio WHERE UserId= ? and symbol = ?", session["user_id"], request.form.get("symbol"))
                     else:
