@@ -113,13 +113,12 @@ def buy():
 @login_required
 def history():
 
-    try:
-        results = db.execute("SELECT * FROM transactions WHERE id = ? AND SELECT price_per_share FROM portfolio WHERE id = ?", session["user_id"], session["user_id"])
-    except:
-        return render_template("history.html")
+    results = db.execute("SELECT * FROM transactions WHERE id = ? AND SELECT price_per_share FROM portfolio WHERE id = ?", session["user_id"], session["user_id"])
 
-    return render_template("history.html", results=results)
+    if results:
+            return render_template("history.html", results=results)
 
+    return render_template("history.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
