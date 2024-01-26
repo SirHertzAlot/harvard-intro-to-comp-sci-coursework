@@ -113,7 +113,7 @@ def buy():
 @login_required
 def history():
 
-    results = db.execute("SELECT * FROM transactions WHERE id = ? AND SELECT price_per_share FROM portfolio WHERE id = ?", session["user_id"], session["user_id"])
+    results = db.execute("SELECT * FROM transactions WHERE UserId = ? AND SELECT price_per_share FROM portfolio WHERE UserId = ?", session["user_id"], session["user_id"])
 
     if results:
             return render_template("history.html", results=results)
