@@ -233,9 +233,9 @@ def sell():
         else:
             symbols = db.execute("SELECT symbol FROM portfolio WHERE UserId = ?", session["user_id"])
 
-            shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], request.form.get("symbol"))
+            print(symbols)
 
-            print(shares)
+            shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], symbols.get())
 
             if request.form.get("shares").isnumeric and int(request.form.get("shares")) > 1:
                 if shares:
