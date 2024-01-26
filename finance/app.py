@@ -235,33 +235,32 @@ def sell():
 
             shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], request.form.get("symbol"))
 
-            for stock in symbols:
-                    if request.form.get("shares").isnumeric and int(request.form.get("shares")) > 1:
-                        if shares:
-                            if shares > int(request.form.get("shares")):
-                                stats = lookup(stock.get("symbol"))
-                                price = stats["price"]
+            if request.form.get("shares").isnumeric and int(request.form.get("shares")) > 1:
+                if shares:
+                    if shares > int(request.form.get("shares")):
+                        stats = lookup(stock.get("symbol"))
+                        price = stats["price"]
 
-                                totalPrice = price * float(int(request.form.get("shares")))
+                        totalPrice = price * float(int(request.form.get("shares")))
 
-                                cash = db.execute("SELECT cash FROM users WHERE UserId = ?", session["user_id"])
+                        cash = db.execute("SELECT cash FROM users WHERE UserId = ?", session["user_id"])
 
-                                username = db.execute("SELECT username FROM users WHERE UserId = ?", session["user_id"])
+                        username = db.execute("SELECT username FROM users WHERE UserId = ?", session["user_id"])
 
-                                funds = float(cash[0].get("cash"))
+                        funds = float(cash[0].get("cash"))
 
-                                db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE UserId = ?)", funds, totalPrice, session["user_id"])
-                                #INSERT INTO TRANSACTIONS TABLE
-                                db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), totalPrice, session["user_id"])
-                                db.execute("UPDATE transactions SET purchase_status = (? WHERE UserId = ?)",'sold', session["user_id"])
-                                #INSERT INTO PORTFOLIO TABLE
-                                db.execute("DELETE FROM portfolio WHERE UserId= ? and symbol = ?", session["user_id"], request.form.get("symbol"))
-                            else:
-                                return apology("Make sure you have enough shares of this stock to sell first.", 400)
-                        else:
-                            return apology("Please buy some stocks to sell first.", 400)
+                        db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE UserId = ?)", funds, totalPrice, session["user_id"])
+                        #INSERT INTO TRANSACTIONS TABLE
+                        db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), totalPrice, session["user_id"])
+                        db.execute("UPDATE transactions SET purchase_status = (? WHERE UserId = ?)",'sold', session["user_id"])
+                        #INSERT INTO PORTFOLIO TABLE
+                        db.execute("DELETE FROM portfolio WHERE UserId= ? and symbol = ?", session["user_id"], request.form.get("symbol"))
                     else:
-                        return apology("Please enter valid share amount", 400)
+                        return apology("Make sure you have enough shares of this stock to sell first.", 400)
+                else:
+                    return apology("Please buy some stocks to sell first.", 400)
+            else:
+                return apology("Please enter valid share amount", 400)
             return redirect("/")
     else:
         symbols = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
