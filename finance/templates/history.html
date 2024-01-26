@@ -7,7 +7,32 @@
 {% block main %}
     {% if results %}
     {% for result in results %}
-    {{ result.symbol }} was {{ result.purchase_status }} for {{result.price}} at {{ result.purchase_time }}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Purchase Status</th>
+                <th>Price</th>
+                <th>Purchase time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <b>{{ result.symbol }}</b>
+                </td>
+                <td>
+                    {{ result.purchase_status }}
+                </td>
+                <td>
+                    {{result.price}}
+                </td>
+                <td>
+                    <b>{{ result.purchase_time }}</b>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     {% endfor %}
     {% else %}
     <div>
