@@ -231,7 +231,7 @@ def sell():
         if request.form.get("symbol") == " ":
             return apology("Stock not found", 400)
         else:
-            symbols = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
+            symbols = db.execute("SELECT symbol FROM portfolio WHERE UserId = ?", session["user_id"])
 
             shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], request.form.get("symbol"))
 
