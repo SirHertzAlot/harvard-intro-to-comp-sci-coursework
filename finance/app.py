@@ -237,7 +237,7 @@ def sell():
 
             print(request.form.get("shares"))
 
-            if request.form.get("shares").isnumeric and int(request.form.get("shares")) > 1:
+            if request.form.get("shares").isnumeric and int(request.form.get("shares")) >= 1:
                 if shares[0].get("amount"):
                     if shares[0].get("amount") > int(request.form.get("shares")):
                         stats = lookup(stock.get("symbol"))
