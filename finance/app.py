@@ -238,19 +238,19 @@ def sell():
             if request.form.get("shares").isnumeric and int(request.form.get("shares")) >= 1:
                 if shares[0].get("amount"):
                     if shares[0].get("amount") > int(request.form.get("shares")):
-                        stats = lookup(request.form.get("symbol"))
+                        stats = lookup(symbols[0].get("symbol"))
                         print(stats)
                         price = stats["price"]
 
                         totalPrice = price * float(int(request.form.get("shares")))
 
-                        cash = db.execute("SELECT cash FROM users WHERE UserId = ?", session["user_id"])
+                        cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
 
-                        username = db.execute("SELECT username FROM users WHERE UserId = ?", session["user_id"])
+                        username = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
 
                         funds = float(cash[0].get("cash"))
 
-                        db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE UserId = ?)", funds, totalPrice, session["user_id"])
+                        db.execute("UPDATE users SET cash = (SELECT ? + ? FROM users WHERE id = ?)", funds, totalPrice, session["user_id"])
                         #INSERT INTO TRANSACTIONS TABLE
                         db.execute("INSERT INTO transactions (username, symbol, price, UserId) VALUES (?,?,?,?)", username[0].get("username"), request.form.get("symbol"), totalPrice, session["user_id"])
                         db.execute("UPDATE transactions SET purchase_status = (? WHERE UserId = ?)",'sold', session["user_id"])
