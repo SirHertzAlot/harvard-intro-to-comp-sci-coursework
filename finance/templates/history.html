@@ -25,10 +25,10 @@
                     {{ result.purchase_status }}
                 </td>
                 <td>
-                    {{result.price | usd}}
+                    {{ result.price | usd }}
                 </td>
                 <td>
-                    <b>{{ result.purchase_time }}</b>
+                    <b>{{ result.purchase_time| datetimeformat }}</b>
                 </td>
             </tr>
         </tbody>
