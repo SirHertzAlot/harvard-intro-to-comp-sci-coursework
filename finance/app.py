@@ -233,12 +233,7 @@ def sell():
         else:
             symbols = db.execute("SELECT * FROM portfolio WHERE UserId = ?", session["user_id"])
 
-            try:
-                shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], request.form.get("symbol"))
-            except:
-                return apology("Invalid choice", 400)
-
-            stocks = request.form.get("symbol")
+            shares = db.execute("SELECT amount FROM portfolio WHERE UserId = ? AND symbol = ?", session["user_id"], request.form.get("symbol"))
 
             for stock in symbols:
                     if request.form.get("shares").isnumeric and int(request.form.get("shares")) > 1:
