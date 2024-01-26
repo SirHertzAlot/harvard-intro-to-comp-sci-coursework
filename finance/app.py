@@ -113,7 +113,7 @@ def buy():
 @login_required
 def history():
 
-    results = db.execute("SELECT * FROM transactions WHERE UserId = ? INNER JOIN ON transactions.UserId = ?", session["user_id"], session["user_id"])
+    results = db.execute("SELECT * FROM transactions WHERE UserId = ?", session["user_id"])
 
     if results:
             return render_template("history.html", results=results)
