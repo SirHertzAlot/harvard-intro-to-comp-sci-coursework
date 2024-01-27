@@ -1,1 +1,6 @@
-
+cs50
+Flask
+F
+Flask-Session
+pytz
+requests
