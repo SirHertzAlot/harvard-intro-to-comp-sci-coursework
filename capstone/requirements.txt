@@ -1,8 +1,9 @@
 cs50
-emoji
+emoji==2.10.0
 Flask
-Flask-Caching
+Flask-Caching==2.1.0
 Flask-Session
-Flask-WTF
+Flask-WTF==1.2.1
+opencs-python==4.9.0.80
 pytz
 requests
