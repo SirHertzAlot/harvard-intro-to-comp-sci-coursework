@@ -2,6 +2,7 @@ cs50
 emoji==2.10.0
 Flask
 Flask-Caching==2.1.0
+flask_prometheus_metrics==1.0.0
 Flask-Session
 Flask-WTF==1.2.1
 opencs-python==4.9.0.80
