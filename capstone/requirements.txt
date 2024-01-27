@@ -3,5 +3,6 @@ emoji
 Flask
 Flask-Caching
 Flask-Session
+Flask-WTF
 pytz
 requests
