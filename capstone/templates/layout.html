@@ -23,11 +23,13 @@
 
     <body>
         <nav>
+            {% for item in navigation %}
 
+            {% endfor %}
         </nav>
         <main>
             {% block main %}
-                
+
             {% endblock %}
         </main>
     </body>
