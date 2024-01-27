@@ -24,3 +24,11 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
+
+@app.route("/")
+@login_required
+def login():
+    if request.method == "POST":
+
+    else:
+        return render_template("")
