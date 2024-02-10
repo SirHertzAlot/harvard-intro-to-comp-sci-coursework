@@ -1,3 +1,3 @@
-from flask import Flask, blueprint
+from flask import Flask, Blueprint
 
-user_bp = blueprint()
+user_bp = Blueprint()
