@@ -44,10 +44,10 @@ def login():
     if request.method == "POST":
         session["name"] = request.form.get("username")
         if not request.form.get("user"):
-            return apology("Please provide a username", 403)
+            return "<h1>Please provide a username</h1>"
 
         elif not request.form.get("password"):
-            return apology("Please enter your password", 403)
+            return "<h1>Please enter your password</h1>"
 
         rows = db.execute(
             "SELECT * FROM users WHERE username = ?", request.form.get("username")
@@ -56,7 +56,7 @@ def login():
         if len(rows) != 1 or not check_password_hash(
             rows[0]["hash"], request.form.get("password")
         ):
-            return apology("Please check your username or password", 403)
+            return "<h1>Please check your username or password</h1>"
 
         session["user_id"] = rows[0]["id"]
 
@@ -87,11 +87,11 @@ def register():
             hash = generate_password_hash(password)
             db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         elif len(password.strip()) == 0 or len(username.strip()) == 0:
-            return <h1>"Username or password cannot be blank."</h1>
+            return "<h1>Username or password cannot be blank.</h1>"
         elif password != confirmation:
-            return <h1>"Password does not match."</h1>
+            return "<h1>Password does not match.</h1>"
         else:
-            return <h1>"Username or password is invalid."</h1>
+            return "<h1>Username or password is invalid.</h1>"
     else:
         return render_template("register.html")
 
