@@ -8,7 +8,7 @@ def show(user_id):
     user_posts = db.execute("SELECT * FROM posts WHERE user_id = ?", user_id)
     print(user_posts)
     return """
-    <div hx-get="/api/users/" hx-trigger="click" hx-target="#parent-div" hx-swap="outerHTML" class="col-lg-4">
+    <div hx-get="/api/user/" hx-trigger="click" hx-target="#parent-div" hx-swap="outerHTML" class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Timeline</h4>
