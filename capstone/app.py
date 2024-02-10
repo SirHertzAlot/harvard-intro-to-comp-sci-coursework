@@ -85,16 +85,13 @@ def register():
 
         if password == confirmation and len(password) > 0 and len(username) > 0:
             hash = generate_password_hash(password)
-            try:
-                db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
-            except:
-                return apology("Username is already in use", 400)
+            db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, hash)
         elif len(password.strip()) == 0 or len(username.strip()) == 0:
-            return apology("Username or password cannot be blank.", 400)
+            return <h1>"Username or password cannot be blank."</h1>
         elif password != confirmation:
-            return apology("Password does not match.", 400)
+            return <h1>"Password does not match."</h1>
         else:
-            return apology("Username or password is invalid.", 400)
+            return <h1>"Username or password is invalid."</h1>
     else:
         return render_template("register.html")
 
