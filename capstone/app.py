@@ -43,22 +43,23 @@ def login():
     #Log user in if user is posting to service
     if request.method == "POST":
         session["name"] = request.form.get("username")
-        if not request.form.get("user"):
+
+        if not request.form.get("username"):
             return "<h1>Please provide a username</h1>"
 
         elif not request.form.get("password"):
             return "<h1>Please enter your password</h1>"
 
         rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+            "SELECT * FROM users WHERE user_username = ?", request.form.get("username")
         )
 
         if len(rows) != 1 or not check_password_hash(
-            rows[0]["hash"], request.form.get("password")
+            rows[0]["user_password"], request.form.get("password")
         ):
             return "<h1>Please check your username or password</h1>"
 
-        session["user_id"] = rows[0]["id"]
+        session["user_id"] = rows[0]["user_id"]
 
         return redirect("/")
 
