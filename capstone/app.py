@@ -83,6 +83,7 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         email = request.form.get("email")
+        bio = request.form.get("biography")
         first_name = request.form.get("first_name")
         last_name = request.form.get("last_name")
         city = request.form.get("city")
@@ -91,7 +92,7 @@ def register():
 
         if password == confirmation and len(password) > 0 and len(username) > 0:
             hash = generate_password_hash(password)
-            db.execute("INSERT INTO users (user_email, user_username, user_password, user_city, user_state, user_country) VALUES(?, ?, ?, ?, ?, ?)", email, username, hash, city, state, country)
+            db.execute("INSERT INTO users (user_email, user_username, user_password, user_bio, user_city, user_state, user_country) VALUES(?, ?, ?, ?, ?, ?, ?)", email, username, hash, bio, city, state, country)
         elif len(password.strip()) == 0 or len(username.strip()) == 0:
             return "<h1>Username or password cannot be blank.</h1>"
         elif password != confirmation:
