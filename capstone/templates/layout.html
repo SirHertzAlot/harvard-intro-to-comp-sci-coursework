@@ -22,10 +22,19 @@
 
     <body>
         {% include "nav.html" %}
-        <main>
-            {% block main %}
+        <main class="d-flex">
+            <section>
 
-            {% endblock %}
+            </section>
+            <section>
+                {% block main %}
+
+                {% endblock %}
+            </section>
+            <section>
+
+            </section>
+
         </main>
     </body>
 </html>
