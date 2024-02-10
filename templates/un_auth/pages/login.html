@@ -1,0 +1,54 @@
+{% extends 'un_auth/layout.html' %}
+{% block title %}Login{% endblock %}
+{% block body %}
+{% if error %}
+  <div class="block w-max h-max mx-auto block bg-red-500 p-2 mt-4 rounded">
+    <p >
+      <strong>Error:</strong> {{ error }}
+    </p>
+  </div>
+  
+{% endif %}
+{% with message = get_flashed_messages() %}
+  {% if message %}
+    <p class="mx-auto block bg-green-800 p-2 m-2 rounded"><strong>Message:</strong> {{ message[0] }}</p>
+  {% endif %}
+{% endwith %}
+<section class="flex flex-row items-center h-screen justify-start">
+  <header class="border border-solid border-slate-300 bg-slate-300 flex flex-col items-center justify-center sm:h-screen md:h-screen lg:h-screen sm:w-1/2 sm:text-md">
+    <h1 class="title text-9xl font-bold text-gray-800 text-opacity-75">
+      Memories
+    </h1>
+    <strong class="subtitle">
+      Make every second matter!
+    </strong>
+  </header>
+  <div class="flex flex-row justify-center items-center w-1/2 h-screen">
+    <form action="/login" method="POST" class="bg-gray-50 mx-auto m-8 p-8 bg-opacity-75 shadow-xs rounded-md flex flex-col justify-center items-center h-fit">
+      <h1 class="text-3xl mb-8">Login</h1>
+      <label class="block">
+        <span class="block text-sm font-medium text-slate-700">Username</span>
+        <input type="text" name="username" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+          focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+          disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+          invalid:border-pink-500 invalid:text-pink-600
+          focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+        "/>
+      </label>
+      <label class="block">
+        <span class="block text-sm font-medium text-slate-700">Password</span>
+        <input type="password" name="password" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+          focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
+          disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+          invalid:border-pink-500 invalid:text-pink-600
+          focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+        "/>
+      </label>
+      <label class="block m-2" for="terms"> I agree <p><a href="/terms">TOS</a></p>
+      <input class="block mx-auto" type="checkbox" id="terms" name="terms" value="True">
+        </label>
+      <button class="bg-green-200 p-2 shadow-xs rounded-md border-2 border-solid border-green-400 mt-8" type="submit">Login</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% block body %}
+  {% for user in users %}
+  <div>
+    <ul>
+      <li>
+        {{ user.user_username }}
+      </li>
+    </ul>
+  </div>
+  {% endfor %}
+{% endblock %}
