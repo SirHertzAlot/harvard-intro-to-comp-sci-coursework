@@ -1,11 +1,15 @@
-from flask import Blueprint
+from flask import Blueprint, session
+from cs50 import SQL
 
 user_endpoint = Blueprint('user_endpoint', __name__,
                         template_folder='templates')
 
+db = SQL("sqlite:///memories.db")
+
 @user_endpoint.route('/api/users/<user_id>')
-def show(user_id):
-    user_posts = db.execute("SELECT * FROM posts WHERE user_id = ?", user_id)
+async def show(user_id):
+    user_id = session["user_id"]
+    user_posts = await db.execute("SELECT * FROM posts WHERE user_id = ?", user_id)
     print(user_posts)
     return """
     <div hx-get="/api/user/" hx-trigger="click" hx-target="#parent-div" hx-swap="outerHTML" class="col-lg-4">
