@@ -6,11 +6,11 @@
 
 {% block main %}
     <section></section>
-    <header>
-        {% include 'ui/create/post_form.html' %}
-    </header>
     <section hx-get="/api/user" hx-target="this">
-        <div class="lg:col-span-2 p-4 bg-white mt-3" id="posted">
+        <header>
+            {% include 'ui/create/post_form.html' %}
+        </header>
+        <div class="lg:col-span-2 p-4 grid-col-2 bg-white mt-3" id="posted">
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 				<!-- First Column -->
 				<div class="bg-white p-8 rounded-lg shadow-md max-w-md">
