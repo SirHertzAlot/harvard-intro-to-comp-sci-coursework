@@ -2,7 +2,7 @@
 
 {% block main %}
 <div class="grid grid-cols-3">
-<section>
+<section class="grid grid-cols-1">
     {% include "ui/nav/sidenav.html" %}
     {% include "ui/read/online_users_list.html" %}
 </section>
@@ -14,7 +14,7 @@
         {% include "ui/read/post_feed.html" %}
     </div>
 </section>
-<section>
+<section class="grid grid-cols-1">
     {% include "ui/read/multimedia/videos.html" %}
     {% include "ui/read/gallery.html" %}
 </section>
