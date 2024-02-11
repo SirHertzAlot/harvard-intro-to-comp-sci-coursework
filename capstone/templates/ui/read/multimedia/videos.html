@@ -1,0 +1,40 @@
+{% block body %}
+<div class="w-96 h-64 m-12 bg-pink-600 relative group">
+    <span class="absolute -top-2 left-0 border-0.25 border-pink-600 transition-transform transform translate-y-2 ease duration-100"></span>
+    <div class="relative z-10 bg-blue-700 w-full h-full transition-transform transform ease duration-100"></div>
+    <span class="absolute bottom-0 -right-2 border-0.25 border-pink-600 transition-transform transform -translate-x-2 rotate-180 ease duration-100"></span>
+  </div>
+
+  <style>
+  .group span {
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-width: 0.25rem; /* extend in tw.config */
+  }
+
+  /* can be done in just TW by extending
+
+  `variants: {
+      extend: {
+        translate: ['group-hover'],
+      },
+  },`
+
+  in tw.config.js
+   */
+
+  .group:hover span:first-child {
+    --tw-translate-y: 0px;
+  }
+
+  .group:hover div {
+    --tw-translate-x: 0.5rem;
+    --tw-translate-y: -0.5rem;
+  }
+
+  .group:hover span:last-child {
+    --tw-translate-x: 0px;
+  }
+
+  </style>
+{% endblock %}
