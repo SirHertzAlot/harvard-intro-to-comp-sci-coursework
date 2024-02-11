@@ -29,7 +29,7 @@ def after_request(response):
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html")
+    return render_template("pages/index.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
