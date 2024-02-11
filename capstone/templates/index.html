@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block main %}
-    <section></section>
+    <section>
+
+    </section>
     <section hx-get="/api/user" hx-target="this">
         <header>
             {% include 'ui/create/post_form.html' %}
         </header>
         <div class="lg:col-span-2 p-4 columns-1 bg-white mt-3" id="posted">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 w-max mx-auto">
 				<!-- First Column -->
 				<div class="bg-white p-8 rounded-lg shadow-md max-w-md">
 					<!-- User Info with Three-Dot Menu -->
