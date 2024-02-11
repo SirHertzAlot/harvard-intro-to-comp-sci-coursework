@@ -10,6 +10,7 @@
     </section>
     <section hx-get="/api/user" hx-target="this">
         <header>
+            {% include 'ui/read/profile_stats.html' %}
             {% include 'ui/create/post_form.html' %}
         </header>
         <div class="h-screen flex items-center justify-center">
