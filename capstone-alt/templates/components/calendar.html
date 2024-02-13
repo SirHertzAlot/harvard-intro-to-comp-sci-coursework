@@ -1,11 +1,12 @@
 {% block body %}
 {{ new_cal|safe }}
-{% for cal in new_cal %}
-  {% if "tbody" == cal %}
-    {{ cals(class="bg-gray-800")}}
-  {% endif %}
-{% endfor %}
 {% endblock %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event){
+    console.log("All done loading!");
+  });
+</script>
 
 <!---
 <div class="lg:flex lg:h-full lg:flex-col py-4">
