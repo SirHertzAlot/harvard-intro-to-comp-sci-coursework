@@ -6,21 +6,23 @@
   document.addEventListener("DOMContentLoaded", (event) => {
     console.log("All done loading!");
     if(document.querySelector("table")){
-      let table_ = document.querySelector("table")
+      let table_ = document.querySelector("table");
       if(table_){
-        table_.classList.add("h-full", "w-full")
-        console.log("Added classes to table!")
+        table_.classList.add("h-full", "w-full");
+        console.log("Added classes to table!");
 
-        console.log("Getting table cells!")
-        table_cell = document.getElementsByTagName("td")
+        console.log("Getting table cells!");
+        table_cell = document.getElementsByTagName("td");
 
         for(let i = 0; i > table_cell.length; i++)
         {
-          i.classList.add("h-full", "w-fit")
+          let cell_ = table_cell.item(i);
+          console.log(cell_);
+          cell.classList.add("h-full", "w-full");
         }
       }
     } else {
-      console.log("No tables found...")
+      console.log("No tables found...");
     }
   });
 </script>
