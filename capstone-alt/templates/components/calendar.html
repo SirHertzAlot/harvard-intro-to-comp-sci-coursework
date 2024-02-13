@@ -12,8 +12,8 @@
         console.log("Added classes to table!")
 
         console.log("Getting table cells!")
-        table_cell = document.querySelectorAll("td")
-        
+        table_cell = document.getElementsByTagName("td")
+
         for(let i = 0; i > table_cell.length; i++)
         {
           i.classList.add("h-full", "w-fit")
