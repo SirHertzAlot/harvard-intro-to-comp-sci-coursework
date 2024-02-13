@@ -6,7 +6,7 @@
   document.addEventListener("DOMContentLoaded", (event) => {
     console.log("All done loading!");
     if(document.querySelector("table")){
-      let table_ = document.querySelector("table")
+      let table_ = document.getElementsByTagName("table")[1]
       if(table_){
         console.log("Got the table tag!")
         if(table_.classList.add())
