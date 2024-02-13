@@ -18,7 +18,7 @@
         }
 
         trow_ = document.getElementsByTagName("tr")
-        for(let i = 2; i < trow_.length; i++)
+        for(let i = 1; i < trow_.length; i++)
         {
           let row_ = trow_.item(i)
           row_.classList.add("flex", "flex-row", "w-max")
@@ -28,7 +28,7 @@
         for(let i = 1; i < trow_headers.length; i++)
         {
           let row_ = trow_headers.item(i)
-          row_.classList.add("border", "border-gray-600")
+          row_.classList.add("border", "border-gray-600", "w-36")
         }
 
         console.log("Getting table cells!");
@@ -38,7 +38,7 @@
         {
           let cell_ = table_cell.item(i);
           console.log(`Found cells {cell_}`);
-          cell_.classList.add("h-36", "w-36",);
+          cell_.classList.add("h-36", "w-36", "border", "border-gray-600");
         }
       }
     } else {
