@@ -17,14 +17,16 @@
           body_.classList.add("h-full", "w-full")
         }
 
+
+
         console.log("Getting table cells!");
         table_cell = document.getElementsByTagName("td");
 
         for(let i = 0; i < table_cell.length; i++)
         {
           let cell_ = table_cell.item(i);
-          console.log(cell_);
-          cell_.classList.add("h-60", "w-60");
+          console.log(`Found cells {cell_}`);
+          cell_.classList.add("h-32", "w-32");
         }
       }
     } else {
