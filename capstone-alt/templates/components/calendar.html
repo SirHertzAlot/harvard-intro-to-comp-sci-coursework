@@ -5,10 +5,19 @@
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
     console.log("All done loading!");
-    if(document.QuerySelector("tbody")){
+    if(document.querySelector("table")){
+      let table_ = document.querySelector("table")
+      if(table_){
+        console.log("Got the table tag!")
+      }
+
+      if(table_.classList.add("lg:flex lg:h-full lg:flex-col py-4"))
+      {
+        console.log("Added classes to table!")
+      }
       
     } else {
-      console.log("No queries available!")
+      console.log("No tables found...")
     }
   });
 </script>
