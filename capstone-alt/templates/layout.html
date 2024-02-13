@@ -2,6 +2,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+        <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
         <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <!-- https://favicon.io/emoji-favicons/money-bag/ -->
@@ -9,13 +11,17 @@
         <title>Memories: The moments that matter {% block title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="w-full h-25 bg-gray-600"></header>
-        <main>
-            <section class="h-full w-250 bg-gray-600">
-
+        <header class="w-full h-25">
+            {% include "components/navigation/navbar.html" %}
+        </header>
+        <main style="grid-auto-flow: column; grid-auto-columns: max-content;" class="grid grid-cols2">
+            <section class="h-full w-fit mr-10">
+                {% include "components/mini-calendar.html" %}
             </section>
+            <section class="h-full w-fit">
             {% block main %}
             {% endblock %}
+            </section>
         </main>
     </body>
 </html>
