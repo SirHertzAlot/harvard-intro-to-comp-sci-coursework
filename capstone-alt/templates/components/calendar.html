@@ -13,7 +13,11 @@
 
         console.log("Getting table cells!")
         table_cell = document.querySelectorAll("td")
-        table_cell.classList.add("h-full", "w-fit")
+
+        for(let i = 0; i > table_cell.length; i++)
+        {
+          i.classList.add("h-full", "w-fit")
+        }
       }
     } else {
       console.log("No tables found...")
