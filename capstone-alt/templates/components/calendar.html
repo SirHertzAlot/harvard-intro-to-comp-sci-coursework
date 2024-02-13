@@ -1,7 +1,7 @@
 {% block body %}
 {{ new_cal|safe }}
 {% for cal in new_cal %}
-  {% if "tbody" in cal %}
+  {% if "tbody" == cal %}
     {{ cals(class="bg-gray-800")}}
   {% endif %}
 {% endfor %}
