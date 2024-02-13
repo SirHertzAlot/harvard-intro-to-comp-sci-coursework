@@ -17,7 +17,12 @@
           body_.classList.add("h-full", "w-full")
         }
 
-        
+        trow_ = document.getElementsByTagName("tr")
+        for(let i = 0; i < trow_.length; i++)
+        {
+          let row_ = trow_.item(i)
+          row_.classList.add("display", "flex", "flex-row", "justify-start")
+        }
 
         console.log("Getting table cells!");
         table_cell = document.getElementsByTagName("td");
@@ -26,7 +31,7 @@
         {
           let cell_ = table_cell.item(i);
           console.log(`Found cells {cell_}`);
-          cell_.classList.add("h-32", "w-32");
+          cell_.classList.add("h-32", "w-32",);
         }
       }
     } else {
