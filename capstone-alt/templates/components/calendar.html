@@ -52,7 +52,7 @@
     table_cell = table.getElementsByTagName("td");
     for(let i = 0; i < table_cell.length; i++)
     {
-      if(table_cell[i].innerText = current_date)
+      if(table_cell[i].innerText.toString() == current_date.toString())
       {
         console.log(`Found the current date! ${table_cell[i].innerText}`)
         table_cell[i].classList.add("bg-blue-300");
