@@ -106,7 +106,8 @@
     document.getElementById("datetime").innerText = `${month} ${day}, ${year}`;
     let yesterday = document.getElementById("yesterday")
     yesterday.addEventListener("click", (event) =>{
-      current_date.innerText -= "1";
+      current_date.innerText -= 1;
+      console.log(current_date.innerText)
 
       table_cell = table.getElementsByTagName("td");
 
