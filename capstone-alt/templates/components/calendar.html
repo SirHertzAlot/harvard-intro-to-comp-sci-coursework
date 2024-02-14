@@ -45,7 +45,7 @@
       console.log("No tables found...");
     }
   });
-  
+
   document.addEventListener("DOMContentLoaded",(event) => {
     table = document.getElementsByTagName("table")[0]
     current_date = new Date(document.getElementById("datetime").innerText).getDate();
@@ -60,5 +60,28 @@
         break;
       }
     }
+    
+    let yesterday = document.getElementById("yesterday")
+
+    yesterday.addEventListener("click", (event) =>{
+      current_date = new Date(document.getElementById("datetime").innerText).getDate();
+
+      console.log(current_date.innerText);
+
+      table_cell = table.getElementsByTagName("td");
+
+      for(let i = 0; i < table_cell.length; i++)
+      {
+        if(table_cell[i].innerText.toString() == current_date.toString())
+        {
+          console.log(`Found the current date! ${table_cell[i].innerText}`);
+          table_cell[i].classList.add("bg-blue-300");
+          break;
+        }
+      }
+    });
   });
+
+  document.getElementById("datetime").innerText = `${month} ${day}, ${year}`;
+
 </script>

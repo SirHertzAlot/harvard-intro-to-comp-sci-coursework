@@ -103,22 +103,4 @@
         month = months[i];
       }
     }
-    document.getElementById("datetime").innerText = `${month} ${day}, ${year}`;
-    let yesterday = document.getElementById("yesterday")
-    yesterday.addEventListener("click", (event) =>{
-      current_date.innerText -= 1;
-      console.log(current_date.innerText)
-
-      table_cell = table.getElementsByTagName("td");
-
-      for(let i = 0; i < table_cell.length; i++)
-      {
-        if(table_cell[i].innerText.toString() == current_date.toString())
-        {
-          console.log(`Found the current date! ${table_cell[i].innerText}`)
-          table_cell[i].classList.add("bg-blue-300");
-          break;
-        }
-      }
-    })
 </script>
