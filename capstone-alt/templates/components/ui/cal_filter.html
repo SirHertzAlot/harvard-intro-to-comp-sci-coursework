@@ -94,16 +94,14 @@
     let curr_dt = now.toLocaleString();
     let year = now.getFullYear();
     let month = now.getMonth();
-    let months = ["January"]
+    let months = ["January","February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December"]
     for(let i = 0; i < months.length; i++)
     {
-      let months = [January, February, March, April, May, June, July, August, September, October, November, December]
-      if(months == i)
+      if(month == i)
       {
         month = months[i];
       }
-      return month;
     }
     let day = now.getDay();
-    document.getElementById("datetime").innerText = `${month} + ${day} + ${year}`;
+    document.getElementById("datetime").innerText = `${month} ${day}, ${year}`;
 </script>
