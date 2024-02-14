@@ -92,8 +92,8 @@
 <script>
     let now = new Date();
     let curr_dt = now.toLocaleString();
-    let year = curr_dt.getYear();
-    let month = curr_dt.getMonth();
-    let day = curr_dt.getDay();
-    document.getElementById("datetime").innerTEXT = `${month} + ${day} + ${year}`;
+    let year = now.getFullYear();
+    let month = now.getMonth();
+    let day = now.getDay();
+    document.getElementById("datetime").innerText = `${month} + ${day} + ${year}`;
 </script>
