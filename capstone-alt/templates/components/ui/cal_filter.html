@@ -91,7 +91,9 @@
   {% endblock %}
 <script>
     let now = new Date();
-    var curr_dt = now.toLocaleString();
-
-    document.getElementById("datetime").innerHTML = curr_dt;
+    let curr_dt = now.toLocaleString();
+    let year = curr_dt.getYear();
+    let month = curr_dt.getMonth();
+    let day = curr_dt.getDay();
+    document.getElementById("datetime").innerTEXT = `${month} + ${day} + ${year}`;
 </script>
