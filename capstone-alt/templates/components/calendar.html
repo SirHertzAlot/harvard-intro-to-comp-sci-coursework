@@ -53,7 +53,8 @@
     {
       let cell_ = table_cell[i];
       console.log("cell_ inside second event listener for current date event")
-      if(cell_ = current_date)
+      console.log(cell_)
+      if(cell_ === current_date)
       {
         console.log(`Cell currently being checked: ${cell_}`)
         cell_.classList.add("bg-blue-300");
