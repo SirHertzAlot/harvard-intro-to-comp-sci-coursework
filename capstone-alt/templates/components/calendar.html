@@ -47,19 +47,16 @@
   });
   document.addEventListener("DOMContentLoaded",(event) => {
     table = document.getElementsByTagName("table")[0]
-    current_date = new Date(document.getElementById("datetime").innerText);
-    console.log(current_date.getDate())
+    current_date = new Date(document.getElementById("datetime").innerText).getDate();
 
     table_cell = table.getElementsByTagName("td");
     for(let i = 0; i < table_cell.length; i++)
     {
-      let cell_ = table_cell[i];
-      let cell_date = new Date(cell_.innerText).getDate();
-      console.log(cell_.innerText);
-      if(cell_date == current_date)
+      if(table_cell[i].innerText = current_date)
       {
-        console.log(`Cell currently being checked: ${cell_}`)
-        cell_.classList.add("bg-blue-300");
+        console.log(`Found the current date! ${table_cell[i].innerText}`)
+        table_cell[i].classList.add("bg-blue-300");
+        break;
       }
     }
   });
