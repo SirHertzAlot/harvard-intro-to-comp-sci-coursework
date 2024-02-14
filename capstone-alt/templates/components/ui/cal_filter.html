@@ -94,6 +94,15 @@
     let curr_dt = now.toLocaleString();
     let year = now.getFullYear();
     let month = now.getMonth();
+    for(let i = 0; i > 11; i++)
+    {
+      let months = [January, February, March, April, May, June, July, August, September, October, November, December]
+      if(months == i)
+      {
+        month = months[i];
+      }
+      return month;
+    }
     let day = now.getDay();
     document.getElementById("datetime").innerText = `${month} + ${day} + ${year}`;
 </script>
