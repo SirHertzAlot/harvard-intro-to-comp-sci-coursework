@@ -46,8 +46,9 @@
     }
   });
   document.addEventListener("DOMContentLoaded",(event) => {
+    table = document.getElementsByTagName("table")[0]
     current_date = document.getElementById("datetime");
-    table_cell = document.getElementsByTagName("td");
+    table_cell = table.getElementsByTagName("td");
     for(let i = 0; i < table_cell.length; i++)
     {
       let cell_ = table_cell[i];
