@@ -47,6 +47,12 @@
   });
   document.addEventListener("DOMContentLoaded",(event) => {
     current_date = document.getElementById("datetime");
-    
+    table_cell = document.getElementsByTagName("td");
+    for(let i = 0; i < table_cell.length; i++)
+    {
+      let cell_ = table_cell.item(i);
+      console.log(`Found cells {cell_}`);
+      cell_.classList.add("h-36", "w-36", "border", "border-gray-600", "px-1");
+    }
   });
 </script>
