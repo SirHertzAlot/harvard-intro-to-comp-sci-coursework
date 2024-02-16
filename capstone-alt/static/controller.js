@@ -5,14 +5,11 @@ document.addEventListener("alpine:init", () => {
     function app() {
 
         return {
-
-            Alpine.store('events', {
-                init(){
+            Alpine.data('events', () => ({
                     event_date: this.event_date,
                     event_title: this.event_title,
                     event_theme: this.event_theme
-                },
-            }),
+            }));
 
             month: '',
             year: '',
