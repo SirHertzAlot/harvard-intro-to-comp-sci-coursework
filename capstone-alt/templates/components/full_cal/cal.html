@@ -158,7 +158,5 @@
 		<!-- /Modal -->
 	</div>
   </div>
-  <script>
-	document.addEventListener("DOMContentLoaded", (event) => { <script src="{{url_for('static', filename='controller.js')}}"></script> });
-  </script>
+  <script src="{{ url_for('static', filename='controller.js') }}"></script>
 {% endblock %}
