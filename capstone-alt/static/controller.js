@@ -7,9 +7,11 @@ document.addEventListener("alpine:init", (event) => {
         return {
 
             Alpine.store('events', {
-                event_date: this.event_date,
-                event_title: this.event_title,
-                event_theme: this.event_theme
+                init(){
+                    event_date: this.event_date,
+                    event_title: this.event_title,
+                    event_theme: this.event_theme
+                },
             }),
 
             month: '',
