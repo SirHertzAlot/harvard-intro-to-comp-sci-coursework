@@ -25,7 +25,7 @@
             </button>
         </div>
 
-        <div x-data="{ event: '$store.events' }" class="h-full w-full">
+        <div class="h-full w-full">
             <div class="mt-5 flex items-center justify-between p-2">
                 <div class="flex items-center justify-center gap-2">
                     <input type="checkbox"
@@ -34,7 +34,7 @@
                     checked:border-none checked:text-white hover:cursor-pointer dark:border-white/10 checked:bg-brand-500 dark:checked:bg-brand-400"
                         name="weekly" />
                     <p class="text-base font-bold text-navy-700 dark:text-white">
-                    <p x-text="event.event_title" class="text-base font-bold text-navy-700 dark:text-white"></p>
+                    <p x-text="events.event_title" class="text-base font-bold text-navy-700 dark:text-white"></p>
                     </p>
                     </p>
                 </div>
