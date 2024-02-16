@@ -14,7 +14,7 @@
             {% include "components/navigation/navbar.html" %}
         </header>
         <main style="grid-auto-flow: column; grid-auto-columns: max-content;" class="grid grid-cols-4">
-            <section class="h-full mx-auto w-fit mr-10 col-auto">
+            <section class="h-fit mx-auto w-fit mr-10 col-auto">
                 <div class="h-full w-80 flex flex-col items-center">
                     <header class="py-10">
                         <h1 class="text-lg font-bold text-gray-800">Events for today</h1>
@@ -24,7 +24,7 @@
                     </article>
                 </div>
             </section>
-            <section class="h-full w-auto flex flex-col col-start-2 col-span-4">
+            <section class="h-fit w-auto flex flex-col col-start-2 col-span-4">
             {% block main %}
             {% endblock %}
             </section>
