@@ -9,13 +9,7 @@ document.addEventListener("alpine:init", (event) => {
             year: '',
             no_of_days: [],
             blankdays: [],
-            days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-
-            Alpine.store('events', {
-                event_date: this.event_date,
-                event_title: this.event_title,
-                event_theme: this.event_theme
-            }),
+            days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],=
 
             events: [
                 {
