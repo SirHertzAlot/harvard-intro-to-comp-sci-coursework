@@ -163,14 +163,15 @@
 	const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 	function app() {
+
+		Alpine.store('events')
+
 		return {
 			month: '',
 			year: '',
 			no_of_days: [],
 			blankdays: [],
 			days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-
-			Alpine.store('events')
 
 			events: [
 				{
