@@ -5,11 +5,18 @@ document.addEventListener("alpine:init", (event) => {
     function app() {
 
         return {
+
+            Alpine.store('events', {
+                event_date: this.event_date,
+                event_title: this.event_title,
+                event_theme: this.event_theme
+            }),
+
             month: '',
             year: '',
             no_of_days: [],
             blankdays: [],
-            days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],=
+            days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
 
             events: [
                 {
