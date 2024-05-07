@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {% block title%}Day Calendar{%endblock%}
+{% endblock %}
+
+{% block content %}
+<section class="h-fit w-auto flex flex-col col-start-2 col-span-4">
+  <div class="antialiased sans-serif h-fit">
+    <div class="container mx-auto px-4 py-2 md:py-6">
+      <div class="bg-white col-start-2 col-span-4">
+        <div class="flex items-center justify-between py-2 px-6">
+          <div>
+            <span class="text-lg font-bold text-gray-800">
+              {{ month }} {{ day }}
+            </span>
+            <span class="ml-1 text-lg text-gray-600 font-normal">
+              {{ year }}
+            </span>
+          </div>
+          <div class="rounded-lg py-2">
+            {% include "components/ui/day_cal_filter.html" %}
+          </div>
+        </div>
+        <div class="flex flex-col w-full">
+          {% for hour in hours %}
+            <div @click="showEventModal({{ date }})"
+              class="inline-flex w-full my-2 px-6 py-2 h-12 items-center justify-start cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100 hover:bg-blue-200" style="font:menu;">
+              {{ hour.hour }}
+              {% for events in json_events %}
+                {% if events.event_month in month %}
+                  {% if events.event_date|int == day|int %}
+                    {{events.event_title}}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </div>
+  </div>
+</section>
+{% endblock %}

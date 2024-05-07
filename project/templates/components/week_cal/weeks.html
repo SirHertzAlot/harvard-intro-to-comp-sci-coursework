@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {% block title%}Week Calendar{%endblock%}
+{% endblock %}
+
+{% block content %}
+<section class="h-fit w-auto flex flex-col col-start-2 col-span-4">
+  <div class="antialiased sans-serif h-fit">
+    <div class="container mx-auto px-4 py-2 md:py-6">
+      <div class="bg-white col-start-2 col-span-4">
+          <div class="flex items-center justify-between py-2 px-6">
+            <div>
+              <span class="text-lg font-bold text-gray-800">
+                {{ month }}
+              </span>
+              <span class="ml-1 text-lg text-gray-600 font-normal">
+                {{ year }}
+              </span>
+            </div>
+            <div class="rounded-lg py-2">
+              {% include "components/ui/week_cal_filter.html" %}
+            </div>
+          </div>
+          <div style="font:menu;">
+            <div class="flex flex-wrap border-t">
+              {% for dayofweek in response.dayofweek %}
+              <div class="px-2 py-2" style="width: 14.26%">
+                <p class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center">{{ dayofweek }}</p>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <section class="flex flex-row">
+              <div class="grid w-auto" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;">
+                  {% for date in week %}
+                  <div style="font:menu;" class="flex flex-wrap"> 
+                      <div style="width:200px;" class="border-t px-2 py-2 border-r border-b relative">
+                        <div class="inline-flex w-6 h-6 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100 text-gray-700 hover:bg-blue-200" :class="{'bg-blue-500 text-white': isToday({{ date }}) == true, 'text-gray-700 hover:bg-blue-200': isToday({{ date }}) == false }">{{ date }}</div>
+                        <div class="flex flex-col w-full">
+                          {% for hour in hours %}
+                            <div @click="showEventModal({{ date }})"
+                              class="inline-flex w-full my-2 px-6 py-2 h-12 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100 hover:bg-blue-200" style="font:menu;">
+                              {{ hour.hour }}
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </section>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

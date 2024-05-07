@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+        <link rel="manifest" href="/site.webmanifest">
+        <title>Memories: The moments that matter {% block title %}{% endblock %}</title>
+    </head>
+    <body class="h-screen w-screen">
+      <div x-data="app();" x-init="[initDate()]" x-cloak>
+        <header class="w-full h-25">
+            {% include "components/navigation/navbar.html" %}
+        </header>
+        <main style="height: 874px;" class="flex flex-row justify-center items-center">
+            {% block content %}
+            
+            {% endblock %}
+        </main>
+      </div>
+    </body>
+</html>

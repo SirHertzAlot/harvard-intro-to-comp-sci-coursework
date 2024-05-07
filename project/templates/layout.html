@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="/static/controller.js"></script>
+        <script src="/static/day_controller.js"></script>
+        <script src="/static/month_controller.js"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <title>Memories: The moments that matter {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+      <div x-data="app();" x-init="[initDate()]" x-cloak>
+        <header class="w-full h-25">
+            {% include "components/navigation/navbar.html" %}
+        </header>
+        <main style="grid-auto-flow: column; grid-auto-columns: max-content;" class="grid grid-cols-4">
+            <section class="h-fit mx-auto w-fit mr-10 col-auto">
+                <div class="h-full w-80 flex flex-col items-center">
+                    <header class="py-10">
+                        <h1 class="text-lg font-bold text-gray-800">Events for today</h1>
+                    </header>
+                    <article class="grid grid-cols-1">
+                        {% include "components/ui/event_list.html" %}
+                    </article>
+                </div>
+            </section>
+            {% block content %}{% endblock %}
+        </main>
+      </div>
+        <script>
+          const events = [];
+          const themes = [];
+          let months = ["Jan","Feb","Mar","Apr","May","Jun", "Jul","Aug","Sep","Oct","Nov","Dec"]
+          let weekdateArray = ["7","14","21","28"];
+          let date = "{{day}}";
+          let this_month = months[dte.getMonth()];
+          
+          
+          function app() {
+
+            return {
+              weeks: [],
+              themes: [],
+              events: [],
+              openEventModal: false,
+              
+              initDate() {
+                let today = new Date();
+                this.month = today.getMonth();
+                this.year = today.getFullYear();
+                this.datepickerValue = new Date(this.year, this.month, today.getDate()).toDateString();
+              },
+
+              isToday(date) {
+                const today = new Date();
+                const d = new Date(this.year, this.month, date);
+
+                return today.toDateString() === d.toDateString() ? true : false;
+              },
+
+              showEventModal(date) {
+                // open the modal
+                this.openEventModal = true;
+                this.event_date = new Date(this.year, this.month, date).toDateString();
+              },
+              addEvent() {
+                if (this.event_title == '' || this.event_time == '' || this.event_date == '') {
+                  return;
+                }
+
+                console.log(this.events);
+
+                // clear the form data
+                this.event_title = '';
+                this.event_time= '';
+                this.event_description= '';
+                this.event_date = '';
+                this.event_theme = 'blue';
+
+                //close the modal
+                this.openEventModal = false;
+              },
+            }
+          }
+          </script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    </body>
+</html>

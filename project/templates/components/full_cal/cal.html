@@ -1,0 +1,184 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+  {% block title %}Full Calendar{% endblock %}
+{% endblock %}
+
+{% block content %}
+<section class="h-fit w-auto flex flex-col col-start-2 col-span-4">
+<div>
+	<style>
+		[x-cloak] {
+			display: none;
+		}
+	</style>
+
+<div class="antialiased sans-serif h-fit">
+		<div class="container mx-auto px-4 py-2 md:py-6">
+
+			<!-- <div class="font-bold text-gray-800 text-xl mb-4">
+				Schedule Tasks
+			</div> -->
+      {% if response %}
+			<div class="bg-white rounded-lg overflow-hidden">
+				<div class="flex items-center justify-between py-2 px-6">
+          <div>
+              <span class="text-lg font-bold text-gray-800"> {{ response.nameofmonth }}</span>
+              <span class="ml-1 text-lg text-gray-600 font-normal">{{ response.yearofmonth }}</span>
+          </div>
+					<div class="rounded-lg py-2">
+            {% include "components/ui/cal_filter.html" %}
+					</div>
+				</div>
+
+				<div class="mx-1 mb-1">
+					<div class="flex flex-wrap border-t">
+            {% for dayofweek in response.dayofweek %}
+							<div style="width: 14.26%" class="px-2 py-2">
+								<div class="text-gray-600 text-sm uppercase tracking-wide font-bold text-center">{{ dayofweek }}</div>
+							</div>
+            {% endfor %}
+					</div>
+
+					<div class="flex flex-wrap border-t">
+              {% for days in response.week1 %}
+							<div style="width: 14.28%; height: 120px" class="px-4 pt-2 border-r border-b relative">
+								<div
+									@click="showEventModal({{days}})"
+									class="inline-flex w-6 h-6 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100"
+									:class="{'bg-blue-500 text-white': isToday({{days}}) == true && this_month == '{{response.nameofmonth}}', 'text-gray-700 hover:bg-blue-200': isToday({{days}}) == false }"
+								>
+                    {{ days }}
+                </div>
+								<div style="height: 80px;" class="overflow-y-auto mt-1">
+										<div class="px-2 py-1 rounded-lg mt-1 overflow-hidden">
+											<p class="text-sm truncate leading-tight">
+                          {% for events in json_events %}
+                            {% if events.event_month in response.nameofmonth %}
+                              {% if events.event_date|int == days|int %}
+                                <span class="bg-{{events.event_theme}}-100 border rounded-sm p-2 border-{{events.event_theme}}-200 text-{{events.event_theme}}-800 text-sm">{{ events.event_title }}</span>
+                              {% else %}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                      </p>
+										</div>
+								</div>
+							</div>
+              {% endfor %}
+					</div>
+          <div class="flex flex-wrap border-t">
+              {% for days in response.week2 %}
+              <div style="width: 14.28%; height: 120px" class="px-4 pt-2 border-r border-b relative">
+                <div
+                  @click="showEventModal({{days}})"
+                  class="inline-flex w-6 h-6 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100"
+                  :class="{'bg-blue-500 text-white': isToday({{days}}) == true && this_month == '{{response.nameofmonth}}', 'text-gray-700 hover:bg-blue-200': isToday({{days}}) == false }"
+                >{{ days }}</div>
+                <div style="height: 80px;" class="overflow-y-auto mt-1">
+                  <!-- <div
+                    class="absolute top-0 right-0 mt-2 mr-2 inline-flex items-center justify-center rounded-full text-sm w-6 h-6 bg-gray-700 text-white leading-none"
+                    x-show="events.filter(e => e.event_date === new Date(year, month, date).toDateString()).length"
+                    x-text="events.filter(e => e.event_date === new Date(year, month, date).toDateString()).length"></div> -->
+                    <div class="px-2 py-1 rounded-lg mt-1 overflow-hidden">
+                      <p class="text-sm truncate leading-tight">
+                        {% for events in json_events %}
+                          {% if events.event_month in response.nameofmonth %}
+                            {% if events.event_date|int == days|int %}
+                              <span class="bg-{{events.event_theme}}-100 border rounded-sm p-2 border-{{events.event_theme}}-200 text-{{events.event_theme}}-800 text-sm">{{ events.event_title }}</span>
+                            {% else %}
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </p>
+                    </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+          <div class="flex flex-wrap border-t">
+              {% for days in response.week3 %}
+              <div style="width: 14.28%; height: 120px" class="px-4 pt-2 border-r border-b relative">
+                <div
+                  @click="showEventModal({{days}})"
+                  class="inline-flex w-6 h-6 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100"
+                  :class="{'bg-blue-500 text-white': isToday({{days}}) == true && this_month == '{{response.nameofmonth}}', 'text-gray-700 hover:bg-blue-200': isToday({{days}}) == false }"
+                >{{ days }}</div>
+                <div style="height: 80px;" class="overflow-y-auto mt-1">
+                    <div
+                      class="px-2 py-1 rounded-lg mt-1 overflow-hidden">
+                      <p class="text-sm truncate leading-tight">
+                        {% for events in json_events %}
+                          {% if events.event_month in response.nameofmonth %}
+                            {% if events.event_date|int == days|int %}
+                              <span class="bg-{{events.event_theme}}-100 border rounded-sm p-2 border-{{events.event_theme}}-200 text-{{events.event_theme}}-800 text-sm">{{ events.event_title }}</span>
+                            {% else %}
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </p>
+                    </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+          <div class="flex flex-wrap border-t">
+              {% for days in response.week4 %}
+              <div style="width: 14.28%; height: 120px" class="px-4 pt-2 border-r border-b relative">
+                <div
+                  @click="showEventModal({{days}})"
+                  class="inline-flex w-6 h-6 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100"
+                  :class="{'bg-blue-500 text-white': isToday({{days}}) == true && this_month == '{{response.nameofmonth}}', 'text-gray-700 hover:bg-blue-200': isToday({{days}}) == false }"
+                >{{ days }}</div>
+                <div style="height: 80px;" class="overflow-y-auto mt-1">
+                    <div class="px-2 py-1 rounded-lg mt-1 overflow-hidden">
+                      <p class="text-sm truncate leading-tight">
+                        {% for events in json_events %}
+                          {% if events.event_month in response.nameofmonth %}
+                            {% if events.event_date|int == days|int %}
+                              <span class="bg-{{events.event_theme}}-100 border rounded-sm p-2 border-{{events.event_theme}}-200 text-{{events.event_theme}}-800 text-sm">{{ events.event_title }}</span>
+                            {% else %}
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </p>
+                    </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+          <div class="flex flex-wrap border-t">
+              {% for days in response.week5 %}
+              <div style="width: 14.28%; height: 120px" class="px-4 pt-2 border-r border-b relative">
+                <div
+                  @click="showEventModal({{days}})"
+                  class="inline-flex w-6 h-6 items-center justify-center cursor-pointer text-center leading-none rounded-full transition ease-in-out duration-100"
+                  :class="{'bg-blue-500 text-white': isToday({{days}}) == true && this_month == '{{response.nameofmonth}}', 'text-gray-700 hover:bg-blue-200': isToday({{days}}) == false }"
+                >{{ days }}</div>
+                <div style="height: 80px;" class="overflow-y-auto mt-1">
+                    <div class="px-2 py-1 rounded-lg mt-1 overflow-hidden">
+                      <p class="text-sm truncate leading-tight">
+                        {% for events in json_events %}
+                          {% if events.event_month in response.nameofmonth %}
+                            {% if events.event_date|int == days|int %}
+                              <span class="bg-{{events.event_theme}}-100 border rounded-sm p-2 border-{{events.event_theme}}-200 text-{{events.event_theme}}-800 text-sm">{{ events.event_title }}</span>
+                            {% else %}
+                              <p></p>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </p>
+                    </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+				</div>
+			</div>
+      {% endif %}
+		</div>
+
+		{% include "components/ui/add_event.html" %}
+</div>
+</section>
+{% endblock %}
